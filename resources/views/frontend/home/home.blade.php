@@ -167,7 +167,7 @@
                     <div class="pf-value"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Long-term commitment</div>
                     <div class="pf-value"><i class="fa-solid fa-circle-check" aria-hidden="true"></i> Meaningful partnerships</div>
                 </div>
-                <a href="{{ route('about-organisation') }}" class="pf-btn pf-btn-primary">Discover our story <span aria-hidden="true">↗</span></a>
+                <a href="{{ route('about-organization') }}" class="pf-btn pf-btn-primary">Discover our story <span aria-hidden="true">↗</span></a>
             </div>
         </div>
     </section>
