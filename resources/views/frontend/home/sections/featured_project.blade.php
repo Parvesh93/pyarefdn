@@ -94,4 +94,50 @@
 @media(max-width:1023px){.pf-refined .pf-projects-section .pf-project-media{height:220px}}
 @media(max-width:767px){.pf-refined .pf-projects-section{padding:64px 0!important}.pf-refined .pf-projects-section .pf-projects-container{padding:0 18px!important}.pf-refined .pf-projects-section .pf-projects-heading{align-items:flex-start;flex-direction:column;gap:15px;margin-bottom:24px}.pf-refined .pf-projects-section .pf-projects-heading h2{font-size:29px!important}.pf-refined .pf-projects-section .pf-project-media{height:220px}.pf-refined .pf-projects-section .pf-project-content{padding:23px!important}.pf-refined .pf-projects-section .pf-projects-nav{margin-top:18px}}
 @media(prefers-reduced-motion:reduce){.pf-refined .pf-projects-section *{transition:none!important}}
+
+/* Correct conflicting homepage selectors and restore centered section heading. */
+.pf-refined section.pf-projects-section .pf-projects-heading{
+  display:flex!important;flex-direction:column!important;align-items:center!important;
+  justify-content:center!important;text-align:center!important;gap:15px!important;
+  margin-bottom:36px!important
+}
+.pf-refined section.pf-projects-section .pf-projects-heading-copy,
+.pf-refined section.pf-projects-section .pf-projects-heading h2{
+  text-align:center!important;width:100%
+}
+.pf-refined section.pf-projects-section .pf-projects-eyebrow{
+  justify-content:center!important
+}
+.pf-refined section.pf-projects-section .pf-projects-all-link{
+  align-self:center!important;margin:0 auto!important
+}
+.pf-refined section.pf-projects-section:has(.featuredSwiper) .pf-project-actions{
+  display:grid!important;grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important;
+  gap:12px!important;align-items:stretch!important
+}
+.pf-refined section.pf-projects-section:has(.featuredSwiper) .pf-project-actions a.pf-project-read:first-child{
+  display:inline-flex!important;justify-content:center!important;align-items:center!important;
+  width:100%!important;min-width:0!important;min-height:44px!important;
+  padding:11px 13px!important;border:1px solid #16163f!important;border-radius:5px!important;
+  color:#16163f!important;background:#fff!important;flex:none!important;
+  font-weight:800!important;white-space:nowrap!important;box-shadow:none!important
+}
+.pf-refined section.pf-projects-section:has(.featuredSwiper) .pf-project-actions a.pf-project-read:first-child:hover{
+  background:#16163f!important;color:#fff!important
+}
+.pf-refined section.pf-projects-section:has(.featuredSwiper) .pf-project-actions a.pf-project-donate:last-child{
+  display:inline-flex!important;justify-content:center!important;align-items:center!important;
+  width:100%!important;min-width:0!important;min-height:44px!important;
+  padding:11px 12px!important;border-radius:5px!important;
+  background:#f46226!important;color:#fff!important;flex:none!important;
+  white-space:nowrap!important;box-shadow:none!important
+}
+.pf-refined section.pf-projects-section:has(.featuredSwiper) .pf-project-actions a.pf-project-donate:last-child:hover{
+  background:#d84c16!important
+}
+@media(max-width:380px){
+  .pf-refined section.pf-projects-section:has(.featuredSwiper) .pf-project-actions{gap:8px!important}
+  .pf-refined section.pf-projects-section:has(.featuredSwiper) .pf-project-actions a{font-size:10px!important;padding-inline:8px!important}
+}
+
 </style>
