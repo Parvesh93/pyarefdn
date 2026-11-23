@@ -162,6 +162,9 @@
     <!-- Testimonials -->
     @include('frontend.home.sections.testimonial')
 
+    <!-- Our Footprints: geographic areas of work -->
+    @include('frontend.home.sections.footprints')
+
     <!-- Join Our Hands -->
     @include('frontend.home.sections.join_our_hand')
     
