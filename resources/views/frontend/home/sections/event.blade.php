@@ -123,12 +123,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var container = document.querySelector('.pf-events-swiper');
   if (!container || container.swiper) return;
   new Swiper(container, {
-    slidesPerView: 1,
-    spaceBetween: 20,
+    slidesPerView: 1.15,
+    spaceBetween: 16,
     watchOverflow: true,
     breakpoints: {
-      640: { slidesPerView: 2 },
-      1024: { slidesPerView: 3 }
+      0: { slidesPerView: 1.15, spaceBetween: 16 },
+      640: { slidesPerView: 2, spaceBetween: 20 },
+      1024: { slidesPerView: 3, spaceBetween: 22 }
     },
     navigation: {
       nextEl: '.pf-events-next',
