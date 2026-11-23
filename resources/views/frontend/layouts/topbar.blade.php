@@ -80,7 +80,7 @@
 </style>
 
 <!-- Achievements Top Bar (tight, continuous, no vertical padding) -->
-<div class="w-full bg-[#0f1240] text-white text-[13px] leading-none">
+<div class="pf-achievement-bar w-full bg-[#0f1240] text-white text-[13px] leading-none">
     <div class="flex h-9">
         <!-- Left label (fixed) -->
         <div class="bg-[#F59E0B] text-[#0B0D17] font-semibold px-3 h-full inline-flex items-center whitespace-nowrap">
@@ -98,3 +98,16 @@
         </div>
     </div>
 </div>
+
+<style>
+/* Compact coordinated top announcement ribbon. */
+.pf-achievement-bar{background:#16163f!important;font-family:'DM Sans',Arial,sans-serif}
+.pf-achievement-bar>div{height:35px!important;align-items:stretch}
+.pf-achievement-bar>div>div:first-child{position:relative;z-index:2;background:#f46226!important;color:#fff!important;padding:0 18px!important;font-size:11px;line-height:1.2;font-weight:800!important;letter-spacing:.04em}
+.pf-achievement-bar>div>div:first-child span{font-weight:800!important}
+.pf-achievement-bar .ach-marquee{min-width:0;display:flex;align-items:center}
+.pf-achievement-bar .ach-track{align-items:center;color:#f1eef4;font-size:12px;letter-spacing:.01em;line-height:1.4}
+.pf-achievement-bar .ach-chunk{padding-right:44px}
+@media(max-width:640px){.pf-achievement-bar>div{height:32px!important}.pf-achievement-bar>div>div:first-child{padding:0 10px!important;font-size:10px}.pf-achievement-bar .ach-track{font-size:11px}}
+@media(prefers-reduced-motion:reduce){.pf-achievement-bar .ach-track{animation:none!important;overflow:auto;max-width:100%}}
+</style>
