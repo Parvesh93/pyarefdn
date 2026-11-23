@@ -87,10 +87,10 @@
 @media(min-width:1024px){body:has(.pf-refined) header>div{max-width:1544px;margin:0 auto;padding-left:clamp(24px,3vw,52px);padding-right:clamp(24px,3vw,52px)}body:has(.pf-refined) header img{max-width:210px}body:has(.pf-refined) header nav{gap:0}}
 @media(max-width:767px){
 .pf-refined :is(section > div.mx-auto,section > div.max-w-screen-xl,section > div > div.max-w-screen-xl){padding-left:18px!important;padding-right:18px!important}
-.pf-refined .heroRedesignSwiper{height:600px!important}
+.pf-refined .heroRedesignSwiper{height:520px!important}
 .pf-refined .heroRedesignSwiper picture img{object-position:62% center}
 .pf-refined .heroRedesignSwiper .bg-gradient-to-r{background:linear-gradient(0deg,rgba(16,16,37,.90) 0%,rgba(16,16,37,.55) 65%,rgba(16,16,37,.14) 100%)!important}
-.pf-refined .heroRedesignSwiper .max-w-screen-xl{padding-left:22px!important;padding-right:22px!important;align-items:end!important;padding-bottom:94px!important}
+.pf-refined .heroRedesignSwiper .max-w-screen-xl{padding-left:22px!important;padding-right:22px!important;align-items:end!important;padding-bottom:74px!important}
 .pf-refined .heroRedesignSwiper h1{font-size:clamp(31px,8.2vw,44px)!important}
 .pf-refined .heroRedesignSwiper h1 + p{-webkit-line-clamp:4;font-size:12px}
 .pf-refined .heroRedesignSwiper .heroR-pagination{left:23px!important;transform:none!important;bottom:27px!important}
