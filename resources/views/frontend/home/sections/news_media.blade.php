@@ -18,7 +18,7 @@
                      data-fancybox="news-gallery"
                      data-caption="{{ $new->title }}"
                      aria-label="View {{ $new->title }} in full size">
-                    <span class="pf-news-image-frame">
+                    <span class="pf-news-image-frame" style="--pf-image:url(&quot;{{ asset('uploads/news/' . $new->attach) }}&quot;)">
                       <img src="{{ asset('uploads/news/' . $new->attach) }}"
                            alt="{{ $new->title }}" loading="lazy" decoding="async">
                     </span>
@@ -79,6 +79,16 @@
 @media(max-width:1023px){.pf-refined .pf-news-section .pf-news-image-frame{height:325px}}
 @media(max-width:767px){.pf-refined section.pf-news-section{padding:65px 0!important}.pf-refined .pf-news-section .pf-news-container{padding:0 18px!important}.pf-refined .pf-news-section .pf-news-heading{margin-bottom:27px}.pf-refined .pf-news-section .pf-news-heading h2{font-size:29px!important}.pf-refined .pf-news-section .pf-news-image-frame{height:360px}}
 @media(prefers-reduced-motion:reduce){.pf-refined .pf-news-section *{transition:none!important}}
+
+/* Full-bleed newspaper previews: no nested cream frame or empty white gutters.
+   The entire original clipping remains visible above a subtle image-derived backdrop. */
+.pf-refined section.pf-news-section .pf-news-image-link{padding:0!important;background:transparent!important;overflow:hidden}
+.pf-refined section.pf-news-section .pf-news-image-frame{height:365px!important;position:relative;isolation:isolate;background:#e9e5e2!important;border-radius:0!important;box-shadow:none!important;overflow:hidden}
+.pf-refined section.pf-news-section .pf-news-image-frame::before{content:"";position:absolute;inset:-24px;background-image:var(--pf-image);background-position:center;background-size:cover;filter:blur(24px) brightness(.92);transform:scale(1.06);z-index:-1}
+.pf-refined section.pf-news-section .pf-news-image-frame img{position:relative;z-index:1;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;max-width:100%!important;max-height:100%!important;box-shadow:none!important}
+.pf-refined section.pf-news-section .pf-news-zoom{right:14px;bottom:14px}
+.pf-refined section.pf-news-section .pf-news-card-footer{padding:14px 18px 17px!important}
+@media(max-width:767px){.pf-refined section.pf-news-section .pf-news-image-frame{height:355px!important}}
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
