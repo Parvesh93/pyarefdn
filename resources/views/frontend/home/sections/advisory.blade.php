@@ -13,7 +13,7 @@
           @foreach($advisories as $advisory)
           <div class="swiper-slide">
             <article class="pf-advisory-card">
-              <div class="pf-advisory-photo">
+              <div class="pf-advisory-photo" style="--pf-image:url(&quot;{{ asset('uploads/advisory/'.$advisory->attach) }}&quot;)">
                 <img src="{{ asset('uploads/advisory/'.$advisory->attach) }}" alt="{{ $advisory->name }}" loading="lazy" decoding="async">
               </div>
               <div class="pf-advisory-info">
@@ -69,4 +69,13 @@
 @media(max-width:1023px){.pf-refined .pf-advisory-section .pf-advisory-photo{height:330px}}
 @media(max-width:767px){.pf-refined section.pf-advisory-section{padding:64px 0!important}.pf-refined .pf-advisory-section .pf-advisory-container{padding:0 18px!important}.pf-refined .pf-advisory-section .pf-advisory-heading{margin-bottom:25px}.pf-refined .pf-advisory-section .pf-advisory-heading h2{font-size:29px!important}.pf-refined .pf-advisory-section .pf-advisory-photo{height:330px}.pf-refined .pf-advisory-section .pf-advisory-info{padding:22px}}
 @media(prefers-reduced-motion:reduce){.pf-refined .pf-advisory-section *{transition:none!important}}
+
+/* Image-led portrait presentation: retain the entire photograph, fill letterboxing
+   with a soft extension of the same image instead of leaving empty strips. */
+.pf-refined section.pf-advisory-section .pf-advisory-card{border-color:#eee6e3!important;box-shadow:0 5px 22px rgba(22,22,63,.055)!important}
+.pf-refined section.pf-advisory-section .pf-advisory-photo{height:340px!important;isolation:isolate;background:#e9e3dd!important;overflow:hidden}
+.pf-refined section.pf-advisory-section .pf-advisory-photo::before{content:"";position:absolute;inset:-22px;background-image:var(--pf-image);background-size:cover;background-position:center;filter:blur(23px) brightness(.82);transform:scale(1.06);z-index:-1}
+.pf-refined section.pf-advisory-section .pf-advisory-photo img{position:relative;z-index:1;display:block;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;transform:none!important}
+.pf-refined section.pf-advisory-section .pf-advisory-info{padding:19px 21px 22px!important}
+@media(max-width:767px){.pf-refined section.pf-advisory-section .pf-advisory-photo{height:320px!important}}
 </style>
