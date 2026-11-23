@@ -41,14 +41,16 @@
 </section>
 <style>
 /* Isolated visual styling for the focus-area section only. */
-.pf-refined .pf-focus-modern{padding:92px 0 102px;background:#fff9f4;color:#16163f}
+.pf-refined .pf-focus-modern{padding:92px 0 102px;background:#fff9f4;color:#16163f;position:relative;isolation:isolate;overflow:hidden}
+.pf-refined .pf-focus-modern::before{content:"";position:absolute;inset:0;z-index:-2;background-image:url("{{ asset('uploads/focus/focus_bg.jpg') }}");background-position:center 42%;background-size:cover;background-repeat:no-repeat}
+.pf-refined .pf-focus-modern::after{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(105deg,rgba(255,250,245,.91),rgba(255,250,245,.88) 55%,rgba(255,250,245,.93));pointer-events:none}
 .pf-refined .pf-focus-modern .pf-focus-container{width:min(1440px,100%);margin:0 auto;padding:0 clamp(20px,3vw,52px)}
 .pf-refined .pf-focus-modern .pf-focus-intro{text-align:center;margin:0 auto 42px}
 .pf-refined .pf-focus-modern .pf-focus-overline{display:block;color:#ed642e;font-size:11px;font-weight:800;letter-spacing:.18em;margin-bottom:13px}
 .pf-refined .pf-focus-modern h2{margin:0!important;color:#16163f;font-size:clamp(30px,3vw,43px)!important;font-weight:800;line-height:1.18!important}
 .pf-refined .pf-focus-modern h2 span{color:#f46226!important}
 .pf-refined .pf-focus-modern .pf-focus-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px;align-items:stretch}
-.pf-refined .pf-focus-modern .pf-focus-card{min-width:0;min-height:320px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;background:#fff;border:1px solid #eee4df;border-radius:12px;padding:32px 32px 28px;box-shadow:0 6px 28px rgba(28,22,39,.035);position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
+.pf-refined .pf-focus-modern .pf-focus-card{backdrop-filter:blur(3px);-webkit-backdrop-filter:blur(3px);min-width:0;min-height:320px;display:flex;flex-direction:column;align-items:flex-start;text-align:left;background:rgba(255,255,255,.96);border:1px solid #eee4df;border-radius:12px;padding:32px 32px 28px;box-shadow:0 6px 28px rgba(28,22,39,.035);position:relative;overflow:hidden;transition:transform .25s ease,box-shadow .25s ease,border-color .25s ease}
 .pf-refined .pf-focus-modern .pf-focus-card::before{content:"";position:absolute;top:0;left:0;width:100%;height:4px;background:#f46226;transform:scaleX(0);transform-origin:left;transition:transform .3s}
 .pf-refined .pf-focus-modern .pf-focus-card:hover{transform:translateY(-5px);border-color:#f7c5b1;box-shadow:0 18px 40px rgba(28,22,39,.085)}
 .pf-refined .pf-focus-modern .pf-focus-card:hover::before{transform:scaleX(1)}
