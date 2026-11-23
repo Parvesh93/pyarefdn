@@ -2,9 +2,9 @@
 <section class="pf-events" aria-labelledby="pf-events-title">
   <div class="pf-events-container">
     <div class="pf-events-heading" data-animate>
-      <span class="pf-events-eyebrow">COMMITTED TO HELPING OUR SOCIETY</span>
+      <span class="pf-events-eyebrow"><span class="pf-events-marker" aria-hidden="true"></span> COMMITTED TO HELPING OUR SOCIETY</span>
       <h2 id="pf-events-title">RECENT EVENTS & <span>PROGRAMS</span></h2>
-      <div class="pf-events-heading-rule" aria-hidden="true"></div>
+      <a class="pf-events-all" href="{{ route('event-page') }}">ALL EVENTS <span aria-hidden="true">↗</span></a>
     </div>
     <div class="pf-events-slider">
       <div class="swiper pf-events-swiper">
@@ -50,9 +50,7 @@
           </div>
         </div>
       </div>
-      <div class="pf-events-bottom">
-        <a class="pf-events-all" href="{{ route('event-page') }}">ALL EVENTS <span aria-hidden="true">↗</span></a>
-        <div class="pf-events-controls">
+      <div class="pf-events-bottom"><div class="pf-events-controls">
           <button type="button" class="pf-events-prev" aria-label="Previous event"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
           <button type="button" class="pf-events-next" aria-label="Next event"><svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m10 6 6 6-6 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg></button>
         </div>
@@ -93,6 +91,31 @@
 .pf-refined .pf-events .pf-events-controls button:hover{background:#f46226!important;color:#fff;border-color:#f46226}
 @media(max-width:767px){.pf-refined section.pf-events{padding:65px 0!important}.pf-refined .pf-events .pf-events-container{padding:0 18px!important}.pf-refined .pf-events .pf-events-heading{margin-bottom:27px}.pf-refined .pf-events .pf-events-heading h2{font-size:29px!important}.pf-refined .pf-events .pf-event-image{height:220px}.pf-refined .pf-events .pf-event-content{padding:22px}.pf-refined .pf-events .pf-event-content h3{font-size:18px!important}}
 @media(prefers-reduced-motion:reduce){.pf-refined .pf-events *{transition:none!important}}
+
+/* Shared visual proportions with the Featured Projects section. */
+.pf-refined section.pf-events{padding:94px 0 92px!important}
+.pf-refined section.pf-events .pf-events-heading{display:flex!important;flex-direction:column!important;align-items:center!important;justify-content:center!important;gap:15px!important;text-align:center!important;margin:0 auto 36px!important}
+.pf-refined section.pf-events .pf-events-eyebrow{display:inline-flex!important;align-items:center;justify-content:center;gap:9px;font-size:11px!important;letter-spacing:.16em!important;font-weight:800;color:#e8612b;margin:0!important}
+.pf-refined section.pf-events .pf-events-marker{width:8px;height:8px;border-radius:50%;background:#f46226;flex:none}
+.pf-refined section.pf-events .pf-events-heading h2{font-size:clamp(29px,3.3vw,45px)!important;line-height:1.2!important;letter-spacing:-.04em!important;margin:0!important}
+.pf-refined section.pf-events .pf-events-heading .pf-events-all{display:inline-flex!important;align-items:center;gap:17px;align-self:center;margin:0 auto!important;padding:11px 0 8px!important;border-bottom:2px solid #f46226!important;border-radius:0!important;background:transparent!important;color:#16163f!important;font-size:13px!important;font-weight:800;text-transform:none;letter-spacing:0}
+.pf-refined section.pf-events .pf-events-all span{font-size:19px}
+.pf-refined section.pf-events .pf-events-slider .pf-event-image{height:242px}
+.pf-refined section.pf-events .pf-events-slider .pf-event-card{border:1px solid #ece5e1!important;box-shadow:0 7px 25px rgba(28,20,35,.045)!important}
+.pf-refined section.pf-events .pf-events-slider .pf-event-card:hover{transform:translateY(-4px);box-shadow:0 20px 40px rgba(28,20,35,.085)!important}
+.pf-refined section.pf-events .pf-events-slider .pf-event-content{padding:25px 25px 23px!important}
+.pf-refined section.pf-events .pf-events-slider .pf-event-content h3{font-size:clamp(18px,1.5vw,22px)!important;line-height:1.42!important;margin-bottom:12px}
+.pf-refined section.pf-events .pf-events-slider .pf-event-content p{font-size:13px!important;line-height:1.8!important;color:#66716d!important;margin-bottom:25px!important}
+.pf-refined section.pf-events .pf-events-slider .pf-event-link{align-self:flex-start!important;width:auto!important;min-width:150px;min-height:44px;justify-content:center!important;gap:12px!important;padding:11px 16px!important;border:1px solid #16163f!important;border-radius:5px!important;background:#fff!important;color:#16163f!important;font-size:11px!important;font-weight:800!important;white-space:nowrap;letter-spacing:.035em}
+.pf-refined section.pf-events .pf-events-slider .pf-event-link span{font-size:17px!important;color:inherit!important}
+.pf-refined section.pf-events .pf-events-slider .pf-event-link:hover{background:#16163f!important;color:#fff!important}
+.pf-refined section.pf-events .pf-events-bottom{justify-content:center!important;margin-top:24px!important}
+.pf-refined section.pf-events .pf-events-controls{justify-content:center!important}
+.pf-refined section.pf-events .pf-events-controls button{position:static!important;width:44px!important;height:44px!important;min-width:44px;border-radius:50%!important;border:1px solid #efded7!important;background:#fff!important;color:#16163f!important}
+.pf-refined section.pf-events .pf-events-controls button:hover{background:#f46226!important;color:#fff!important;border-color:#f46226!important}
+@media(max-width:1023px){.pf-refined section.pf-events .pf-events-slider .pf-event-image{height:220px}}
+@media(max-width:767px){.pf-refined section.pf-events{padding:64px 0!important}.pf-refined section.pf-events .pf-events-heading{margin-bottom:24px!important}.pf-refined section.pf-events .pf-events-heading h2{font-size:29px!important}.pf-refined section.pf-events .pf-events-slider .pf-event-content{padding:23px!important}}
+
 </style>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
