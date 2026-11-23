@@ -11,6 +11,7 @@
         <div id="pf-footprints-map" aria-label="Interactive map of India with highlighted regions Delhi, Uttar Pradesh and Uttarakhand"></div>
         <button type="button" class="pf-footprints-reset" id="pf-footprints-reset" hidden>View all India <span aria-hidden="true">↗</span></button>
         <p id="pf-footprints-map-status" class="pf-footprints-status" aria-live="polite">Loading India map…</p>
+        <a class="pf-footprints-data-credit" href="https://github.com/udit-001/india-maps-data" target="_blank" rel="noopener noreferrer" aria-label="India boundary data source">Map data</a>
       </div>
       <div class="pf-footprints-details">
         <div class="pf-footprints-summary"><strong>03</strong><div><span>States & Union Territories</span><p>Our geographic presence</p></div></div>
@@ -38,11 +39,11 @@
 .pf-refined .pf-footprints h2{font-size:clamp(29px,3.3vw,45px)!important;font-weight:800!important;line-height:1.2!important;margin:0 0 16px!important;letter-spacing:-.045em;color:#16163f!important}
 .pf-refined .pf-footprints h2 span{color:#f46226!important}
 .pf-refined .pf-footprints .pf-footprints-heading p{font-size:14px!important;line-height:1.8!important;color:#69716f;max-width:600px;margin:auto}
-.pf-refined .pf-footprints .pf-footprints-content{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:25px;align-items:stretch}
-.pf-refined .pf-footprints .pf-footprints-map-panel{position:relative;min-height:485px;border:1px solid #eee5e1;border-radius:12px;background:#fffaf5;overflow:hidden}
+.pf-refined .pf-footprints .pf-footprints-content{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(320px,.65fr);gap:25px;align-items:stretch}
+.pf-refined .pf-footprints .pf-footprints-map-panel{position:relative;min-height:600px;border:1px solid #eee5e1;border-radius:12px;background:#fffaf5;overflow:hidden}
 .pf-refined .pf-footprints .pf-footprints-map-label{position:absolute;top:20px;left:22px;z-index:500;display:flex;align-items:center;gap:9px;color:#16163f;font-size:10px;font-weight:800;letter-spacing:.12em;background:#ffffffec;padding:9px 12px;border-radius:4px}
 .pf-refined .pf-footprints .pf-footprints-pulse{width:8px;height:8px;border-radius:50%;background:#f46226}
-.pf-refined .pf-footprints #pf-footprints-map{height:485px;width:100%;background:#fffaf5;z-index:0}
+.pf-refined .pf-footprints #pf-footprints-map{height:600px;width:100%;background:#fffaf5;z-index:0}
 .pf-refined .pf-footprints #pf-footprints-map .leaflet-control-attribution{font-size:9px;background:#fffc}
 .pf-refined .pf-footprints #pf-footprints-map .leaflet-interactive:focus-visible{outline:2px solid #16163f}
 .pf-refined .pf-footprints .pf-footprints-status{position:absolute;left:16px;bottom:18px;z-index:500;margin:0!important;font-size:11px;color:#74717b}
@@ -58,7 +59,7 @@
 .pf-refined .pf-footprints .pf-footprints-state-mark{margin-left:auto;color:#f46226;font-size:18px}
 .pf-refined .pf-footprints .pf-footprints-note{display:flex;gap:10px;align-items:center;margin-top:auto;padding-top:22px;color:#77717b;font-size:12px}
 .pf-refined .pf-footprints .pf-footprints-note span{color:#f46226}
-@media(max-width:840px){.pf-refined .pf-footprints .pf-footprints-content{grid-template-columns:1fr}.pf-refined .pf-footprints .pf-footprints-map-panel{min-height:425px}.pf-refined .pf-footprints #pf-footprints-map{height:425px}}
+@media(max-width:840px){.pf-refined .pf-footprints .pf-footprints-content{grid-template-columns:1fr}.pf-refined .pf-footprints .pf-footprints-map-panel{min-height:505px}.pf-refined .pf-footprints #pf-footprints-map{height:505px}}
 @media(max-width:640px){.pf-refined section.pf-footprints{padding:64px 0!important}.pf-refined .pf-footprints .pf-footprints-container{padding:0 18px!important}.pf-refined .pf-footprints .pf-footprints-heading{margin-bottom:25px}.pf-refined .pf-footprints h2{font-size:29px!important}.pf-refined .pf-footprints #pf-footprints-map{height:375px}.pf-refined .pf-footprints .pf-footprints-map-panel{min-height:375px}.pf-refined .pf-footprints .pf-footprints-details{padding:22px}.pf-refined .pf-footprints .pf-footprints-summary strong{font-size:51px}}
 
 /* Interactive regions and legible mobile map. */
@@ -80,8 +81,8 @@
 .pf-refined .pf-footprints #pf-footprints-map .leaflet-interactive{transition:fill .2s,fill-opacity .2s,stroke-width .2s}
 @media(max-width:640px){
  .pf-refined .pf-footprints .pf-footprints-content{gap:17px}
- .pf-refined .pf-footprints .pf-footprints-map-panel{min-height:490px!important}
- .pf-refined .pf-footprints #pf-footprints-map{height:490px!important}
+ .pf-refined .pf-footprints .pf-footprints-map-panel{min-height:560px!important}
+ .pf-refined .pf-footprints #pf-footprints-map{height:560px!important}
  .pf-refined .pf-footprints .pf-footprints-map-label{top:12px;left:12px;font-size:9px}
  .pf-refined .pf-footprints .pf-footprints-reset{right:12px;bottom:12px}
 }
@@ -100,6 +101,24 @@
   background:transparent!important;border:0!important;box-shadow:none!important
 }
 .pf-refined .pf-footprints .pf-footprints-map-label{display:none!important}
+
+
+/* Map sits directly on the page with a larger canvas and no Leaflet badge. */
+.pf-refined .pf-footprints .pf-footprints-map-panel{min-height:600px!important}
+.pf-refined .pf-footprints #pf-footprints-map{height:600px!important}
+.pf-refined .pf-footprints .pf-footprints-data-credit{
+ position:absolute;bottom:8px;left:12px;z-index:500;color:#89818b!important;
+ font-size:10px;line-height:1.4;text-decoration:none;opacity:.8
+}
+.pf-refined .pf-footprints .pf-footprints-data-credit:hover{text-decoration:underline;opacity:1}
+@media(max-width:840px){
+ .pf-refined .pf-footprints .pf-footprints-map-panel{min-height:505px!important}
+ .pf-refined .pf-footprints #pf-footprints-map{height:505px!important}
+}
+@media(max-width:640px){
+ .pf-refined .pf-footprints .pf-footprints-map-panel{min-height:560px!important}
+ .pf-refined .pf-footprints #pf-footprints-map{height:560px!important}
+}
 
 </style>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
@@ -131,12 +150,12 @@
     var title=document.getElementById('pf-footprints-selected-title');
     var description=document.getElementById('pf-footprints-selected-description');
     var buttons=Array.prototype.slice.call(document.querySelectorAll('.pf-footprints-state[data-region]'));
-    var map=L.map(target,{scrollWheelZoom:false,dragging:false,zoomControl:false,doubleClickZoom:false,touchZoom:false,attributionControl:true});
+    var map=L.map(target,{scrollWheelZoom:false,dragging:false,zoomControl:false,doubleClickZoom:false,touchZoom:false,attributionControl:false,zoomSnap:0.1});
     var layerByRegion={}, selected='',allBounds=null,geoLayer=null;
     function isMobile(){return window.matchMedia('(max-width:640px)').matches;}
     function isTablet(){return window.matchMedia('(max-width:840px)').matches;}
     function fit(bounds) {
-      if(bounds && bounds.isValid()) map.fitBounds(bounds,{padding:[22,22],animate:false,maxZoom:9});
+      if(bounds && bounds.isValid()) map.fitBounds(bounds,{padding:[8,8],animate:false,maxZoom:9});
     }
     function defaultView(){
       if(isMobile()){
