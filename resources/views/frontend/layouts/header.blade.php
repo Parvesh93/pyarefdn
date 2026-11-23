@@ -19,7 +19,7 @@
                 class="block py-2 md:py-0 text-sm font-semibold hover:text-orange-600">HOME</a>
 
             <!-- ABOUT US Dropdown -->
-            {{-- <div class="relative group" x-data="{ open: false }">
+            {{-- <div class="relative group" x-data="{ open: false }" @mouseenter="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = true" @mouseleave="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = false">
                 <!-- Button -->
                 <button @click="open = !open"
                     class="block py-2 md:py-0 text-sm font-semibold hover:text-orange-600 flex items-center gap-1 focus:outline-none">
@@ -61,7 +61,7 @@
                 </div>
             </div> --}}
 
-            <div class="relative group" x-data="{ open: false }">
+            <div class="relative group" x-data="{ open: false }" @mouseenter="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = true" @mouseleave="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = false">
                 <!-- Button -->
                 <button @click="open = !open"
                     class="block py-2 md:py-0 text-sm font-semibold flex items-center gap-1 focus:outline-none transition-colors duration-200
@@ -109,7 +109,7 @@
 
 
             <!-- OUR PROJECTS Dropdown -->
-            <div class="relative group" x-data="{ open: false }">
+            <div class="relative group" x-data="{ open: false }" @mouseenter="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = true" @mouseleave="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = false">
                 <!-- Main button -->
                 <button @click="open = !open"
                     class="block py-2 md:py-0 text-sm font-semibold flex items-center gap-1 focus:outline-none transition-colors duration-200
@@ -249,7 +249,7 @@
             <!-- JOIN US Dropdown -->
 
 
-            <div class="relative group" x-data="{ open: false }">
+            <div class="relative group" x-data="{ open: false }" @mouseenter="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = true" @mouseleave="if (window.matchMedia('(min-width: 768px) and (hover: hover)').matches) open = false">
                 <!-- Main button -->
                 <button @click="open = !open"
                     class="block py-2 md:py-0 text-sm font-semibold flex items-center gap-1 focus:outline-none transition-colors duration-200
@@ -341,4 +341,13 @@
  .pf-site-header .pf-header-nav a.pf-header-donate{margin:18px 0 0!important;width:100%;min-height:46px}
 }
 @media(prefers-reduced-motion:reduce){.pf-site-header *{transition:none!important}}
+
+/* Desktop: remove Tailwind space-x margins that compounded with flex gap. */
+@media(min-width:768px){
+ .pf-site-header .pf-header-inner{gap:18px!important}
+ .pf-site-header nav.pf-header-nav{column-gap:clamp(13px,1.1vw,19px)!important;row-gap:0!important;justify-content:flex-end;flex-wrap:nowrap}
+ .pf-site-header nav.pf-header-nav> :not([hidden]) + :not([hidden]){margin-left:0!important}
+ .pf-site-header .pf-header-nav a.pf-header-donate{margin-left:2px!important}
+ .pf-site-header .pf-header-nav>div[x-data]>div[x-show]{margin-top:0!important}
+}
 </style>
