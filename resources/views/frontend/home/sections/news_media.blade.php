@@ -85,13 +85,13 @@ document.addEventListener('DOMContentLoaded', function () {
   var carousel = document.querySelector('.pf-news-swiper');
   if (carousel && typeof Swiper !== 'undefined' && !carousel.swiper) {
     new Swiper(carousel, {
-      slidesPerView: 1,
-      spaceBetween: 20,
+      slidesPerView: 1.15,
+      spaceBetween: 16,
       watchOverflow: true,
       breakpoints: {
-        640: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-        1280: { slidesPerView: 4 }
+        0: { slidesPerView: 1.15, spaceBetween: 16 },
+        640: { slidesPerView: 2, spaceBetween: 20 },
+        1024: { slidesPerView: 3, spaceBetween: 22 }
       },
       navigation: { nextEl: '.pf-news-next', prevEl: '.pf-news-prev' }
     });
