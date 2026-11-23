@@ -8,7 +8,6 @@
     </div>
     <div class="pf-footprints-content">
       <div class="pf-footprints-map-panel">
-        <div class="pf-footprints-map-label"><span class="pf-footprints-pulse" aria-hidden="true"></span> INDIA · AREAS OF WORK</div>
         <div id="pf-footprints-map" aria-label="Interactive map of India with highlighted regions Delhi, Uttar Pradesh and Uttarakhand"></div>
         <button type="button" class="pf-footprints-reset" id="pf-footprints-reset" hidden>View all India <span aria-hidden="true">↗</span></button>
         <p id="pf-footprints-map-status" class="pf-footprints-status" aria-live="polite">Loading India map…</p>
@@ -87,6 +86,21 @@
  .pf-refined .pf-footprints .pf-footprints-reset{right:12px;bottom:12px}
 }
 
+
+/* Frame-free map: the country sits directly on the page background. */
+.pf-refined .pf-footprints .pf-footprints-map-panel,
+.pf-refined .pf-footprints .pf-footprints-map-panel:hover{
+  border:0!important;border-radius:0!important;box-shadow:none!important;
+  background:transparent!important;overflow:visible!important;
+  padding:0!important
+}
+.pf-refined .pf-footprints #pf-footprints-map,
+.pf-refined .pf-footprints #pf-footprints-map .leaflet-container,
+.pf-refined .pf-footprints #pf-footprints-map .leaflet-pane{
+  background:transparent!important;border:0!important;box-shadow:none!important
+}
+.pf-refined .pf-footprints .pf-footprints-map-label{display:none!important}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <script>
@@ -136,10 +150,10 @@
       if(!geoLayer)return;
       geoLayer.eachLayer(function(layer){
         var key=regionKey(layer.feature || {});
-        var active=!!key,chosen=key===selected;
-        layer.setStyle({color:chosen?'#a93e1d':'#fff',weight:chosen?2.3:.65,
-          fillColor:chosen?'#e64b17':active?'#f46226':'#e3dfe2',
-          fillOpacity:chosen?1:active?.93:selected?.44:1});
+        var active=!!key,chosen=active && key===selected;
+        layer.setStyle({color:chosen?'#af451e':active?'#ffffff':'#d8d3d4',weight:chosen?2.3:active?1.2:.7,
+          fillColor:chosen?'#e64b17':active?'#f46226':'#ece8e6',
+          fillOpacity:chosen?1:active?.96:1});
         if(chosen)layer.bringToFront();
       });
     }
@@ -169,7 +183,7 @@
       .then(function(res){if(!res.ok)throw Error('map download');return res.json();})
       .then(function(data){
         geoLayer=L.geoJSON(data,{
-          style:function(feature){var active=!!regionKey(feature);return {color:'#fff',weight:.65,fillColor:active?'#f46226':'#e3dfe2',fillOpacity:active?.93:1};},
+          style:function(feature){var active=!!regionKey(feature);return {color:active?'#ffffff':'#d8d3d4',weight:active?1.2:.7,fillColor:active?'#f46226':'#ece8e6',fillOpacity:1};},
           onEachFeature:function(feature,layer){
             var key=regionKey(feature);
             if(!key)return;
