@@ -9,15 +9,22 @@
     <div class="pf-footprints-content">
       <div class="pf-footprints-map-panel">
         <div class="pf-footprints-map-label"><span class="pf-footprints-pulse" aria-hidden="true"></span> INDIA · AREAS OF WORK</div>
-        <div id="pf-footprints-map" role="img" aria-label="Map of India highlighting Delhi, Uttar Pradesh and Uttarakhand"></div>
+        <div id="pf-footprints-map" aria-label="Interactive map of India with highlighted regions Delhi, Uttar Pradesh and Uttarakhand"></div>
+        <button type="button" class="pf-footprints-reset" id="pf-footprints-reset" hidden>View all India <span aria-hidden="true">↗</span></button>
         <p id="pf-footprints-map-status" class="pf-footprints-status" aria-live="polite">Loading India map…</p>
       </div>
       <div class="pf-footprints-details">
         <div class="pf-footprints-summary"><strong>03</strong><div><span>States & Union Territories</span><p>Our geographic presence</p></div></div>
-        <div class="pf-footprints-state" data-region="delhi"><span class="pf-footprints-state-number">01</span><div><h3>Delhi</h3><p>National Capital Territory</p></div><span class="pf-footprints-state-mark" aria-hidden="true">↗</span></div>
-        <div class="pf-footprints-state" data-region="uttar pradesh"><span class="pf-footprints-state-number">02</span><div><h3>Uttar Pradesh</h3><p>Northern India</p></div><span class="pf-footprints-state-mark" aria-hidden="true">↗</span></div>
-        <div class="pf-footprints-state" data-region="uttarakhand"><span class="pf-footprints-state-number">03</span><div><h3>Uttarakhand</h3><p>Himalayan region</p></div><span class="pf-footprints-state-mark" aria-hidden="true">↗</span></div>
-        <div class="pf-footprints-note"><span aria-hidden="true">●</span> Highlighted regions show Pyare Foundation's areas of work.</div>
+        <p class="pf-footprints-select-label">SELECT A REGION TO EXPLORE</p>
+        <button type="button" class="pf-footprints-state" data-region="delhi" aria-pressed="false"><span class="pf-footprints-state-number">01</span><span class="pf-footprints-state-text"><strong>Delhi</strong><small>National Capital Territory</small></span><span class="pf-footprints-state-mark" aria-hidden="true">↗</span></button>
+        <button type="button" class="pf-footprints-state" data-region="uttar pradesh" aria-pressed="false"><span class="pf-footprints-state-number">02</span><span class="pf-footprints-state-text"><strong>Uttar Pradesh</strong><small>Northern India</small></span><span class="pf-footprints-state-mark" aria-hidden="true">↗</span></button>
+        <button type="button" class="pf-footprints-state" data-region="uttarakhand" aria-pressed="false"><span class="pf-footprints-state-number">03</span><span class="pf-footprints-state-text"><strong>Uttarakhand</strong><small>Himalayan region</small></span><span class="pf-footprints-state-mark" aria-hidden="true">↗</span></button>
+        <div class="pf-footprints-selected" id="pf-footprints-selected" aria-live="polite">
+          <span class="pf-footprints-selected-label">EXPLORE OUR PRESENCE</span>
+          <h3 id="pf-footprints-selected-title">Three regions. Shared purpose.</h3>
+          <p id="pf-footprints-selected-description">Select a highlighted state on the map or a region above to explore our geographical presence.</p>
+          <a href="{{ route('our-project') }}" class="pf-footprints-project-link">Explore Our Projects <span aria-hidden="true">↗</span></a>
+        </div>
       </div>
     </div>
   </div>
@@ -54,43 +61,144 @@
 .pf-refined .pf-footprints .pf-footprints-note span{color:#f46226}
 @media(max-width:840px){.pf-refined .pf-footprints .pf-footprints-content{grid-template-columns:1fr}.pf-refined .pf-footprints .pf-footprints-map-panel{min-height:425px}.pf-refined .pf-footprints #pf-footprints-map{height:425px}}
 @media(max-width:640px){.pf-refined section.pf-footprints{padding:64px 0!important}.pf-refined .pf-footprints .pf-footprints-container{padding:0 18px!important}.pf-refined .pf-footprints .pf-footprints-heading{margin-bottom:25px}.pf-refined .pf-footprints h2{font-size:29px!important}.pf-refined .pf-footprints #pf-footprints-map{height:375px}.pf-refined .pf-footprints .pf-footprints-map-panel{min-height:375px}.pf-refined .pf-footprints .pf-footprints-details{padding:22px}.pf-refined .pf-footprints .pf-footprints-summary strong{font-size:51px}}
+
+/* Interactive regions and legible mobile map. */
+.pf-refined .pf-footprints .pf-footprints-select-label{margin:0!important;padding:7px 4px 3px;color:#ec622b;font-size:10px!important;letter-spacing:.13em;font-weight:800}
+.pf-refined .pf-footprints button.pf-footprints-state{appearance:none;width:100%;background:transparent;border:0;border-bottom:1px solid #eee8e4;border-radius:6px;display:flex;text-align:left;align-items:center;gap:16px;padding:15px 10px;cursor:pointer;transition:background .2s,box-shadow .2s}
+.pf-refined .pf-footprints button.pf-footprints-state:hover,.pf-refined .pf-footprints button.pf-footprints-state[aria-pressed="true"]{background:#fff2e9;box-shadow:inset 3px 0 0 #f46226}
+.pf-refined .pf-footprints .pf-footprints-state-text{display:flex;flex-direction:column;gap:5px}
+.pf-refined .pf-footprints .pf-footprints-state-text strong{color:#16163f;font-weight:800;font-size:17px}
+.pf-refined .pf-footprints .pf-footprints-state-text small{color:#777784;font-size:12px}
+.pf-refined .pf-footprints .pf-footprints-selected{padding:18px 18px 17px;margin-top:18px;background:#fff9f4;border:1px solid #f2ded3;border-radius:8px}
+.pf-refined .pf-footprints .pf-footprints-selected-label{color:#ed642e;font-weight:800;font-size:10px;letter-spacing:.14em}
+.pf-refined .pf-footprints .pf-footprints-selected h3{color:#16163f!important;font-size:19px!important;font-weight:800;margin:10px 0!important}
+.pf-refined .pf-footprints .pf-footprints-selected p{color:#626875!important;font-size:12px!important;line-height:1.7!important;margin:0 0 12px!important}
+.pf-refined .pf-footprints .pf-footprints-project-link{color:#d84c16!important;font-size:12px;font-weight:800;text-decoration:none}
+.pf-refined .pf-footprints .pf-footprints-project-link:hover{text-decoration:underline}
+.pf-refined .pf-footprints .pf-footprints-reset{position:absolute;z-index:500;right:16px;bottom:16px;background:#fff;border:1px solid #ecd8cc;border-radius:5px;color:#16163f;padding:10px 13px;font-size:11px;font-weight:800;cursor:pointer;box-shadow:0 3px 12px #16163f12}
+.pf-refined .pf-footprints .pf-footprints-reset[hidden]{display:none!important}
+.pf-refined .pf-footprints .pf-footprints-reset:hover{color:#f46226}
+.pf-refined .pf-footprints #pf-footprints-map .leaflet-interactive{transition:fill .2s,fill-opacity .2s,stroke-width .2s}
+@media(max-width:640px){
+ .pf-refined .pf-footprints .pf-footprints-content{gap:17px}
+ .pf-refined .pf-footprints .pf-footprints-map-panel{min-height:490px!important}
+ .pf-refined .pf-footprints #pf-footprints-map{height:490px!important}
+ .pf-refined .pf-footprints .pf-footprints-map-label{top:12px;left:12px;font-size:9px}
+ .pf-refined .pf-footprints .pf-footprints-reset{right:12px;bottom:12px}
+}
+
 </style>
 <script src="https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js" defer></script>
 <script>
 (function () {
-  function initFootprints() {
-    var target = document.getElementById('pf-footprints-map');
-    if (!target || target.dataset.initialized || !window.L) return;
-    target.dataset.initialized = 'true';
-    var status = document.getElementById('pf-footprints-map-status');
-    var map = L.map(target, {scrollWheelZoom:false, dragging:false, zoomControl:false, doubleClickZoom:false, touchZoom:false, attributionControl:true});
-    var highlighted = ['delhi','uttar pradesh','uttarakhand','uttaranchal'];
-    function labelFor(feature) {
-      var p=feature.properties || {};
-      return String(p.st_nm||p.ST_NM||p.state||p.STATE||p.state_name||p.STATE_NAME||p.NAME_1||p.NAME||p.name||'');
+  var regions = {
+    'delhi': {name:'Delhi',description:'Explore Pyare Foundation\'s presence in the National Capital Territory.'},
+    'uttar pradesh': {name:'Uttar Pradesh',description:'Explore Pyare Foundation\'s work across Uttar Pradesh.'},
+    'uttarakhand': {name:'Uttarakhand',description:'Explore Pyare Foundation\'s community initiatives in Uttarakhand.'}
+  };
+  var aliases = {'nct of delhi':'delhi','delhi nct':'delhi','national capital territory of delhi':'delhi','uttaranchal':'uttarakhand'};
+  function normalize(value) { return String(value || '').toLowerCase().replace(/[^a-z ]/g,'').replace(/\s+/g,' ').trim(); }
+  function regionKey(feature) {
+    var p = feature.properties || {};
+    var keys = ['st_nm','ST_NM','state','STATE','state_name','STATE_NAME','NAME_1','NAME','name','State','stname'];
+    for(var i=0;i<keys.length;i++) {
+      var v=normalize(p[keys[i]]);
+      if(aliases[v])v=aliases[v];
+      if(regions[v])return v;
     }
-    function normalize(name) { return String(name).trim().toLowerCase().replace(/[^a-z ]/g,'').replace(/\s+/g,' '); }
-    var url='https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@2884453/geojson/india.geojson';
-    fetch(url).then(function(resp){if(!resp.ok)throw Error('Map data');return resp.json();}).then(function(geo){
-      var bounds = L.latLngBounds([]);
-      var geoLayer=L.geoJSON(geo,{
-        style:function(feature){
-          var active=highlighted.indexOf(normalize(labelFor(feature)))>=0;
-          return {color:'#ffffff',weight:.65,fillColor:active?'#f46226':'#e3dfe2',fillOpacity:active?.96:1};
-        },
-        onEachFeature:function(feature,layer) {
-          var name=labelFor(feature), active=highlighted.indexOf(normalize(name))>=0;
-          if(active) layer.bindTooltip(name,{sticky:true,direction:'top'});
-        }
-      }).addTo(map);
-      bounds=geoLayer.getBounds();
-      if(bounds.isValid())map.fitBounds(bounds.pad(.06),{animate:false});
-      if(status)status.remove();
-      setTimeout(function(){map.invalidateSize();},120);
-    }).catch(function(){if(status)status.textContent='Map temporarily unavailable. Our presence includes Delhi, Uttar Pradesh and Uttarakhand.';});
+    return '';
   }
-  function whenReady() { if(window.L){initFootprints();return;}setTimeout(function(){if(window.L)initFootprints();else{var s=document.getElementById('pf-footprints-map-status');if(s)s.textContent='Map is temporarily unavailable.';}},1300); }
-  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',whenReady);
-  else whenReady();
+  function init() {
+    var target=document.getElementById('pf-footprints-map');
+    if(!target || target.dataset.initialized || !window.L) return;
+    target.dataset.initialized='true';
+    var status=document.getElementById('pf-footprints-map-status');
+    var reset=document.getElementById('pf-footprints-reset');
+    var title=document.getElementById('pf-footprints-selected-title');
+    var description=document.getElementById('pf-footprints-selected-description');
+    var buttons=Array.prototype.slice.call(document.querySelectorAll('.pf-footprints-state[data-region]'));
+    var map=L.map(target,{scrollWheelZoom:false,dragging:false,zoomControl:false,doubleClickZoom:false,touchZoom:false,attributionControl:true});
+    var layerByRegion={}, selected='',allBounds=null,geoLayer=null;
+    function isMobile(){return window.matchMedia('(max-width:640px)').matches;}
+    function isTablet(){return window.matchMedia('(max-width:840px)').matches;}
+    function fit(bounds) {
+      if(bounds && bounds.isValid()) map.fitBounds(bounds,{padding:[22,22],animate:false,maxZoom:9});
+    }
+    function defaultView(){
+      if(isMobile()){
+        // Mobile shows the north Indian work area large, rather than shrinking all of India.
+        fit(L.latLngBounds([[23.4,75.5],[32.0,84.7]]));
+      }else if(isTablet()){
+        fit(L.latLngBounds([[19.8,71.4],[34.3,88.5]]));
+      }else fit(allBounds);
+    }
+    function refreshStyles(){
+      if(!geoLayer)return;
+      geoLayer.eachLayer(function(layer){
+        var key=regionKey(layer.feature || {});
+        var active=!!key,chosen=key===selected;
+        layer.setStyle({color:chosen?'#a93e1d':'#fff',weight:chosen?2.3:.65,
+          fillColor:chosen?'#e64b17':active?'#f46226':'#e3dfe2',
+          fillOpacity:chosen?1:active?.93:selected?.44:1});
+        if(chosen)layer.bringToFront();
+      });
+    }
+    function updatePanel(key){
+      selected=key||'';
+      buttons.forEach(function(button){button.setAttribute('aria-pressed',String(button.dataset.region===selected));});
+      if(selected){
+        title.textContent=regions[selected].name;
+        description.textContent=regions[selected].description;
+      } else {
+        title.textContent='Three regions. Shared purpose.';
+        description.textContent='Select a highlighted state on the map or a region above to explore our geographical presence.';
+      }
+      reset.hidden=!selected && !isMobile();
+      refreshStyles();
+    }
+    function choose(key){
+      if(!regions[key])return;
+      updatePanel(key);
+      var layer=layerByRegion[key];
+      if(layer) fit(layer.getBounds().pad(.5));
+      else if(isMobile())defaultView();
+    }
+    buttons.forEach(function(button){button.addEventListener('click',function(){choose(button.dataset.region);});});
+    reset.addEventListener('click',function(){updatePanel('');fit(allBounds);reset.hidden=true;});
+    fetch('https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@2884453/geojson/india.geojson')
+      .then(function(res){if(!res.ok)throw Error('map download');return res.json();})
+      .then(function(data){
+        geoLayer=L.geoJSON(data,{
+          style:function(feature){var active=!!regionKey(feature);return {color:'#fff',weight:.65,fillColor:active?'#f46226':'#e3dfe2',fillOpacity:active?.93:1};},
+          onEachFeature:function(feature,layer){
+            var key=regionKey(feature);
+            if(!key)return;
+            layerByRegion[key]=layer;
+            layer.bindTooltip(regions[key].name,{sticky:true,direction:'top'});
+            layer.on('click',function(){choose(key);});
+            layer.on('mouseover',function(){if(selected!==key)layer.setStyle({fillColor:'#ff864e',fillOpacity:1});});
+            layer.on('mouseout',refreshStyles);
+          }
+        }).addTo(map);
+        allBounds=geoLayer.getBounds();
+        defaultView();
+        updatePanel('');
+        if(status)status.remove();
+        setTimeout(function(){map.invalidateSize();if(!selected)defaultView();},150);
+      })
+      .catch(function(){
+        if(status)status.textContent='Map unavailable. Choose a region on the right to explore our presence.';
+        if(reset)reset.hidden=true;
+      });
+    window.addEventListener('resize',function(){map.invalidateSize();if(!selected&&allBounds)defaultView();});
+  }
+  function boot(retries){
+    if(window.L)return init();
+    if(retries>0)return setTimeout(function(){boot(retries-1);},300);
+    var s=document.getElementById('pf-footprints-map-status');
+    if(s)s.textContent='Map temporarily unavailable. You can still explore the regions.';
+  }
+  if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',function(){boot(18);});
+  else boot(18);
 })();
 </script>
