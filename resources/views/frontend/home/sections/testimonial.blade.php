@@ -1,408 +1,76 @@
-<!--{{-- <!-- Testimonials -->-->
-<!--<section class="py-4 bg-white overflow-x-hidden">-->
-<!--    <div class="text-center mb-16">-->
-<!--        <p class="text-sm text-gray-600 mb-2">What Others Say About Us</p>-->
-<!--        <h2 class="text-3xl md:text-4xl font-bold text-black">TESTIMONIALS</h2>-->
-<!--    </div>-->
-
-<!--    <div class="max-w-screen-xl mx-auto px-4">-->
-        <!-- Added extra padding top to accommodate the profile images -->
-<!--        <div class="swiper testimonialSwiper pt-10 pb-8">-->
-<!--            <div class="swiper-wrapper">-->
-                <!-- Slide 1 -->
-<!--                <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-                        <!-- Profile Image - Fixed positioning -->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src={{ asset('uploads/images/testimonial/t1.jpg') }} alt="Rakesh Negi"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-                        <!-- Content -->
-<!--                        <div class="mt-2">-->
-
-
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                                We are always with you in this health development initiative. My-->
-<!--                                wishes are with the team Pyare Foundation and also with Gondar-->
-<!--                                village. Please nourish this initiative with love and affection-->
-<!--                            </p>-->
-
-
-
-<!--                            <p class="text-sm font-bold text-indigo-900">Rakesh Negi</p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">-->
-<!--                                Chairman Madhmeshwar valley vikas manch (17th May, 2017)-->
-<!--                            </p>-->
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-                <!-- Slide 2 -->
-<!--                <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src="{{ asset('uploads/images/testimonial/t2.jpg') }}" alt="SUMANT TIWARI"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-
-
-
-
-<!--                        <div class="mt-2">-->
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                                Commendable job done by Pyare foundation, a foundation which is-->
-<!--                                really working on the pattern of universal wellbeing. God bless-->
-<!--                            </p>-->
-<!--                            <p class="text-sm font-bold text-indigo-900">SUMANT TIWARI</p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">-->
-<!--                                Kshetra panchayat sadasya Fhegu Nagjagai-->
-<!--                            </p>-->
-
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-                <!-- Slide 3 -->
-<!--                <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src="{{ asset('uploads/images/testimonial/t3.jpg') }}" alt=" Mr Mangesh Ghildiyal"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-<!--                        <div class="mt-2">-->
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                                I visited Mini dispensary of Pyare foundation in Gondar and was-->
-<!--                                happy to see their initiative. I assured the foundation of my-->
-<!--                                full help and support as I have written to state government-->
-<!--                                about their role concern. I'll allow to hold health camps and-->
-<!--                                awareness program.-->
-<!--                            </p>-->
-<!--                            <p class="text-sm font-bold text-indigo-900">-->
-<!--                                Mr Mangesh Ghildiyal-->
-<!--                            </p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">DM Rudraprayag</p>-->
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-                <!-- Slide 4 -->
-<!--                <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src="{{ asset('uploads/images/testimonial/t4.jpg') }}" alt="Laxman Singh Negi"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-<!--                        <div class="mt-2">-->
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                                The pain taken by Pyare Foundation for the health welfare of-->
-<!--                                these extreme remote villages is tremendous. I congratulate-->
-<!--                                Pyare Foundation for their initiative and good efforts. All the-->
-<!--                                wishes for success in future ventures.-->
-<!--                            </p>-->
-<!--                            <p class="text-sm font-bold text-indigo-900">Laxman Singh Negi</p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">-->
-<!--                                Media Prabhari, Rudraprayag-->
-<!--                            </p>-->
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src="{{ asset('uploads/images/testimonial/t5.jpg') }}" alt="Laxman Singh Negi"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-<!--                        <div class="mt-2">-->
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                                A intelligent lady with a kindhearted behaviour can only do this-->
-<!--                                kind of job. Thank you Madam President Dr. Anjali Thapliyal kaul-->
-<!--                                for this welfare initiative-->
-<!--                            </p>-->
-<!--                            <p class="text-sm font-bold text-indigo-900">Manoj Rawat</p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">-->
-<!--                                Vidhayak, kedarnath vidhan sabha-->
-<!--                            </p>-->
-
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src="{{ asset('uploads/images/testimonial/t7.jpg') }}" alt="Sant Lal Shah"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-<!--                        <div class="mt-2">-->
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                                I highly obliged by the wonderful efforts of Pyare foundation,-->
-<!--                                an organisation which is seriously working for the human-->
-<!--                                welfare. We are in need of such kind of health unit. Great work-->
-<!--                                done Congratulations-->
-<!--                            </p>-->
-<!--                            <p class="text-sm font-bold text-indigo-900">Sant Lal Shah</p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">-->
-<!--                                Block pramukh of Ukhimath-->
-<!--                            </p>-->
-
-
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src="{{ asset('uploads/images/testimonial/t6.jpg') }}" alt="Laxman Singh Negi"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-<!--                        <div class="mt-2">-->
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                                I congratulate Pyare foundation that by opening the health care-->
-<!--                                units in our area they did what was expected from us the-->
-<!--                                politicians of the area. Thank you for your great concern. I-->
-<!--                                wish a good growth and success for Pyare foundation-->
-<!--                            </p>-->
-<!--                            <p class="text-sm font-bold text-indigo-900">Asha Nautiyal</p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">-->
-<!--                                Ex. Vidhayak kedarnath vidhan sabha-->
-<!--                            </p>-->
-
-
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-<!--    </div>-->
-
-    <!-- Navigation Arrows -->
-<!--    <div class="flex justify-center items-center mt-8 gap-4">-->
-       
-
-        <!-- Prev Arrow (←) -->
-
-<!--        <div-->
-<!--            class="swiper-button-prev-custom-testi w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center hover:bg-orange-600 transition-all duration-300 shadow-lg cursor-pointer">-->
-<!--            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="white"-->
-<!--                stroke-width="2">-->
-<!--                <path stroke-linecap="round" stroke-linejoin="round" d="M15 19l-7-7 7-7" />-->
-<!--            </svg>-->
-<!--        </div>-->
-        <!-- Next Arrow (→) -->
-       
-<!--        <div-->
-<!--            class="swiper-button-next-custom-testi w-10 h-10 rounded-full bg-orange-500 flex items-center justify-center hover:bg-orange-600 transition-all duration-300 shadow-lg cursor-pointer">-->
-<!--            <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="white"-->
-<!--                stroke-width="2">-->
-<!--                <path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />-->
-<!--            </svg>-->
-<!--        </div>-->
-<!--    </div>-->
-<!--</section> --}}-->
-
-
-<!-- Testimonials -->
-<!--<section class="py-16 bg-white overflow-x-hidden">-->
-<!--     Added overflow-x-hidden -->
-<!--    <div class="text-center mb-10">-->
-<!--        <p class="text-sm text-gray-600">What Others Say About Us</p>-->
-<!--        <h2 class="text-3xl md:text-4xl font-bold text-black">TESTIMONIALS</h2>-->
-<!--    </div>-->
-
-<!--    <div class="max-w-screen-xl mx-auto px-4 relative">-->
-<!--        @isset($testimonials)-->
-<!--        <div class="swiper testimonialSwiper pb-16">-->
-<!--            <div class="swiper-wrapper">-->
-<!--                @foreach ($testimonials as $testimonial)-->
-
-<!--                    <div class="swiper-slide">-->
-<!--                    <div class="bg-white border border-blue-200 rounded-xl shadow-md px-6 pt-20 pb-6 text-center mx-auto relative max-w-sm"-->
-<!--                        style="margin-top: 50px">-->
-<!--                         Profile Image - Fixed positioning -->
-<!--                        <div class="absolute left-1/2 transform -translate-x-1/2" style="top: -48px">-->
-<!--                            <img src={{ asset('uploads/testimonial/' . $testimonial->attach) }} alt="{{ $testimonial->name }}"-->
-<!--                                class="w-24 h-24 rounded-full border-4 border-yellow-400 shadow-lg object-cover" />-->
-<!--                        </div>-->
-<!--                         Content -->
-<!--                        <div class="mt-2">-->
-
-
-<!--                            <p class="text-sm text-gray-700 mb-4 leading-relaxed">-->
-<!--                               {!! strip_tags($testimonial->description) !!}-->
-<!--                            </p>-->
-
-
-
-<!--                            <p class="text-sm font-bold text-indigo-900">{{ $testimonial->name }}</p>-->
-<!--                            <p class="text-xs text-gray-500 mb-2">-->
-<!--                                {{ $testimonial->sub_title }}-->
-<!--                            </p>-->
-<!--                            <div class="text-orange-500 text-base">★★★★★</div>-->
-<!--                        </div>-->
-<!--                    </div>-->
-<!--                </div>-->
-
-<!--                @endforeach-->
-               
-<!--            </div>-->
-
-<!--             Navigation Buttons - Adjusted positioning -->
-<!--            <div class="absolute bottom-4 left-1/2 transform -translate-x-1/2 flex space-x-4 z-10">-->
-                
-<!--                <div-->
-<!--                    class="swiper-button-next-custom-testi w-9 h-9 rounded-full bg-[#F97316] flex items-center justify-center hover:bg-orange-600 transition">-->
-<!--                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px" fill="none"-->
-<!--                        viewBox="0 0 24 24" stroke="white">-->
-<!--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"-->
-<!--                            d="M15 19l-7-7 7-7" />-->
-<!--                    </svg>-->
-<!--                </div>-->
-
-<!--                <div-->
-<!--                    class="swiper-button-prev-custom-testi w-9 h-9 rounded-full bg-[#F97316] flex items-center justify-center hover:bg-orange-600 transition">-->
-<!--                    <svg xmlns="http://www.w3.org/2000/svg" style="width: 14px; height: 14px" fill="none"-->
-<!--                        viewBox="0 0 24 24" stroke="white">-->
-<!--                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 5l7 7-7 7" />-->
-<!--                    </svg>-->
-<!--                </div>-->
-<!--            </div>-->
-<!--        </div>-->
-            
-<!--        @endisset-->
-        
-<!--    </div>-->
-<!--</section>-->
-
-
- <!--Testimonials -->
-<section class="py-5 bg-gray-50 ">
-  <div class="text-center mb-10">
-    <div class="inline-flex items-center gap-2 text-[#f59e0b] font-semibold tracking-wider uppercase text-xs">
-      Testimonials
+{{-- Testimonials: original dashboard-managed quotes and authors preserved. --}}
+<section class="pf-testimonials" aria-labelledby="pf-testimonials-title">
+  <div class="pf-testimonials-container">
+    <div class="pf-testimonials-heading" data-animate>
+      <span class="pf-testimonials-eyebrow"><span class="pf-testimonials-dot" aria-hidden="true"></span> TESTIMONIALS</span>
+      <h2 id="pf-testimonials-title">WHAT OTHERS SAY <span>ABOUT US</span></h2>
     </div>
-    <h2 class="font-heading text-2xl md:text-3xl font-extrabold text-gray-900">
-      WHAT OTHERS SAY <span class="text-[#f59e0b]">ABOUT US</span>
-    </h2>
-  </div>
-
-  <div  class="mx-auto px-4 md:px-14 relative">
     @isset($testimonials)
-    <div class="swiper testimonialSwiper pb-12 overflow-y-visible">
-      <div class="swiper-wrapper">
-        @foreach ($testimonials as $t)
-          <div class="swiper-slide ">
-            <article
-              class="relative bg-white rounded-2xl shadow-[0_8px_24px_rgba(16,24,40,0.08)] border border-orange-100
-                     p-6 grid grid-rows-[auto_1fr_auto] h-full">
-
-               <!--decorative quote (inside card so it never clips) -->
-              <div class="absolute top-3 left-3 text-[#f59e0b] opacity-80" aria-hidden="true">
-                <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5" viewBox="0 0 24 24" fill="currentColor">
-                  <path d="M7.17 6C5.97 6 5 6.97 5 8.17V12h4V6H7.17zm9.66 0C15.83 6 15 6.97 15 8.17V12h4V6h-2.17z"/>
-                </svg>
+    <div class="pf-testimonials-carousel">
+      <div class="swiper testimonialSwiper pf-testimonials-swiper">
+        <div class="swiper-wrapper">
+          @foreach($testimonials as $t)
+          <div class="swiper-slide">
+            <article class="pf-testimonial-card">
+              <div class="pf-testimonial-top" aria-hidden="true">
+                <svg class="pf-testimonial-quote" viewBox="0 0 48 48" fill="currentColor"><path d="M21 12c-7 4-11 10-11 19v6h15V22H16c1-4 4-7 8-9l-3-1Zm20 0c-7 4-11 10-11 19v6h15V22h-9c1-4 4-7 8-9l-3-1Z"/></svg>
+                <span class="pf-testimonial-top-rule"></span>
               </div>
-
-               <!--score badge -->
-              <div class="absolute top-3 right-3 bg-[#f59e0b] text-white text-xs font-bold rounded-full
-                          w-8 h-8 grid place-items-center shadow">99</div>
-
-               <!--stars -->
-              <div class="flex items-center gap-1 text-[#f59e0b] mb-3">
-                <span>★</span><span>★</span><span>★</span><span>★</span><span>★</span>
-              </div>
-
-               <!--quote -->
-              <p class="text-sm text-gray-700 leading-relaxed mb-4 clamp-5">
-                {!! strip_tags($t->description) !!}
-              </p>
-
-               <!--footer -->
-              <div class="flex items-center gap-3 mt-auto pt-2">
-                <img src="{{ asset('uploads/testimonial/'.$t->attach) }}"
-                     alt="{{ $t->name }}"
-                     class="w-20 h-20 rounded-full object-cover ring-2 ring-orange-200">
-                <div>
-                  <div class="font-semibold text-gray-900 text-sm">{{ $t->name }}</div>
-                  <div class="text-xs text-[#f59e0b]">{{ $t->sub_title }}</div>
+              <blockquote class="pf-testimonial-quote-text">{!! strip_tags($t->description) !!}</blockquote>
+              <div class="pf-testimonial-author">
+                <div class="pf-testimonial-avatar">
+                  <img src="{{ asset('uploads/testimonial/'.$t->attach) }}" alt="{{ $t->name }}" loading="lazy" decoding="async">
+                </div>
+                <div class="pf-testimonial-author-info">
+                  <h3>{{ $t->name }}</h3>
+                  <p>{{ $t->sub_title }}</p>
                 </div>
               </div>
             </article>
           </div>
-        @endforeach
+          @endforeach
+        </div>
       </div>
-
-       <!--dots + arrows -->
-      <div class="testimonialPagination absolute -bottom-2 left-1/2 -translate-x-1/2"></div>
-      <div class="flex justify-center gap-3 mt-10">
-        <button class="swiper-button-prev-custom-testi w-9 h-9 rounded-full bg-[#F97316] text-white grid place-items-center hover:bg-orange-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M15 19l-7-7 7-7"/>
-          </svg>
+      <div class="pf-testimonials-controls" aria-label="Testimonial navigation">
+        <button type="button" class="swiper-button-prev-custom-testi" aria-label="Previous testimonial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m14 6-6 6 6 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
-        <button class="swiper-button-next-custom-testi w-9 h-9 rounded-full bg-[#F97316] text-white grid place-items-center hover:bg-orange-600">
-          <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.6" d="M9 5l7 7-7 7"/>
-          </svg>
+        <button type="button" class="swiper-button-next-custom-testi" aria-label="Next testimonial">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" aria-hidden="true"><path d="m10 6 6 6-6 6" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/></svg>
         </button>
       </div>
     </div>
     @endisset
   </div>
 </section>
-
- <!--Helpers for equal-height + text clamp -->
 <style>
- 
-.testimonialSwiper .swiper-slide {
-  height: auto;
-
-}
-
-@media (max-width: 1023px) {
-  /* ✅ Sirf mobile/tablet view pe full width */
-  .testimonialSwiper .swiper-slide {
-    width: 100% !important;
-  }
-}
+/* Testimonials visual system: same dimensions/heading/nav as Projects & Events. */
+.pf-refined section.pf-testimonials{padding:94px 0 92px!important;background:#fffaf5!important;color:#16163f;overflow:hidden}
+.pf-refined .pf-testimonials .pf-testimonials-container{width:100%;max-width:1440px!important;margin:0 auto;padding:0 clamp(20px,3vw,52px)!important}
+.pf-refined .pf-testimonials .pf-testimonials-heading{display:flex;align-items:center;justify-content:center;flex-direction:column;gap:14px;text-align:center;margin-bottom:36px}
+.pf-refined .pf-testimonials .pf-testimonials-eyebrow{display:inline-flex;align-items:center;gap:9px;color:#e8612b;font-size:11px;font-weight:800;letter-spacing:.16em}
+.pf-refined .pf-testimonials .pf-testimonials-dot{width:8px;height:8px;background:#f46226;border-radius:50%}
+.pf-refined .pf-testimonials .pf-testimonials-heading h2{font-size:clamp(29px,3.3vw,45px)!important;line-height:1.2!important;font-weight:800!important;letter-spacing:-.04em;color:#16163f!important;margin:0!important}
+.pf-refined .pf-testimonials .pf-testimonials-heading h2 span{color:#f46226!important}
+.pf-refined .pf-testimonials .pf-testimonials-swiper{padding:0 1px 8px!important;overflow:hidden}
+.pf-refined .pf-testimonials .pf-testimonials-swiper .swiper-wrapper{align-items:stretch}
+.pf-refined .pf-testimonials .pf-testimonials-swiper .swiper-slide{height:auto!important;display:flex;min-width:0}
+.pf-refined .pf-testimonials .pf-testimonial-card{position:relative;width:100%;height:100%;min-height:350px;display:flex;flex-direction:column;padding:29px 29px 25px;background:#fff!important;border:1px solid #ece5e1!important;border-radius:10px!important;box-shadow:0 7px 25px rgba(28,20,35,.045)!important;transition:transform .25s,box-shadow .25s}
+.pf-refined .pf-testimonials .pf-testimonial-card:hover{transform:translateY(-3px);box-shadow:0 19px 40px rgba(28,20,35,.08)!important}
+.pf-refined .pf-testimonials .pf-testimonial-card::before{content:"";position:absolute;inset:0 auto 0 0;width:3px;border-radius:10px 0 0 10px;background:#f46226}
+.pf-refined .pf-testimonials .pf-testimonial-top{display:flex;align-items:center;justify-content:space-between;height:32px;margin-bottom:23px}
+.pf-refined .pf-testimonials .pf-testimonial-quote{width:39px;height:39px;color:#f46226;opacity:.9}
+.pf-refined .pf-testimonials .pf-testimonial-top-rule{width:52px;height:1px;background:#ecd7cc}
+.pf-refined .pf-testimonials blockquote.pf-testimonial-quote-text{margin:0 0 29px;padding:0;border:0;flex:1;font-size:14px!important;line-height:1.85!important;color:#454756!important;font-weight:400;display:-webkit-box;-webkit-line-clamp:7;-webkit-box-orient:vertical;overflow:hidden}
+.pf-refined .pf-testimonials .pf-testimonial-author{display:flex;align-items:center;gap:14px;padding-top:19px;border-top:1px solid #ede8e5;margin-top:auto;min-width:0}
+.pf-refined .pf-testimonials .pf-testimonial-avatar{width:58px;height:58px;flex:none;border-radius:50%;overflow:hidden;background:#fff3ec;border:2px solid #ffe4d4}
+.pf-refined .pf-testimonials .pf-testimonial-avatar img{display:block;width:100%!important;height:100%!important;object-fit:cover;border:0!important;border-radius:50%!important}
+.pf-refined .pf-testimonials .pf-testimonial-author-info{min-width:0}
+.pf-refined .pf-testimonials .pf-testimonial-author-info h3{font-size:15px!important;font-weight:800!important;color:#16163f!important;line-height:1.4;margin:0 0 3px!important}
+.pf-refined .pf-testimonials .pf-testimonial-author-info p{font-size:12px!important;color:#e8612b!important;line-height:1.45!important;margin:0!important;font-weight:600}
+.pf-refined .pf-testimonials .pf-testimonials-controls{display:flex;align-items:center;justify-content:center;gap:10px;margin-top:24px}
+.pf-refined .pf-testimonials .pf-testimonials-controls button{position:static!important;display:grid;place-items:center;width:44px!important;height:44px!important;min-width:44px;flex:none;border:1px solid #efded7!important;border-radius:50%!important;background:#fff!important;color:#16163f!important;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
+.pf-refined .pf-testimonials .pf-testimonials-controls button:hover{background:#f46226!important;color:#fff!important;border-color:#f46226!important}
+@media(max-width:767px){.pf-refined section.pf-testimonials{padding:64px 0!important}.pf-refined .pf-testimonials .pf-testimonials-container{padding:0 18px!important}.pf-refined .pf-testimonials .pf-testimonials-heading{margin-bottom:25px}.pf-refined .pf-testimonials .pf-testimonials-heading h2{font-size:29px!important}.pf-refined .pf-testimonials .pf-testimonial-card{padding:25px;min-height:330px}}
+@media(prefers-reduced-motion:reduce){.pf-refined .pf-testimonials *{transition:none!important}}
 </style>
-
-<script>
-  document.addEventListener('DOMContentLoaded', () => {
-    new Swiper('.testimonialSwiper', {
-      loop: true,
-      speed: 600,
-      spaceBetween: 30,
-      slidesPerView: 1,
-      
-      breakpoints: {
-        640: { slidesPerView: 1 },
-        1024:{ slidesPerView: 3 }
-      },
-      navigation: {
-        nextEl: '.swiper-button-next-custom-testi',
-        prevEl: '.swiper-button-prev-custom-testi'
-      },
-    
-    });
-  });
-
-</script>
-
-
-
