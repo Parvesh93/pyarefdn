@@ -159,20 +159,17 @@
 <script>
     new Swiper(".testimonialSwiper", {
         loop: true,
-        spaceBetween: 30,
-        slidesPerView: 1,
-        breakpoints: {
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            },
-        },
+        spaceBetween: document.querySelector('.pf-refined') ? 22 : 30,
+        slidesPerView: document.querySelector('.pf-refined') ? 1.15 : 1,
+        breakpoints: document.querySelector('.pf-refined') ? {
+            0: { slidesPerView: 1.15, spaceBetween: 16 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 22 }
+        } : { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
         navigation: {
             nextEl: ".swiper-button-next-custom-testi",
-            prevEl: ".swiper-button-prev-custom-testi",
-        },
+            prevEl: ".swiper-button-prev-custom-testi"
+        }
     });
 </script>
 
@@ -297,20 +294,17 @@
 <script>
     new Swiper(".featuredSwiper", {
         loop: true,
-        spaceBetween: 30,
-        slidesPerView: 1.2,
-        breakpoints: {
-            768: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            },
-        },
+        spaceBetween: document.querySelector('.pf-refined') ? 22 : 30,
+        slidesPerView: document.querySelector('.pf-refined') ? 1.15 : 1.2,
+        breakpoints: document.querySelector('.pf-refined') ? {
+            0: { slidesPerView: 1.15, spaceBetween: 16 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 22 }
+        } : { 768: { slidesPerView: 2 }, 1024: { slidesPerView: 3 } },
         navigation: {
             nextEl: ".swiper-button-next-custom-feature",
-            prevEl: ".swiper-button-prev-custom-feature",
-        },
+            prevEl: ".swiper-button-prev-custom-feature"
+        }
     });
 </script>
 
@@ -319,25 +313,17 @@
 <script>
     new Swiper(".advisorySwiper", {
         loop: true,
-        spaceBetween: 20,
+        spaceBetween: document.querySelector('.pf-refined') ? 22 : 20,
+        slidesPerView: document.querySelector('.pf-refined') ? 1.15 : 1.2,
+        breakpoints: document.querySelector('.pf-refined') ? {
+            0: { slidesPerView: 1.15, spaceBetween: 16 },
+            640: { slidesPerView: 2, spaceBetween: 20 },
+            1024: { slidesPerView: 3, spaceBetween: 22 }
+        } : { 0: { slidesPerView: 1.2 }, 640: { slidesPerView: 2 }, 1024: { slidesPerView: 3 }, 1280: { slidesPerView: 4 } },
         navigation: {
             nextEl: ".swiper-button-next-custom-adviser",
-            prevEl: ".swiper-button-prev-custom-adviser",
-        },
-        breakpoints: {
-            0: {
-                slidesPerView: 1.2
-            },
-            640: {
-                slidesPerView: 2
-            },
-            1024: {
-                slidesPerView: 3
-            },
-            1280: {
-                slidesPerView: 4
-            },
-        },
+            prevEl: ".swiper-button-prev-custom-adviser"
+        }
     });
 </script>
 <!-- media script -->
