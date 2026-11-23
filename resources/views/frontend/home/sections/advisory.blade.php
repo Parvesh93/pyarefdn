@@ -53,9 +53,9 @@
 .pf-refined .pf-advisory-section .pf-advisory-swiper .swiper-slide{height:auto!important;display:flex}
 .pf-refined .pf-advisory-section .pf-advisory-card{width:100%;height:100%;overflow:hidden;display:flex;flex-direction:column;border:1px solid #ece5e1;background:#fff;border-radius:10px;box-shadow:0 7px 24px rgba(22,22,63,.045);transition:box-shadow .25s,transform .25s}
 .pf-refined .pf-advisory-section .pf-advisory-card:hover{transform:translateY(-3px);box-shadow:0 17px 36px rgba(22,22,63,.09)}
-.pf-refined .pf-advisory-section .pf-advisory-photo{position:relative;height:300px;overflow:hidden;background:#f6f1ec;flex:none}
-.pf-refined .pf-advisory-section .pf-advisory-photo img{display:block;width:100%;height:100%!important;object-fit:cover;object-position:center 24%;opacity:1!important;filter:none!important;transition:transform .35s}
-.pf-refined .pf-advisory-section .pf-advisory-card:hover .pf-advisory-photo img{transform:scale(1.025)}
+.pf-refined .pf-advisory-section .pf-advisory-photo{position:relative;height:330px;overflow:hidden;background:#f6f1ec;flex:none}
+.pf-refined .pf-advisory-section .pf-advisory-photo img{display:block;width:100%;height:100%!important;object-fit:contain!important;object-position:center center!important;opacity:1!important;filter:none!important;transition:none}
+.pf-refined .pf-advisory-section .pf-advisory-card:hover .pf-advisory-photo img{transform:none!important}
 .pf-refined .pf-advisory-section .pf-advisory-info{display:flex;flex-direction:column;flex:1;padding:23px 22px 25px;min-width:0}
 .pf-refined .pf-advisory-section .pf-advisory-rule{width:35px;height:3px;border-radius:2px;background:#f46226;margin-bottom:13px}
 .pf-refined .pf-advisory-section .pf-advisory-info h3{font-size:17px!important;font-weight:800;letter-spacing:-.025em;color:#16163f;line-height:1.4;margin:0 0 7px!important}
@@ -66,7 +66,7 @@
 .pf-refined .pf-advisory-section .pf-advisory-nav .pf-advisory-nav-btn{position:static!important;display:grid;place-items:center;width:44px!important;height:44px!important;flex:none;border-radius:50%!important;border:1px solid #efded7!important;background:#fff!important;color:#16163f!important;cursor:pointer;transition:background .2s,color .2s,border-color .2s}
 .pf-refined .pf-advisory-section .pf-advisory-nav .pf-advisory-nav-btn:hover{background:#f46226!important;color:#fff!important;border-color:#f46226!important}
 .pf-refined .pf-advisory-section .pf-advisory-nav .pf-advisory-nav-btn::after{display:none}
-@media(max-width:1023px){.pf-refined .pf-advisory-section .pf-advisory-photo{height:310px}}
+@media(max-width:1023px){.pf-refined .pf-advisory-section .pf-advisory-photo{height:330px}}
 @media(max-width:767px){.pf-refined section.pf-advisory-section{padding:64px 0!important}.pf-refined .pf-advisory-section .pf-advisory-container{padding:0 18px!important}.pf-refined .pf-advisory-section .pf-advisory-heading{margin-bottom:25px}.pf-refined .pf-advisory-section .pf-advisory-heading h2{font-size:29px!important}.pf-refined .pf-advisory-section .pf-advisory-photo{height:330px}.pf-refined .pf-advisory-section .pf-advisory-info{padding:22px}}
 @media(prefers-reduced-motion:reduce){.pf-refined .pf-advisory-section *{transition:none!important}}
 </style>
