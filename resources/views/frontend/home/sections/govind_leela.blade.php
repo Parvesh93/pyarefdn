@@ -41,7 +41,7 @@
 <style>
 .pf-refined .pf-bhairavi{background:#fff7ed!important;padding:94px 0 98px!important;color:#16163f;overflow:hidden}
 .pf-refined .pf-bhairavi .pf-bhairavi-container{max-width:1440px!important;width:100%;margin:0 auto;padding:0 clamp(20px,3vw,52px)!important}
-.pf-refined .pf-bhairavi .pf-bhairavi-layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(36px,5vw,82px);align-items:center}
+.pf-refined .pf-bhairavi .pf-bhairavi-layout{display:grid;grid-template-columns:minmax(0,1.12fr) minmax(0,.88fr);gap:clamp(32px,4.2vw,64px);align-items:start}
 .pf-refined .pf-bhairavi .pf-bhairavi-visual{min-width:0;position:relative}
 .pf-refined .pf-bhairavi .pf-bhairavi-gallery{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));grid-template-rows:repeat(3,130px);gap:10px;min-width:0}
 .pf-refined .pf-bhairavi .pf-bhairavi-photo{position:relative;margin:0;min-width:0;min-height:0;overflow:hidden;border-radius:9px!important;background:#ebdfd4;box-shadow:0 3px 14px #16163f0e}
@@ -56,13 +56,13 @@
 .pf-refined .pf-bhairavi .pf-bhairavi-visual-caption{display:flex;gap:10px;align-items:center;margin-top:17px;color:#7b6970;font-size:10px;font-weight:800;letter-spacing:.11em;flex-wrap:wrap}
 .pf-refined .pf-bhairavi .pf-bhairavi-visual-dot{width:7px;height:7px;border-radius:50%;background:#f46226;flex:none}
 .pf-refined .pf-bhairavi .pf-bhairavi-caption-rule{height:1px;width:24px;background:#d3c2ba}
-.pf-refined .pf-bhairavi .pf-bhairavi-content{min-width:0;padding:15px 0}
+.pf-refined .pf-bhairavi .pf-bhairavi-content{min-width:0;padding:0;display:flex;flex-direction:column;min-height:454px;align-self:stretch}
 .pf-refined .pf-bhairavi .pf-bhairavi-eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:12px;font-weight:800;letter-spacing:.13em;text-transform:uppercase;color:#f46226}
 .pf-refined .pf-bhairavi .pf-bhairavi-eyebrow span{width:26px;height:2px;background:#f46226}
-.pf-refined .pf-bhairavi .pf-bhairavi-content h2{font-size:clamp(35px,3.6vw,53px)!important;line-height:1.14!important;font-weight:800;letter-spacing:-.045em;margin:15px 0 19px!important;color:#16163f!important}
-.pf-refined .pf-bhairavi .pf-bhairavi-accent-line{width:58px;height:4px;border-radius:3px;background:#f46226;margin-bottom:24px}
-.pf-refined .pf-bhairavi .pf-bhairavi-description{font-size:14px!important;line-height:1.9!important;color:#555665!important;text-align:left!important;margin:0 0 31px!important;max-width:62ch}
-.pf-refined .pf-bhairavi .pf-bhairavi-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.pf-refined .pf-bhairavi .pf-bhairavi-content h2{font-size:clamp(35px,3.6vw,53px)!important;line-height:1.14!important;font-weight:800;letter-spacing:-.045em;margin:14px 0 14px!important;color:#16163f!important}
+.pf-refined .pf-bhairavi .pf-bhairavi-accent-line{width:58px;height:4px;border-radius:3px;background:#f46226;margin-bottom:20px}
+.pf-refined .pf-bhairavi .pf-bhairavi-description{font-size:14px!important;line-height:1.8!important;color:#555665!important;text-align:left!important;margin:0 0 22px!important;max-width:62ch}
+.pf-refined .pf-bhairavi .pf-bhairavi-actions{display:flex;align-items:center;gap:12px;flex-wrap:wrap;margin-top:auto;padding-top:16px}
 .pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button{display:inline-flex!important;align-items:center;justify-content:center;gap:20px;min-height:48px;min-width:145px;padding:13px 21px!important;border-radius:5px!important;font-size:12px!important;letter-spacing:.025em;font-weight:800!important;text-decoration:none;box-shadow:none!important;transition:background .2s ease,transform .2s ease}
 .pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button span{font-size:17px;line-height:1}
 .pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button:hover{transform:translateY(-2px)}
@@ -70,8 +70,8 @@
 .pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button-primary:hover{background:#d84c16!important}
 .pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button-secondary{background:#16163f!important;color:#fff!important;border:1px solid #16163f!important}
 .pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button-secondary:hover{background:#28285c!important}
-@media(max-width:1050px){.pf-refined .pf-bhairavi .pf-bhairavi-layout{gap:32px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.pf-refined .pf-bhairavi .pf-bhairavi-gallery{grid-template-rows:repeat(3,105px)}.pf-refined .pf-bhairavi .pf-bhairavi-content h2{font-size:36px!important}}
-@media(max-width:767px){.pf-refined .pf-bhairavi{padding:65px 0 70px!important}.pf-refined .pf-bhairavi .pf-bhairavi-container{padding:0 18px!important}.pf-refined .pf-bhairavi .pf-bhairavi-layout{grid-template-columns:1fr;gap:29px}.pf-refined .pf-bhairavi .pf-bhairavi-gallery{grid-template-rows:repeat(3,clamp(80px,22vw,128px));gap:7px}.pf-refined .pf-bhairavi .pf-bhairavi-content{padding:0}.pf-refined .pf-bhairavi .pf-bhairavi-content h2{font-size:34px!important}.pf-refined .pf-bhairavi .pf-bhairavi-description{font-size:13px!important;line-height:1.85!important}.pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button{min-width:0;flex:1}}
+@media(max-width:1050px){.pf-refined .pf-bhairavi .pf-bhairavi-layout{gap:32px;grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.pf-refined .pf-bhairavi .pf-bhairavi-gallery{grid-template-rows:repeat(3,105px)}.pf-refined .pf-bhairavi .pf-bhairavi-content h2{font-size:36px!important}.pf-refined .pf-bhairavi .pf-bhairavi-content{min-height:369px}}
+@media(max-width:767px){.pf-refined .pf-bhairavi{padding:65px 0 70px!important}.pf-refined .pf-bhairavi .pf-bhairavi-container{padding:0 18px!important}.pf-refined .pf-bhairavi .pf-bhairavi-layout{grid-template-columns:1fr;gap:29px}.pf-refined .pf-bhairavi .pf-bhairavi-gallery{grid-template-rows:repeat(3,clamp(80px,22vw,128px));gap:7px}.pf-refined .pf-bhairavi .pf-bhairavi-content{padding:0;min-height:0}.pf-refined .pf-bhairavi .pf-bhairavi-content h2{font-size:34px!important}.pf-refined .pf-bhairavi .pf-bhairavi-description{font-size:13px!important;line-height:1.85!important}.pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button{min-width:0;flex:1}}
 @media(max-width:375px){.pf-refined .pf-bhairavi .pf-bhairavi-actions{gap:9px}.pf-refined .pf-bhairavi .pf-bhairavi-actions a.pf-bhairavi-button{padding:11px 10px!important;font-size:11px!important;gap:7px}}
 @media(prefers-reduced-motion:reduce){.pf-refined .pf-bhairavi *{transition:none!important}}
 </style>
