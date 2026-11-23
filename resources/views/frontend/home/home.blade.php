@@ -144,6 +144,9 @@
     <!-- Our Featured projects -->
     @include('frontend.home.sections.featured_project')
 
+    <!-- Impact marquee before Project Bhairavi -->
+    @include('frontend.home.sections.impact_marquee')
+
     <!-- Govind leela  -->
     @include('frontend.home.sections.govind_leela')
     
