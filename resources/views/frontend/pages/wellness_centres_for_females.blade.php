@@ -76,19 +76,20 @@
 .pf-wellness .pw-quote span{color:var(--orange);font-size:11px;font-weight:700;line-height:1.65;margin-top:4px}
 .pf-wellness .pw-feature-photos{background:#fff;padding:65px 0 73px}
 .pf-wellness .pw-feature-photos .pw-section-heading{margin-bottom:30px}
-.pf-wellness .pw-photo-carousel{position:relative}
-.pf-wellness .pw-photo-carousel .swiper{width:100%;overflow:hidden}
-.pf-wellness .pw-photo-carousel .swiper-wrapper{align-items:stretch}
-.pf-wellness .pw-photo-carousel .swiper-slide{width:auto!important;height:340px!important;flex-shrink:0;display:flex;align-items:center;justify-content:center}
-.pf-wellness .pw-photo-carousel .swiper-slide a{display:block;height:100%;width:auto;overflow:hidden;border-radius:5px;text-decoration:none;background:transparent}
-.pf-wellness .pw-photo-carousel .swiper-slide img{display:block;height:100%!important;width:auto!important;max-width:none!important;object-fit:contain!important;border-radius:5px;box-shadow:none}
-.pf-wellness .pw-carousel-buttons{display:flex;align-items:center;justify-content:center;gap:13px;margin-top:24px}
-.pf-wellness .pw-carousel-button{width:43px;height:43px;display:grid;place-items:center;border-radius:50%;border:1px solid #ebdcd4;background:white;color:#16163f;font-size:23px;line-height:1;cursor:pointer;transition:background .2s,color .2s}
+.pf-wellness .pw-photo-carousel{position:relative;width:100%;max-width:100%;min-width:0}
+.pf-wellness .pw-photo-track{display:flex;gap:18px;align-items:stretch;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior-x:contain;height:340px!important;min-height:340px!important;max-height:340px!important}
+.pf-wellness .pw-photo-track::-webkit-scrollbar{display:none}
+.pf-wellness .pw-photo-slide{flex:0 0 calc((100% - 36px)/3);width:calc((100% - 36px)/3);height:340px!important;min-height:340px!important;max-height:340px!important;scroll-snap-align:start;overflow:hidden}
+.pf-wellness .pw-photo-slide a{display:flex;width:100%;height:100%;align-items:center;justify-content:center;overflow:hidden;border-radius:5px;background:#f6f5f3}
+.pf-wellness .pw-photo-slide img{display:block;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;border:0;border-radius:0;box-shadow:none}
+.pf-wellness .pw-carousel-buttons{display:flex;align-items:center;justify-content:center;gap:13px;margin:21px 0 0;height:44px}
+.pf-wellness .pw-carousel-button{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid #ebdcd4;background:#fff;color:#16163f;font-size:23px;line-height:1;cursor:pointer}
 .pf-wellness .pw-carousel-button:hover{background:#f46226;color:#fff;border-color:#f46226}
-.pf-wellness .pw-carousel-button.swiper-button-disabled{opacity:.35;cursor:not-allowed}
+.pf-wellness .pw-carousel-button:disabled{opacity:.35;cursor:default}
 .pf-wellness .pw-carousel-counter{font-size:12px;font-weight:800;letter-spacing:.08em;color:#636575;min-width:65px;text-align:center}
-@media(max-width:900px){.pf-wellness .pw-photo-carousel .swiper-slide{height:300px!important}}
-@media(max-width:550px){.pf-wellness .pw-feature-photos{padding:48px 0 58px}.pf-wellness .pw-photo-carousel .swiper-slide{height:245px!important}.pf-wellness .pw-carousel-buttons{margin-top:18px}}
+@media(max-width:900px){.pf-wellness .pw-photo-track{gap:14px;height:300px!important;min-height:300px!important;max-height:300px!important}.pf-wellness .pw-photo-slide{flex-basis:calc((100% - 14px)/2);width:calc((100% - 14px)/2);height:300px!important;min-height:300px!important;max-height:300px!important}}
+@media(max-width:550px){.pf-wellness .pw-feature-photos{padding:48px 0 58px}.pf-wellness .pw-photo-track{gap:12px;height:245px!important;min-height:245px!important;max-height:245px!important}.pf-wellness .pw-photo-slide{flex-basis:86%;width:86%;height:245px!important;min-height:245px!important;max-height:245px!important}.pf-wellness .pw-carousel-buttons{margin-top:16px}}
+@media(prefers-reduced-motion:reduce){.pf-wellness .pw-photo-track{scroll-behavior:auto}}
 .pf-wellness .pw-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .pf-wellness .pw-gallery a{display:block;overflow:hidden;border-radius:7px;aspect-ratio:4/3;background:#eee6e0}
 .pf-wellness .pw-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}
@@ -123,9 +124,9 @@
     <p>Moments from our wellness camps, captured across the communities we serve.</p>
   </div>
   <div class="pw-photo-carousel">
-    <div class="swiper pw-wellness-carousel"><div class="swiper-wrapper">
+    <div class="pw-photo-track" id="pw-wellness-track" tabindex="0" aria-label="Wellness Centre photographs carousel">
       @for($i = 1; $i <= 17; $i++)
-        <div class="swiper-slide">
+        <div class="pw-photo-slide">
           <a href="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}"
              data-fancybox="wellness-top-gallery" data-caption="Wellness Centre {{ $i }}">
             <img src="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}"
@@ -133,11 +134,11 @@
           </a>
         </div>
       @endfor
-    </div></div>
+    </div>
     <div class="pw-carousel-buttons">
-      <button type="button" class="pw-carousel-button pw-carousel-prev" aria-label="Previous photographs">‹</button>
+      <button type="button" class="pw-carousel-button pw-carousel-prev" aria-label="Previous photograph">‹</button>
       <span class="pw-carousel-counter" aria-live="polite">01 / 17</span>
-      <button type="button" class="pw-carousel-button pw-carousel-next" aria-label="Next photographs">›</button>
+      <button type="button" class="pw-carousel-button pw-carousel-next" aria-label="Next photograph">›</button>
     </div>
   </div>
 </div></section>
@@ -246,33 +247,39 @@
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  var el = document.querySelector('.pw-wellness-carousel');
-  if (!el || typeof Swiper === 'undefined' || el.swiper) return;
+  var track = document.getElementById('pw-wellness-track');
+  if (!track) return;
+  var slides = Array.from(track.querySelectorAll('.pw-photo-slide'));
+  var prev = document.querySelector('.pw-carousel-prev');
+  var next = document.querySelector('.pw-carousel-next');
   var counter = document.querySelector('.pw-carousel-counter');
-  var gallery = new Swiper(el, {
-    slidesPerView: 'auto',
-    spaceBetween: 18,
-    watchOverflow: true,
-    grabCursor: true,
-    speed: 550,
-    navigation: {
-      prevEl: '.pw-carousel-prev',
-      nextEl: '.pw-carousel-next'
-    },
-    breakpoints: {
-      0: { spaceBetween: 10 },
-      640: { spaceBetween: 14 },
-      1024: { spaceBetween: 18 }
-    },
-    on: {
-      init: function () {
-        if (counter) counter.textContent = String(this.activeIndex + 1).padStart(2, '0') + ' / 17';
-      },
-      slideChange: function () {
-        if (counter) counter.textContent = String(this.activeIndex + 1).padStart(2, '0') + ' / 17';
-      }
-    }
-  });
+  if (!slides.length || !prev || !next || !counter) return;
+  function currentIndex() {
+    var left = track.scrollLeft;
+    var closest = 0;
+    var distance = Infinity;
+    slides.forEach(function (slide, i) {
+      var d = Math.abs(slide.offsetLeft - slides[0].offsetLeft - left);
+      if (d < distance) { distance = d; closest = i; }
+    });
+    return closest;
+  }
+  function update() {
+    var index = currentIndex();
+    counter.textContent = String(index + 1).padStart(2, '0') + ' / ' + slides.length;
+    prev.disabled = track.scrollLeft <= 2;
+    next.disabled = track.scrollLeft + track.clientWidth >= track.scrollWidth - 2;
+  }
+  function move(step) {
+    var target = Math.max(0, Math.min(slides.length - 1, currentIndex() + step));
+    var offset = slides[target].offsetLeft - slides[0].offsetLeft;
+    track.scrollTo({left: offset, behavior: window.matchMedia('(prefers-reduced-motion: reduce)').matches ? 'auto' : 'smooth'});
+  }
+  prev.addEventListener('click', function () { move(-1); });
+  next.addEventListener('click', function () { move(1); });
+  track.addEventListener('scroll', update, {passive:true});
+  window.addEventListener('resize', update);
+  update();
 });
 </script>
 @endsection
