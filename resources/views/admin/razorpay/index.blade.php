@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="razorpay">
+
     <!-- Start Content-->
 
     <div class="max-w-5xl px-4 py-6">
@@ -177,4 +179,6 @@
     </div>
 
     <!-- End Content-->
+
+</div>
 @endsection
