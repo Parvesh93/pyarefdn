@@ -19,7 +19,11 @@
     <div class="pf-footer-inner pf-footer-grid">
       <div class="pf-footer-about">
         <a href="{{ route('home') }}" class="pf-footer-brand">
-          <img src="{{ asset('uploads/settings/'.$setting->logo_path) }}" alt="Pyare Foundation">
+          @if(!empty($setting?->logo_path))
+            <img src="{{ asset('uploads/settings/'.$setting->logo_path) }}" alt="Pyare Foundation">
+          @else
+            <strong style="display:inline-block;color:inherit;font-size:22px;letter-spacing:-.03em;">PYARE FOUNDATION</strong>
+          @endif
         </a>
         <p>Pyare Foundation is a multi-dimensional group in the sector of human service and knowledge concern to represent and present skills, methods, procedure and approach that are primarily tailor made to fill the gaps of realignment delinquency...</p>
         <div class="pf-footer-social" aria-label="Social media">
