@@ -128,6 +128,7 @@
             'our-project.pradhan-mantri-jan-aushadhi-kendra',
             'our-project.journal',
             'our-project.lok-nyay-seva-kendra',
+            'our-project.wellness-centres-for-females',
             'our-project.project-bhairavi',
         ])
             ? 'text-orange-600'
@@ -150,6 +151,12 @@
                     x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150"
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
                     <div class="py-2">
+                        <a href="{{ route('our-project.wellness-centres-for-females') }}"
+                            class="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-yellow-500
+                {{ request()->routeIs('our-project.wellness-centres-for-females') ? 'bg-gray-200 text-yellow-500 font-semibold' : '' }}">
+                            Wellness Centres for Females
+                        </a>
+
                         
                          <a href="{{ route('our-project.project-bhairavi') }}"
                             class="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-yellow-500 
