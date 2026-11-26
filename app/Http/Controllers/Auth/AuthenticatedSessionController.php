@@ -40,13 +40,16 @@ class AuthenticatedSessionController extends Controller
 
             $request->session()->flash('toastr', [
                 'type' => 'error',
-                'message' => 'Your account has been banned. Please connect with support!'
+                'message' => 'This account is inactive. Please contact your administrator.'
             ]);
 
-            return redirect('/');
+            return redirect()->route('login')->withErrors(['email' => 'This staff account is inactive. Please contact your administrator.']);
         }
 
-        // Role ke hisaab se redirect
+        // Staff accounts with a valid admin role should reach the dashboard.
+        if ($request->user()->roles()->exists()) {
+            return redirect()->intended(route('admin.dashboard.index'));
+        }
         if ($request->user()->is_admin === 1) {
             return redirect()->intended(route('admin.dashboard.index'));
         } elseif ($request->user()->is_admin === 0) {
