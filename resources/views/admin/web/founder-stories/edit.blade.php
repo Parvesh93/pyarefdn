@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="founder-stories">
+
 <div class="max-w-4xl mx-auto my-6 bg-white shadow-md rounded p-6">
     <div class="bg-white shadow-sm border-l-4 border-blue-500 mb-4">
         <h5 class="pl-1 text-lg font-semibold">Edit Founder Story</h5>
@@ -62,5 +64,7 @@
             Update Story
         </button>
     </form>
+</div>
+
 </div>
 @endsection
