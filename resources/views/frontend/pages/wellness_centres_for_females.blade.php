@@ -74,19 +74,17 @@
 .pf-wellness .pw-quote blockquote{margin:0 0 21px;font-size:13px;color:#55606c;line-height:1.85;flex:1}
 .pf-wellness .pw-quote strong{color:var(--navy);font-size:14px;font-weight:800}
 .pf-wellness .pw-quote span{color:var(--orange);font-size:11px;font-weight:700;line-height:1.65;margin-top:4px}
-.pf-wellness .pw-feature-photos{background:#fff;padding:63px 0 70px}
-.pf-wellness .pw-feature-photos .pw-section-heading{margin-bottom:28px}
-.pf-wellness .pw-photo-slider{position:relative;padding:0 2px}
-.pf-wellness .pw-photo-slider .swiper{overflow:hidden}
-.pf-wellness .pw-photo-slider .swiper-slide{height:auto}
-.pf-wellness .pw-photo-slider .swiper-slide a{display:block;height:100%;aspect-ratio:4/3;overflow:hidden;border-radius:7px;background:#f1eae4}
-.pf-wellness .pw-photo-slider .swiper-slide img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
-.pf-wellness .pw-photo-slider .swiper-slide a:hover img{transform:scale(1.025)}
-.pf-wellness .pw-photo-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:40px;height:40px;display:grid;place-items:center;border:0;border-radius:50%;background:#f46226;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 3px 14px #0002}
-.pf-wellness .pw-photo-prev{left:-15px}
-.pf-wellness .pw-photo-next{right:-15px}
-.pf-wellness .pw-photo-arrow.swiper-button-disabled{opacity:.38;cursor:default}
-@media(max-width:767px){.pf-wellness .pw-feature-photos{padding:51px 0}.pf-wellness .pw-photo-arrow{width:34px;height:34px}.pf-wellness .pw-photo-prev{left:-9px}.pf-wellness .pw-photo-next{right:-9px}}
+.pf-wellness .pw-feature-photos{background:#fff;padding:65px 0 73px}
+.pf-wellness .pw-feature-photos .pw-section-heading{margin-bottom:30px}
+.pf-wellness .pw-photo-grid{columns:3;column-gap:20px}
+.pf-wellness .pw-photo-grid>a{display:block;break-inside:avoid;margin:0 0 20px;overflow:hidden;border-radius:4px;background:transparent}
+.pf-wellness .pw-photo-grid img{width:100%;height:auto;display:block;object-fit:contain;border:0;border-radius:4px;box-shadow:none;transition:opacity .2s}
+.pf-wellness .pw-photo-grid>a:hover img{opacity:.92}
+.pf-wellness .pw-photo-grid>a.pw-photo-extra[hidden]{display:none!important}
+.pf-wellness .pw-show-photos{display:flex;align-items:center;justify-content:center;gap:12px;margin:24px auto 0;padding:13px 24px;background:#16163f;color:#fff;border:0;border-radius:5px;font-size:12px;font-weight:800;letter-spacing:.035em;cursor:pointer}
+.pf-wellness .pw-show-photos:hover{background:#f46226}
+@media(max-width:900px){.pf-wellness .pw-photo-grid{columns:2;column-gap:15px}.pf-wellness .pw-photo-grid>a{margin-bottom:15px}}
+@media(max-width:550px){.pf-wellness .pw-feature-photos{padding:48px 0 58px}.pf-wellness .pw-photo-grid{columns:2;column-gap:9px}.pf-wellness .pw-photo-grid>a{margin-bottom:9px}}
 .pf-wellness .pw-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .pf-wellness .pw-gallery a{display:block;overflow:hidden;border-radius:7px;aspect-ratio:4/3;background:#eee6e0}
 .pf-wellness .pw-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}
@@ -115,20 +113,24 @@
  @endforeach
 </div></section>
 <section class="pw-feature-photos" aria-labelledby="pw-photos-title"><div class="pw-container">
-  <div class="pw-section-heading"><span class="pw-tag">PHOTOGRAPHS FROM THE PROGRAMME</span><h2 id="pw-photos-title">WELLNESS CENTRES <span>IN ACTION</span></h2><p>Original photographs from the live Wellness Centres for Females page, displayed in the same numbered sequence.</p></div>
-  <div class="pw-photo-slider">
-    <div class="swiper pw-wellness-swiper"><div class="swiper-wrapper">
-      @for($i = 1; $i <= 17; $i++)
-        <div class="swiper-slide">
-          <a href="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}" data-fancybox="wellness-top-gallery" data-caption="Wellness Centre {{ $i }}">
-            <img src="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}" alt="Wellness Centre activity photograph {{ $i }}" loading="lazy" decoding="async">
-          </a>
-        </div>
-      @endfor
-    </div></div>
-    <button type="button" class="pw-photo-arrow pw-photo-prev" aria-label="Previous photographs">‹</button>
-    <button type="button" class="pw-photo-arrow pw-photo-next" aria-label="Next photographs">›</button>
+  <div class="pw-section-heading">
+    <span class="pw-tag">PHOTOGRAPHS FROM THE PROGRAMME</span>
+    <h2 id="pw-photos-title">WELLNESS CENTRES <span>IN ACTION</span></h2>
+    <p>Moments from our wellness camps, captured across the communities we serve.</p>
   </div>
+  <div class="pw-photo-grid" id="pw-project-photos">
+    @for($i = 1; $i <= 17; $i++)
+      <a href="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}"
+         data-fancybox="wellness-top-gallery"
+         data-caption="Wellness Centre {{ $i }}"
+         class="{{ $i > 6 ? 'pw-photo-extra' : '' }}"
+         @if($i > 6) hidden @endif>
+        <img src="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}"
+             alt="Wellness Centre activity photograph {{ $i }}" loading="lazy" decoding="async">
+      </a>
+    @endfor
+  </div>
+  <button type="button" class="pw-show-photos" id="pw-toggle-photos" aria-expanded="false" aria-controls="pw-project-photos">VIEW ALL 17 PHOTOGRAPHS <span aria-hidden="true">↗</span></button>
 </div></section>
 <section class="pw-section"><div class="pw-container pw-about">
  <div class="pw-about-media"><img src="{{ asset('uploads/images/wellness-centres-2026/image_2.jpeg') }}" alt="Pyare Foundation women's health programme" loading="lazy"><img src="{{ asset('uploads/images/wellness-centres-2026/image_3.jpeg') }}" alt="Community healthcare activity" loading="lazy"></div>
@@ -235,20 +237,14 @@
 </main>
 <script>
 document.addEventListener('DOMContentLoaded', function () {
-  if (typeof Swiper === 'undefined') return;
-  var el = document.querySelector('.pw-wellness-swiper');
-  if (!el || el.swiper) return;
-  new Swiper(el, {
-    slidesPerView: 1.17,
-    spaceBetween: 14,
-    grabCursor: true,
-    watchOverflow: true,
-    breakpoints: {
-      640: { slidesPerView: 2, spaceBetween: 16 },
-      1024: { slidesPerView: 3, spaceBetween: 20 },
-      1280: { slidesPerView: 3.5, spaceBetween: 20 }
-    },
-    navigation: { prevEl: '.pw-photo-prev', nextEl: '.pw-photo-next' }
+  var button = document.getElementById('pw-toggle-photos');
+  if (!button) return;
+  var extra = document.querySelectorAll('#pw-project-photos .pw-photo-extra');
+  button.addEventListener('click', function () {
+    var show = button.getAttribute('aria-expanded') !== 'true';
+    extra.forEach(function (photo) { photo.hidden = !show; });
+    button.setAttribute('aria-expanded', show ? 'true' : 'false');
+    button.innerHTML = show ? 'SHOW FEWER PHOTOGRAPHS <span aria-hidden="true">↑</span>' : 'VIEW ALL 17 PHOTOGRAPHS <span aria-hidden="true">↗</span>';
   });
 });
 </script>
