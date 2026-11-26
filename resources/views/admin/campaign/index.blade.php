@@ -4,6 +4,8 @@
 
 @extends('admin.layouts.master')
 @section('adminContent')
+<div class="pf-admin-page" data-admin-module="campaign">
+
     <!-- Main Content -->
     <div class="flex-1 flex flex-col overflow-hidden">
         <!-- Navbar Include -->
@@ -138,4 +140,6 @@
 
         </main>
     </div>
+
+</div>
 @endsection
