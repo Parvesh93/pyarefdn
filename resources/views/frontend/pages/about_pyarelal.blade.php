@@ -113,49 +113,59 @@
         </div>
 
         @if(isset($stories) && $stories->count())
-            <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                @foreach($stories as $story)
-                    <article class="bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition duration-300 border border-gray-100">
-                        <a href="{{ route('founder-stories.show', $story->slug) }}" class="block">
-                            <div class="relative h-[250px] bg-gray-100 overflow-hidden">
-                                <img
-                                    src="{{ asset('uploads/founder-stories/' . $story->story_image) }}"
-                                    alt="{{ $story->title }}"
-                                    class="w-full h-full object-cover hover:scale-105 transition duration-500"
-                                >
-                                <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
+            <div class="mx-auto relative">
+                <div class="swiper founderStoriesSwiper">
+                    <div class="swiper-wrapper">
+                        @foreach($stories as $story)
+                            <div class="swiper-slide !h-auto">
+                                <article class="h-full flex flex-col bg-white rounded-2xl overflow-hidden shadow hover:shadow-lg transition duration-300 border border-gray-100">
+                                    <a href="{{ route('founder-stories.show', $story->slug) }}" class="block">
+                                        <div class="relative h-[200px] bg-gray-100 overflow-hidden">
+                                            <img
+                                                src="{{ asset('uploads/founder-stories/' . $story->story_image) }}"
+                                                alt="{{ $story->title }}"
+                                                class="w-full h-full object-cover hover:scale-105 transition duration-500"
+                                            >
+                                            <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
 
-                                @if($story->story_date)
-                                    <span class="absolute top-4 left-4 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">
-                                        {{ $story->story_date->format('d M Y') }}
-                                    </span>
-                                @endif
+                                            @if($story->story_date)
+                                                <span class="absolute top-4 left-4 bg-white/90 text-gray-900 text-xs font-semibold px-3 py-1 rounded-full">
+                                                    {{ $story->story_date->format('d M Y') }}
+                                                </span>
+                                            @endif
+                                        </div>
+                                    </a>
+
+                                    <div class="p-6 flex flex-col flex-grow">
+                                        <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
+                                            <a href="{{ route('founder-stories.show', $story->slug) }}">
+                                                {{ $story->title }}
+                                            </a>
+                                        </h3>
+
+                                        @if($story->excerpt)
+                                            <p class="text-gray-600 text-sm leading-6 mb-4 line-clamp-3 flex-grow">
+                                                {{ $story->excerpt }}
+                                            </p>
+                                        @endif
+
+                                        <a href="{{ route('founder-stories.show', $story->slug) }}"
+                                           class="inline-flex items-center text-orange-500 font-semibold hover:text-orange-600 mt-auto">
+                                            Read Story
+                                            <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </a>
+                                    </div>
+                                </article>
                             </div>
-                        </a>
+                        @endforeach
+                    </div>
 
-                        <div class="p-6">
-                            <h3 class="text-xl font-bold text-gray-900 mb-3 line-clamp-2">
-                                <a href="{{ route('founder-stories.show', $story->slug) }}">
-                                    {{ $story->title }}
-                                </a>
-                            </h3>
-
-                            @if($story->excerpt)
-                                <p class="text-gray-600 text-sm leading-6 mb-4 line-clamp-3">
-                                    {{ $story->excerpt }}
-                                </p>
-                            @endif
-
-                            <a href="{{ route('founder-stories.show', $story->slug) }}"
-                               class="inline-flex items-center text-orange-500 font-semibold hover:text-orange-600">
-                                Read Story
-                                <svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4 ml-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
-                                </svg>
-                            </a>
-                        </div>
-                    </article>
-                @endforeach
+                    <div class="swiper-button-next"></div>
+                    <div class="swiper-button-prev"></div>
+                    <div class="swiper-pagination mt-6"></div>
+                </div>
             </div>
         @else
             <div class="bg-white rounded-2xl shadow p-8 text-center text-gray-500">
@@ -742,4 +752,43 @@
             </div>
         </div>
     </section>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        new Swiper('.founderStoriesSwiper', {
+            loop: true,
+            spaceBetween: 24,
+            grabCursor: true,
+
+            autoplay: {
+                delay: 4000,
+                disableOnInteraction: false,
+            },
+
+            pagination: {
+                el: '.founderStoriesSwiper .swiper-pagination',
+                clickable: true,
+            },
+
+            navigation: {
+                nextEl: '.founderStoriesSwiper .swiper-button-next',
+                prevEl: '.founderStoriesSwiper .swiper-button-prev',
+            },
+
+            breakpoints: {
+                0: {
+                    slidesPerView: 1.2
+                },
+                640: {
+                    slidesPerView: 1.2
+                },
+                768: {
+                    slidesPerView: 2
+                },
+                1024: {
+                    slidesPerView: 3
+                }
+            }
+        });
+    });
+</script>
 @endsection
