@@ -34,13 +34,13 @@ class UserController extends Controller
         $this->access    = 'user';
 
 
-        $this->middleware('permission:' . $this->access . '-view|' . $this->access . '-create|' . $this->access . '-edit|' . $this->access . '-delete', ['only' => ['index', 'show', 'status', 'sendPassword']]);
+        $this->middleware('permission:' . $this->access . '-view|' . $this->access . '-create|' . $this->access . '-edit|' . $this->access . '-delete', ['only' => ['index', 'show', 'status']]);
         $this->middleware('permission:' . $this->access . '-create', ['only' => ['create', 'store']]);
-        $this->middleware('permission:' . $this->access . '-edit', ['only' => ['edit', 'update', 'status']]);
+        $this->middleware('permission:' . $this->access . '-edit', ['only' => ['edit', 'update', 'status', 'sendPassword', 'passwordChange']]);
         $this->middleware('permission:' . $this->access . '-delete', ['only' => ['destroy']]);
         $this->middleware('permission:' . $this->access . '-password-print', ['only' => ['printPassword']]);
         $this->middleware('permission:' . $this->access . '-password-change', ['only' => ['passwordChange']]);
-        $this->middleware('permission:' . $this->access . '-import', ['only' => ['index', 'import', 'importStore']]);
+        $this->middleware('permission:' . $this->access . '-import', ['only' => ['import', 'importStore']]);
     }
     /**
      * Display a listing of the resource.
@@ -97,7 +97,7 @@ class UserController extends Controller
         $user->email = strtolower(trim($validated['email']));
         // Password is never displayed, emailed or stored in reversible form.
         $user->password = Hash::make(Str::random(48));
-        $user->password_text = null;
+        $user->password_text = '';
         // A provisional unique identifier avoids collisions before the database ID exists.
         $user->staff_id = 'PF-' . strtoupper(Str::random(12));
         $user->role_id = $role->id;
