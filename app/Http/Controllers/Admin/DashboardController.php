@@ -26,7 +26,18 @@ class DashboardController extends Controller
         $this->path      = 'dashboard';
         $this->access    = 'dashboard';
 
-        $this->middleware('permission:' . $this->access . '-view|' . $this->access . '-create|' . $this->access . '-edit|' . $this->access . '-delete', ['only' => ['index', 'show']]);
+        // Dashboard is the landing page for authorised admin users, including
+        // legacy Super Admin accounts that predate dashboard-view permissions.
+        // Module-specific permissions still protect all management screens.
+        $this->middleware(function ($request, $next) {
+            $user = $request->user();
+            abort_unless($user && (
+                $user->is_admin == 1 ||
+                $user->hasAnyRole(['Super Admin', 'Admin']) ||
+                $user->can('dashboard-view')
+            ), 403, 'Your account does not have dashboard access.');
+            return $next($request);
+        }, ['only' => ['index', 'show']]);
         $this->middleware('permission:' . $this->access . '-create', ['only' => ['create', 'store']]);
         $this->middleware('permission:' . $this->access . '-edit', ['only' => ['edit', 'update']]);
         $this->middleware('permission:' . $this->access . '-delete', ['only' => ['destroy']]);
