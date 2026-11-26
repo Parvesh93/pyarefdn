@@ -165,6 +165,16 @@ class WebsiteDemoContentSeeder extends Seeder
             ]);
         }
 
+        foreach ([
+            ['Why Community Health Awareness Matters', 'Small steps toward healthier communities.', 'Community health education can help families understand preventive care, nutrition and the importance of timely check-ups.', 'health_facts_1760175726.webp'],
+            ['Learning and Empowerment Through Education', 'Building confidence through local learning.', 'Community-led education activities provide practical opportunities for children and families to learn, connect and develop useful skills.', 'brain_1760160459.webp'],
+            ['Supporting Women’s Wellbeing', 'Awareness, dignity and participation.', 'Open conversations about health and wellbeing can encourage women and girls to seek reliable information and available community support.', 'positive_thinking_1760162197.webp'],
+        ] as [$title,$sub_title,$description,$attach]) {
+            $this->put('blogs','title',compact('title','sub_title','description','attach') + [
+                'button_more'=>'Read More', 'status'=>1
+            ]);
+        }
+
         $this->command?->info('Demo CMS content restored. No donor, donation, volunteer or member records were created.');
     }
 
