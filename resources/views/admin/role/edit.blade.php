@@ -4,6 +4,8 @@
 
 @extends('admin.layouts.master')
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="role">
+
     <div class="py-6">
         <div class="max-w-5xl  px-4">
             <div class="bg-white shadow rounded-lg">
@@ -84,4 +86,6 @@
             </div>
         </div>
     </div>
+
+</div>
 @endsection
