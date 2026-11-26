@@ -4,6 +4,8 @@ Edit {{ $title }}
 
 @extends('admin.layouts.master')
 @section('adminContent')
+<div class="pf-admin-page" data-admin-module="volunteer">
+
     <!-- Header -->
     <div class="max-w-7xl mx-10 my-4  p-6 bg-white shadow-lg ">
         <div class="bg-white shadow-sm border-l-4 border-blue-500 mb-6">
@@ -205,4 +207,6 @@ Edit {{ $title }}
         </form>
     </div>
    
+
+</div>
 @endsection
