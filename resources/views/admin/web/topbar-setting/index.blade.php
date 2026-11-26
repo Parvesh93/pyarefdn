@@ -3,6 +3,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="topbar-setting">
+
 
  <div class="max-w-3xl mt-4 ml-4 p-6 bg-white rounded-lg shadow-lg">
     <h2 class="text-xl font-semibold text-gray-800 border-l-4 border-blue-500 pl-3 mb-6">
@@ -66,4 +68,6 @@
 </div>
 
 
+
+</div>
 @endsection
