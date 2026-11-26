@@ -35,6 +35,15 @@
 </head>
 
 <body class="font-sans">
+    @if(config('app.demo_mode'))
+      <div role="status" style="position:relative;z-index:9999;text-align:center;background:#16163f;color:white;font:600 12px/1.5 Arial,sans-serif;padding:9px 16px;">
+        PYARE FOUNDATION · WEBSITE DEMO
+        <span style="opacity:.8;font-weight:400;">— Preview only. Donations and payments are disabled.</span>
+      </div>
+      @if(session('demo_notice'))
+        <div role="alert" style="padding:13px 18px;background:#fff1e7;color:#a23c15;text-align:center;font:600 13px/1.5 Arial,sans-serif;">{{ session('demo_notice') }}</div>
+      @endif
+    @endif
     @include('frontend.layouts.topbar')
 
     @include('frontend.layouts.header')
