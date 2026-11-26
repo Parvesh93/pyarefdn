@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="advisory">
+
     <!-- [ Main Content ] start -->
     <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
         <!-- Left Form -->
@@ -200,4 +202,6 @@
             }
         }
     </script>
+
+</div>
 @endsection
