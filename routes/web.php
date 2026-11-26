@@ -167,6 +167,11 @@ Route::name('web.')->prefix('web')->group(
     }
 );
 
+// Direct visitors opening /admin to the staff login; authenticated dashboard routes remain unchanged.
+Route::get('/admin', function () {
+    return redirect()->route('login');
+});
+
 //Admins routes
 
 
