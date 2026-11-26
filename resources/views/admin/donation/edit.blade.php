@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page" data-admin-module="donation">
+
     <section>
 
         <div class="max-w-6xl mx-auto p-5">
@@ -270,4 +272,6 @@
 
 
     </section>
+
+</div>
 @endsection
