@@ -51,7 +51,7 @@ Create Staff
       <div class="pf-staff-fields">
         
         <div class="pf-staff-field"><label for="first_name">First Name <span style="color:#f46226">*</span></label><input id="first_name" type="text" name="first_name" maxlength="100" required autocomplete="given-name" value="{{ old('first_name') }}" placeholder="First name">@error('first_name')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
-        <div class="pf-staff-field"><label for="last_name">Last Name <span style="color:#f46226">*</span></label><input id="last_name" type="text" name="last_name" maxlength="100" autocomplete="family-name" value="{{ old('last_name') }}" placeholder="Last name"><small>Optional</small>@error('last_name')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
+        <div class="pf-staff-field"><label for="last_name">Last Name</label><input id="last_name" type="text" name="last_name" maxlength="100" autocomplete="family-name" value="{{ old('last_name') }}" placeholder="Last name"><small>Optional</small>@error('last_name')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
         <div class="pf-staff-field"><label for="email">Email Address <span style="color:#f46226">*</span></label><input id="email" name="email" type="email" maxlength="255" required autocomplete="email" value="{{ old('email') }}" placeholder="name@example.org"><small>Used for login and password setup.</small>@error('email')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
         <div class="pf-staff-field"><label for="staff-role">Access Role <span style="color:#f46226">*</span></label><select id="staff-role" name="roles[]" required><option value="">Select a role</option>
           @foreach($roles as $role)
