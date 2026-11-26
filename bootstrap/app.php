@@ -13,6 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
         health: '/up',
     )
     ->withMiddleware(function (Middleware $middleware): void {
+        // Demo safeguard: real payment processing is disabled, even if a live
+        // payment credential is accidentally configured on the demo server.
+        $middleware->web(append: [\App\Http\Middleware\DemoPaymentGuard::class]);
+
         // This is good method to pass data with middleware 
         $middleware->alias([
             'is_role' => RoleMiddleware::class,
