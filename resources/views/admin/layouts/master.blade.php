@@ -114,6 +114,35 @@ body.pf-admin-body{font-family:'DM Sans',Arial,sans-serif;background:#f7f8fb;col
 .pf-admin-body .pf-admin-page .pf-admin-section-heading p{font-size:12px;color:#7f8795;line-height:1.65;margin:0}
 .pf-admin-body .pf-admin-page .pf-admin-section-heading a{color:#f46226;text-decoration:none;font-size:12px;font-weight:800}
 @media(max-width:767px){.pf-admin-body .pf-admin-page{padding:20px 14px 38px}.pf-admin-body .pf-admin-page>div.max-w-7xl,.pf-admin-body .pf-admin-page>div.max-w-5xl,.pf-admin-body .pf-admin-page>div.mx-10,.pf-admin-body .pf-admin-page>div.mx-4{padding:16px!important}.pf-admin-body .pf-admin-page table th,.pf-admin-body .pf-admin-page table td{padding:11px 12px!important}}
+
+/* Phase 3: Content, people and editorial management */
+.pf-admin-body .pf-admin-content-page>.grid{gap:20px!important;align-items:start}
+.pf-admin-body .pf-admin-content-page>.grid>.col-span-1,.pf-admin-body .pf-admin-content-page>.grid>.col-span-2{min-width:0;margin:0!important}
+.pf-admin-body .pf-admin-content-page>.grid>.col-span-1>form,.pf-admin-body .pf-admin-content-page>.grid>.col-span-2>div,.pf-admin-body .pf-admin-content-page>.grid>.col-span-2{background:#fff;border:1px solid #e9eaf0;border-radius:12px!important;box-shadow:0 5px 24px #20234009!important}
+.pf-admin-body .pf-admin-content-page>.grid>.col-span-1>form{padding:23px!important}
+.pf-admin-body .pf-admin-content-page>.grid>.col-span-2{overflow:hidden}
+.pf-admin-body .pf-admin-content-page>.grid>.col-span-2>.bg-white{padding:22px!important}
+.pf-admin-body .pf-admin-content-page .border-l-4.bg-white{background:transparent!important;box-shadow:none!important;border-left:0!important;border-bottom:1px solid #eef0f3;margin-bottom:18px!important;padding-bottom:15px}
+.pf-admin-body .pf-admin-content-page .border-l-4 h2,.pf-admin-body .pf-admin-content-page .border-l-4 h5{font-family:'Manrope',Arial,sans-serif;font-weight:800!important;color:#1e2240!important;letter-spacing:-.025em;font-size:19px!important}
+.pf-admin-body .pf-admin-content-page .bg-blue-50{background:#fff!important}
+.pf-admin-body .pf-admin-content-page .text-blue-500,.pf-admin-body .pf-admin-content-page .text-blue-600{color:#ef632d!important}
+.pf-admin-body .pf-admin-content-page :is(button[type=submit],input[type=submit]){font-weight:800;border-radius:8px!important}
+.pf-admin-body .pf-admin-content-page :is(input[type=file]){max-width:100%;height:auto;cursor:pointer}
+.pf-admin-body .pf-admin-content-page input[type=file]::file-selector-button{border:0;background:#f2f3f8;color:#343950;border-radius:6px;padding:9px 12px;margin-right:14px;cursor:pointer;font-size:11px;font-weight:800}
+.pf-admin-body .pf-admin-content-page .bg-white.rounded-xl.shadow-md,.pf-admin-body .pf-admin-content-page .rounded-xl.shadow-md{border:1px solid #e9eaf0;border-radius:12px!important;box-shadow:0 5px 22px #2023400b!important}
+.pf-admin-body .pf-admin-content-page .rounded-xl.shadow-md img{object-fit:cover}
+.pf-admin-body .pf-admin-content-page .fc-toolbar-title{font-family:'Manrope',Arial,sans-serif!important;color:#1c2040!important;font-size:18px!important;font-weight:800!important}
+.pf-admin-body .pf-admin-content-page .fc-button-primary{background:#16163f!important;border-color:#16163f!important;border-radius:6px!important;font-size:12px!important;font-weight:700!important}
+.pf-admin-body .pf-admin-content-page .fc-button-primary:not(:disabled):hover,.pf-admin-body .pf-admin-content-page .fc-button-primary.fc-button-active{background:#f46226!important;border-color:#f46226!important}
+.pf-admin-body .pf-admin-content-page .fc-day-today{background:#fff3ed!important;border-color:#f46226!important}
+.pf-admin-body .pf-admin-content-page #calendar{border:1px solid #e9eaf0;border-radius:12px!important;box-shadow:0 5px 22px #20234008!important;padding:20px!important;min-width:0}
+.pf-admin-body .pf-admin-content-page .ql-toolbar.ql-snow{border-color:#e6e8ef!important;border-radius:8px 8px 0 0;background:#fafafd}
+.pf-admin-body .pf-admin-content-page .ql-container.ql-snow{border-color:#e6e8ef!important;border-radius:0 0 8px 8px}
+.pf-admin-body .pf-admin-content-page .tox-tinymce{border-color:#e6e8ef!important;border-radius:8px!important}
+.pf-admin-body .pf-admin-content-page .fixed.inset-0.z-50>div,.pf-admin-body .pf-admin-content-page [id^="editModal-"]>div{border-radius:12px!important}
+.pf-admin-body .pf-admin-content-page .grid.grid-cols-1.md\\:grid-cols-3{grid-template-columns:minmax(270px,1fr) minmax(0,2fr)}
+@media(max-width:1024px){.pf-admin-body .pf-admin-content-page .grid.grid-cols-1.md\\:grid-cols-3{grid-template-columns:1fr}}
+@media(max-width:767px){.pf-admin-body .pf-admin-content-page #calendar{padding:11px!important}.pf-admin-body .pf-admin-content-page>.grid>.col-span-1>form{padding:16px!important}.pf-admin-body .pf-admin-content-page .fc-toolbar-title{font-size:15px!important}}
 @media(prefers-reduced-motion:reduce){.pf-admin-body *{transition:none!important}}
 </style>
   
