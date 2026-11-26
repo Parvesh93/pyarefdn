@@ -1,193 +1,70 @@
+@extends('admin.layouts.master')
 @section('title')
-    Create Staff
+Create Staff
+@endsection
+@section('page_css')
+<style>
+.pf-staff-form-page{max-width:1120px!important}
+.pf-staff-hero{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center;margin:0 0 22px}
+.pf-staff-hero span{font-size:10px;color:#f46226;font-weight:800;letter-spacing:.15em}
+.pf-staff-hero h1{font-size:28px;font-weight:800;color:#171936;margin:7px 0}
+.pf-staff-hero p{font-size:12px;color:#7c8492;line-height:1.65}
+.pf-staff-back{padding:10px 16px;border:1px solid #e4e7ee;border-radius:8px;background:#fff;color:#272c45;text-decoration:none;font-weight:800;font-size:12px}
+.pf-staff-card{background:#fff;border:1px solid #e9eaf0;border-radius:13px;padding:29px;box-shadow:0 5px 23px #20234008}
+.pf-staff-card h2{font-size:17px;font-weight:800;color:#1c203c;margin:0 0 7px}
+.pf-staff-card .pf-hint{font-size:12px;color:#838b9a;margin:0 0 25px;line-height:1.6}
+.pf-staff-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px}
+.pf-staff-field{min-width:0}
+.pf-staff-field label{display:block;margin-bottom:9px;font-size:12px;font-weight:800;color:#505a6e}
+.pf-staff-field input,.pf-staff-field select{width:100%;min-height:47px}
+.pf-staff-field small{display:block;font-size:11px;color:#8b91a0;margin-top:7px;line-height:1.5}
+.pf-staff-field .pf-staff-error{color:#c33838}
+.pf-staff-wide{grid-column:1 / -1}
+.pf-staff-note{background:#fff8f2;border:1px solid #fae0d1;padding:16px 18px;color:#6c5960;font-size:12px;border-radius:8px;line-height:1.75;margin-top:24px}
+.pf-staff-note strong{color:#cf4c1d}
+.pf-staff-photo{display:flex;align-items:center;gap:17px;flex-wrap:wrap}
+.pf-staff-photo img{width:66px;height:66px;object-fit:cover;border-radius:11px;background:#f1f2f5}
+.pf-staff-actions{display:flex;justify-content:flex-end;align-items:center;gap:14px;margin-top:25px;border-top:1px solid #eff0f4;padding-top:23px}
+.pf-staff-actions button{background:#f46226!important;color:#fff;padding:12px 23px;border-radius:8px;font-size:12px;font-weight:800}
+.pf-staff-actions a{font-size:12px;color:#646d7a;text-decoration:none;font-weight:700}
+@media(max-width:650px){.pf-staff-fields{grid-template-columns:1fr}.pf-staff-card{padding:20px 16px}.pf-staff-hero h1{font-size:24px}}
+</style>
 @endsection
 
-@extends('admin.layouts.master')
-
 @section('adminContent')
-<div class="pf-admin-page pf-admin-content-page" data-admin-module="user">
-
-    <div class="max-w-7xl mx-10 my-4  p-6 bg-white shadow-lg ">
-        <div class="bg-white shadow-sm border-l-4 border-blue-500 mb-6">
-            <div class="px-5 py-2">
-                <h1 class="text-xl font-medium text-gray-800">Create {{ $title }}</h1>
-            </div>
-            <!-- Action Buttons -->
-
-        </div>
-
-
-        <div class="mb-6 flex gap-3">
-            <button
-                class="bg-blue-500 hover:bg-blue-600 text-white px-4 py-2 rounded flex items-center gap-2 transition-colors">
-                <a href="{{ route($route . '.index') }}"><i class="fas fa-arrow-left"></i> Back</a>
-            </button>
-            <button
-                class="bg-cyan-500 hover:bg-cyan-600 text-white px-4 py-2 rounded flex items-center gap-2 transition-colors">
-                <a href="{{ route($route . '.create') }}"><i class="fas fa-sync-alt"></i> Refresh</a>
-            </button>
-        </div>
+<div class="pf-admin-page pf-staff-form-page">
+  <div class="pf-staff-hero">
+    <div><span>HUMAN RESOURCES / STAFF</span><h1>Add Staff Member</h1><p>Add a team member. Their staff ID will be generated automatically.</p></div>
+    <a class="pf-staff-back" href="{{ route('admin.user.index') }}">← Staff List</a>
+  </div>
+  @if($errors->any())
+    <div role="alert" style="padding:14px 18px;background:#fff0ef;border:1px solid #ffd6d3;border-radius:9px;color:#b32626;margin-bottom:17px;font-size:12px">
+      Please correct the highlighted fields before submitting.
     </div>
-
-
-    <div class="mx-10 p-6  mb-10 bg-white overflow-x-auto shadow-lg  ">
-
-
-
-        <form action="{{ route($route . '.store') }}" method="POST" enctype="multipart/form-data"
-            class="grid grid-cols-1 lg:grid-cols-2 gap-3">
-            @csrf
-
-
-            <div>
-                <label for="staff_id" class="block text-sm font-medium text-gray-700 mb-1">Staff ID <span
-                        class="text-red-500">*</span></label>
-                <input type="text" name="staff_id"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2  focus:outline-none focus:ring-0 focus:border-blue-400"
-                    value="{{ old('staff_id') }}" placeholder="Enter staff ID" required />
-            </div>
-
-            <div>
-                <label for="first_name" class="block text-sm font-medium text-gray-700 mb-1">First Name <span
-                        class="text-red-500">*</span></label>
-                <input type="text" name="first_name"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2  focus:outline-none focus:ring-0 focus:border-blue-400"
-                    value="{{ old('first_name') }}" placeholder="Enter first name" required />
-            </div>
-
-            <div>
-                <label for="last_name" class="block text-sm font-medium text-gray-700 mb-1">Last Name
-                </label>
-                <input type="text" name="last_name"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2  focus:outline-none focus:ring-0 focus:border-blue-400"
-                    value="{{ old('last_name') }}" placeholder="Enter last name" />
-            </div>
-
-            <div>
-                <label for="father_name" class="block text-sm font-medium text-gray-700 mb-1">Father Name
-                </label>
-                <input type="text" name="father_name"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2  focus:outline-none focus:ring-0 focus:border-blue-400"
-                    value="{{ old('father_name') }}" placeholder="Enter father name"  />
-            </div>
-
-            <div>
-                <label for="mother_name" class="block text-sm font-medium text-gray-700 mb-1">Mother Name
-                </label>
-                <input type="text" name="mother_name"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2  focus:outline-none focus:ring-0 focus:border-blue-400"
-                    value="{{ old('mother_name') }}" placeholder="Enter mother name"  />
-            </div>
-
-            <div>
-                <label for="email" class="block text-sm font-medium text-gray-700 mb-1">Email <span
-                        class="text-red-500">*</span></label>
-                <input type="email" name="email"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2  focus:outline-none focus:ring-0 focus:border-blue-400"
-                    value="{{ old('email') }}" placeholder="Enter email" required />
-            </div>
-
-
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Gender <span
-                        class="text-red-500">*</span></label>
-                <select name="gender"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2 border-blue-400 focus:outline-none focus:ring-0 focus:border-blue-600"
-                    required>
-                    <option value="">{{ __('select') }}</option>
-                    <option value="1">Male</option>
-                    <option value="2">Female</option>
-                    <option value="3">Other</option>
-
-                </select>
-            </div>
-
-
-            <div>
-                <label class="block text-sm font-medium text-gray-700 mb-1">Role <span class="text-red-500">*</span></label>
-                <select name="roles[]"
-                    class="w-full px-2 py-2 bg-blue-50 border-0 border-b-2 border-blue-400 focus:outline-none focus:ring-0 focus:border-blue-600"
-                    required>
-                    <option value="">{{ __('select') }}</option>
-                    @foreach ($roles as $role)
-                        <option value="{{ $role->id }}" @if (old('roles') == $role->id) selected @endif>
-                            {{ $role->name }}</option>
-                    @endforeach
-
-
-
-                </select>
-            </div>
-
-
-
-            <div>
-                <label for="attach" class="block text-sm font-medium text-gray-700 mb-1">
-                    Photo
-                    <span class="text-xs text-gray-500">(300px width)</span>
-                    <span class="text-red-500">*</span>
-                </label>
-
-                <div class="flex flex-col items-center justify-center w-full">
-                    <!-- Upload Box -->
-                    <label for="attach"
-                        class="flex flex-col items-center justify-center w-full h-32 border-2 border-dashed border-gray-300 rounded-lg cursor-pointer bg-slate-50 hover:bg-slate-100 transition duration-200 ease-in-out">
-
-                        <!-- Upload Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="w-10 h-10 text-gray-400" fill="none"
-                            viewBox="0 0 24 24" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M7 16V4m0 0l-4 4m4-4l4 4m6 8h-6a2 2 0 01-2-2V4m8 4h2a2 2 0 012 2v12a2 2 0 01-2 2H6a2 2 0 01-2-2V10a2 2 0 012-2h2" />
-                        </svg>
-
-                        <!-- Text -->
-                        <p class="mt-2 text-sm text-gray-500">
-                            <span class="font-medium text-blue-600">Click to upload</span> or drag & drop
-                        </p>
-                        <p class="text-xs text-gray-400">PNG, JPG (max 500px width)</p>
-
-                        <input id="attach" name="attach" type="file" class="hidden" onchange="previewImage(event)" />
-                    </label>
-
-                    <!-- Preview Box -->
-                    <div id="preview-container" class="mt-4 hidden w-full">
-                        <p class="text-xs text-gray-700 mb-1">Preview:</p>
-                        <div class="w-full max-h-80 overflow-hidden rounded-lg shadow-md border">
-                            <img id="preview-image" src="" alt="Uploaded Image Preview"
-                                class="w-full h-[130px] object-cover" />
-                        </div>
-                    </div>
-                </div>
-            </div>
-            <br />
-
-            <div>
-                <button type="submit"
-                    class="py-2 px-4 bg-green-600 hover:bg-green-700 text-white font-medium rounded-lg shadow">
-                    <i class="fas fa-check mr-2"></i> Create
-                </button>
-            </div>
-
-
-        </form>
-    </div>
-
-
-
-
-    <script>
-        function previewImage(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const previewContainer = document.getElementById("preview-container");
-                const previewImage = document.getElementById("preview-image");
-
-                previewImage.src = URL.createObjectURL(file);
-                previewContainer.classList.remove("hidden");
-            }
-        }
-    </script>
-
+  @endif
+  <div class="pf-staff-card">
+    <h2>Staff Information</h2>
+    <p class="pf-hint">Only the essential information is required. A profile photo can be added now or later.</p>
+    <form method="POST" action="{{ route("admin.user.store") }}" enctype="multipart/form-data">
+      @csrf
+      
+      <div class="pf-staff-fields">
+        
+        <div class="pf-staff-field"><label for="first_name">First Name <span style="color:#f46226">*</span></label><input id="first_name" type="text" name="first_name" maxlength="100" required autocomplete="given-name" value="{{ old('first_name') }}" placeholder="First name">@error('first_name')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
+        <div class="pf-staff-field"><label for="last_name">Last Name <span style="color:#f46226">*</span></label><input id="last_name" type="text" name="last_name" maxlength="100" autocomplete="family-name" value="{{ old('last_name') }}" placeholder="Last name"><small>Optional</small>@error('last_name')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
+        <div class="pf-staff-field"><label for="email">Email Address <span style="color:#f46226">*</span></label><input id="email" name="email" type="email" maxlength="255" required autocomplete="email" value="{{ old('email') }}" placeholder="name@example.org"><small>Used for login and password setup.</small>@error('email')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
+        <div class="pf-staff-field"><label for="staff-role">Access Role <span style="color:#f46226">*</span></label><select id="staff-role" name="roles[]" required><option value="">Select a role</option>
+          @foreach($roles as $role)
+            <option value="{{ $role->id }}" {{ (string) old('roles.0') === (string) $role->id ? 'selected' : '' }}>{{ $role->name }}</option>
+          @endforeach
+        </select><small>Controls which admin modules this staff member can access.</small>@error('roles')<small class="pf-staff-error">{{ $message }}</small>@enderror @error('roles.0')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
+        <div class="pf-staff-field pf-staff-wide"><label for="attach">Profile Photo (optional)</label><div class="pf-staff-photo">
+        
+        <input id="attach" name="attach" type="file" accept="image/png,image/jpeg,image/webp"><small>JPG, PNG or WebP, maximum 2 MB.</small></div>@error('attach')<small class="pf-staff-error">{{ $message }}</small>@enderror</div>
+      </div>
+      <div class="pf-staff-note"><strong>Secure onboarding:</strong> The system creates a Staff ID and sends a one-time password setup link to the email address above. No password is displayed or shared.</div>
+      <div class="pf-staff-actions"><a href="{{ route('admin.user.index') }}">Cancel</a><button type="submit">Create Staff & Send Invite <span aria-hidden="true">↗</span></button></div>
+    </form>
+  </div>
 </div>
 @endsection
