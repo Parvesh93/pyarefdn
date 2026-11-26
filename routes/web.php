@@ -211,10 +211,7 @@ Route::name('admin.')->middleware(['auth:web'])->prefix('admin')->group(function
     Route::delete('/donor/destroy/{id}', [DonarController::class, 'destroy'])->name('donar.destroy');
 
     //User Routes
-    Route::get('/user/print/password/{id}', [UserController::class, 'printPassword'])->name('user.print.password');
-    Route::get('/user/show/password/{id}', [UserController::class, 'showPassword'])->name('user.show.password');
-    Route::get('/user/send/password/{id}', [UserController::class, 'sendPassword'])->name('user.send.password');
-    Route::post('/user/change/password', [UserController::class, 'passwordChange'])->name('user.change.password');
+    Route::post('/user/send/password/{id}', [UserController::class, 'sendPassword'])->name('user.send.password');
 
     //Mail Setting Routes
     Route::get('/mail-settings/index', [MailSettingController::class, 'index'])->name('mail-settings.index');
