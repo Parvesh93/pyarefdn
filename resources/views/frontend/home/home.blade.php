@@ -9,7 +9,7 @@
 
 @section('content')
 
-    @include('frontend.home.sections.social')
+    
     <!--Hero Section-->
     @include('frontend.home.sections.hero')
     

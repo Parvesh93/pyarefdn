@@ -370,8 +370,13 @@
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border border-black">3.</td>
-                                    <td class="px-4 py-2 border border-black">Rishabh Malhotra</td>
+                                    <td class="px-4 py-2 border border-black">Abhinav Bindal</td>
                                     <td class="px-4 py-2 border border-black">Treasurer</td>
+                                </tr>
+                                 <tr>
+                                    <td class="px-4 py-2 border border-black">4.</td>
+                                    <td class="px-4 py-2 border border-black">Abhay Dubey</td>
+                                    <td class="px-4 py-2 border border-black">Deputy Secretary</td>
                                 </tr>
                             
                             </tbody>
@@ -410,28 +415,28 @@
                                 </tr>
                             </thead>
                             <tbody class="bg-white">
+                                <!--<tr>-->
+                                <!--    <td class="px-4 py-2 border border-black">1.</td>-->
+                                    <!--<td class="px-4 py-2 border border-black">Krish</td>-->
+                                <!--    <td class="px-4 py-2 border border-black">President</td>-->
+
+                                <!--</tr>-->
                                 <tr>
                                     <td class="px-4 py-2 border border-black">1.</td>
-                                    <td class="px-4 py-2 border border-black">Krish</td>
-                                    <td class="px-4 py-2 border border-black">President</td>
-
-                                </tr>
-                                <tr>
-                                    <td class="px-4 py-2 border border-black">2.</td>
                                     <td class="px-4 py-2 border border-black">Jagmohan Kashyap</td>
                                     <td class="px-4 py-2 border border-black">Secretary</td>
                                 </tr>
                                 <tr>
-                                    <td class="px-4 py-2 border border-black">3.</td>
-                                    <td class="px-4 py-2 border border-black">Gulashan</td>
+                                    <td class="px-4 py-2 border border-black">2.</td>
+                                    <td class="px-4 py-2 border border-black">Gulshan</td>
                                     <td class="px-4 py-2 border border-black">Management Incharge</td>
                                 </tr>
                                 
-                                <tr>
-                                    <td class="px-4 py-2 border border-black">4.</td>
-                                    <td class="px-4 py-2 border border-black">Anmol</td>
-                                    <td class="px-4 py-2 border border-black">Media Incharge</td>
-                                </tr>
+                                <!--<tr>-->
+                                <!--    <td class="px-4 py-2 border border-black">4.</td>-->
+                                <!--    <td class="px-4 py-2 border border-black">Anmol</td>-->
+                                <!--    <td class="px-4 py-2 border border-black">Media Incharge</td>-->
+                                <!--</tr>-->
 
                             </tbody>
                         </table>
@@ -480,7 +485,7 @@
                                 </tr>
                                 <tr>
                                     <td class="px-4 py-2 border border-black">3.</td>
-                                    <td class="px-4 py-2 border border-black">Advocate Vivek Sharma</td>
+                                    <td class="px-4 py-2 border border-black">Dr. Ashish Kulshreshtha</td>
                                     <td class="px-4 py-2 border border-black">Legal Expert</td>
                                 </tr>
                                 

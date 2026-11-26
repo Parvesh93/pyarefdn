@@ -31,6 +31,8 @@
 <!-- Option B: Teko (headings) + Mukta (body) -->
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
 
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+
 </head>
 
 <body class="font-sans">
@@ -91,6 +93,7 @@
   }
 </style>
 
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     
 </body>
 

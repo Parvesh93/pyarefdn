@@ -49,6 +49,7 @@ use App\Http\Controllers\Frontend\CommentController;
 use App\Http\Controllers\Frontend\DonationController as FrontendDonationController;
 use App\Http\Controllers\Frontend\FounderStoryController as FrontendFounderStoryController;
 
+
 use Illuminate\Support\Facades\Route;
 
 
@@ -112,6 +113,8 @@ Route::get('/project-description', [OurProjectController::class, 'ourProjectDesc
 Route::get('/project/skill-development', [OurProjectController::class, 'skillDevelopment'])->name('our-project.skill-development');
 Route::get('/project/female-health-hygiene', [OurProjectController::class, 'femaleHealthHygiene'])->name('our-project.female-health-hygiene');
 Route::get('/project/avadhoot-bal-seva', [OurProjectController::class, 'avadhootBalSeva'])->name('our-project.avadhoot-bal-seva');
+Route::get('/project/pathology-lab', [OurProjectController::class, 'pathologyLab'])->name('our-project.pathology-lab');
+Route::get('/project/wellness-centres-for-females', [OurProjectController::class, 'wellnessCentresForFemales'])->name('our-project.wellness-centres-for-females');
 
 Route::get('/project/health-awareness', [OurProjectController::class, 'healthAwareness'])->name('our-project.health-awareness');
 Route::get('/project/happiness-wellness', [OurProjectController::class, 'happinessWellness'])->name('our-project.happiness-wellness');

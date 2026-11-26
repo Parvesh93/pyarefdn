@@ -93,3 +93,6 @@
     <!--<a href="#"><img src="{{ asset('uploads/images/icon/linkedin.png') }}" alt="LinkedIn" class="h-4 w-4" /></a>-->
   </div>
 </div>
+
+<script src="https://aaryvo.ppdesigntech.com/widget.js" data-agent="cmu0eoidl0003ay4qkjo3n2ae" defer></script>
+

@@ -126,5 +126,16 @@ class OurProjectController extends Controller
         return view('frontend.pages.project_bhairavi', compact('campaign', 'raised', 'goal', 'percentage'));
     }
     
+    public function pathologyLab()
+    {
+        return view('frontend.pages.pathology-lab');
+    }
+    
+    public function wellnessCentresForFemales()
+    {
+        return view('frontend.pages.wellness-centres-for-females');
+    }
+    
+    
 
 }
