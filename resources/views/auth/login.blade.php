@@ -1,270 +1,157 @@
-{{-- <x-guest-layout>
-    <!-- Session Status -->
-    <x-auth-session-status class="mb-4" :status="session('status')" />
-
-    <form method="POST" action="{{ route('login') }}">
-        @csrf
-
-        <!-- Email Address -->
-        <div>
-            <x-input-label for="email" :value="__('Email')" />
-            <x-text-input id="email" class="block mt-1 w-full" type="email" name="email" :value="old('email')" required autofocus autocomplete="username" />
-            <x-input-error :messages="$errors->get('email')" class="mt-2" />
-        </div>
-
-        <!-- Password -->
-        <div class="mt-4">
-            <x-input-label for="password" :value="__('Password')" />
-
-            <x-text-input id="password" class="block mt-1 w-full"
-                            type="password"
-                            name="password"
-                            required autocomplete="current-password" />
-
-            <x-input-error :messages="$errors->get('password')" class="mt-2" />
-        </div>
-
-        <!-- Remember Me -->
-        <div class="block mt-4">
-            <label for="remember_me" class="inline-flex items-center">
-                <input id="remember_me" type="checkbox" class="rounded border-gray-300 text-indigo-600 shadow-sm focus:ring-indigo-500" name="remember">
-                <span class="ms-2 text-sm text-gray-600">{{ __('Remember me') }}</span>
-            </label>
-        </div>
-
-        <div class="flex items-center justify-end mt-4">
-            @if (Route::has('password.request'))
-                <a class="underline text-sm text-gray-600 hover:text-gray-900 rounded-md focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" href="{{ route('password.request') }}">
-                    {{ __('Forgot your password?') }}
-                </a>
-            @endif
-
-            <x-primary-button class="ms-3">
-                {{ __('Log in') }}
-            </x-primary-button>
-        </div>
-    </form>
-</x-guest-layout> --}}
-
-
 <!DOCTYPE html>
-<html lang="en" class="h-full">
-
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-     @php
-        use Illuminate\Support\Str;
-    @endphp
-
-    @if (isset($setting))
-        <title>Login | {{ $setting->meta_title ?? '' }}</title>
-
-        <meta name="description" content="{!! Str::limit(strip_tags($setting->meta_description), 160, ' ...') !!}">
-        <meta name="keywords" content="{!! strip_tags($setting->meta_keywords) !!}">
-
-        @if (is_file('uploads/settings/' . $setting->favicon_path))
-            <!-- App favicon -->
-            <link rel="shortcut icon" href="{{ asset('uploads/settings/' . $setting->favicon_path) }}"
-                type="image/x-icon">
-        @endif
-    @endif
-   
-    <script src="{{ asset('backend/tailwind-css/js/3.4.17') }}"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Staff Login | Pyare Foundation</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    {{-- <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet"> --}}
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
-        * {
-            font-family: Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, "Apple Color Emoji", "Segoe UI Emoji"
-        }
+        :root{--navy:#16163f;--orange:#f46226;--cream:#fff8f3;--muted:#68707c;--line:#e8e3e0}
+        *,*::before,*::after{box-sizing:border-box}
+        html{min-height:100%;background:#fff}
+        body{min-height:100vh;margin:0;color:var(--navy);font-family:'DM Sans',Arial,sans-serif;-webkit-font-smoothing:antialiased}
+        a{color:inherit}
+        button,input{font:inherit}
+        .auth-layout{min-height:100vh;display:grid;grid-template-columns:minmax(0,1.02fr) minmax(0,.98fr)}
+        .auth-brand{background:var(--navy);color:#fff;position:relative;overflow:hidden;display:flex;flex-direction:column;min-height:100vh}
+        .auth-brand::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(12,12,40,.18) 0%,rgba(12,12,40,.55) 51%,rgba(12,12,40,.96) 100%),url("{{ asset('uploads/images/organisation/about_organization.jpeg') }}") center/cover no-repeat;opacity:.8}
+        .auth-brand::after{content:"";position:absolute;right:-160px;top:24%;width:420px;height:420px;border:1px solid #ffffff35;border-radius:50%;box-shadow:0 0 0 65px #ffffff08,0 0 0 140px #ffffff06;pointer-events:none}
+        .brand-top,.brand-bottom{position:relative;z-index:1}
+        .brand-top{padding:42px clamp(30px,5vw,84px)}
+        .brand-name{font-family:'Manrope',sans-serif;font-size:23px;font-weight:800;letter-spacing:-.055em;line-height:1.12;text-decoration:none;display:inline-flex;align-items:center;gap:12px;color:#fff}
+        .brand-mark{width:38px;height:38px;display:grid;place-items:center;border-radius:8px;background:var(--orange);color:white;font-size:22px}
+        .brand-bottom{margin-top:auto;padding:40px clamp(30px,5vw,84px) 55px}
+        .brand-kicker{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:800;letter-spacing:.16em;color:#ffb78f;text-transform:uppercase}
+        .brand-kicker::before{content:"";width:8px;height:8px;background:var(--orange);border-radius:50%}
+        .brand-bottom h1{font-family:'Manrope',sans-serif;font-size:clamp(36px,3.7vw,59px);line-height:1.17;letter-spacing:-.055em;max-width:630px;font-weight:800;margin:19px 0 19px}
+        .brand-bottom h1 span{color:#ff9367}
+        .brand-bottom p{font-size:15px;line-height:1.8;color:#f2ebee;max-width:530px;margin:0}
+        .brand-rule{width:58px;height:3px;background:var(--orange);margin:35px 0 22px}
+        .brand-credit{font-size:12px;color:#f5e7e4;font-weight:600}
+        .auth-main{position:relative;display:flex;align-items:center;justify-content:center;padding:65px clamp(24px,5vw,80px);background:#fff}
+        .back-home{position:absolute;right:clamp(24px,5vw,80px);top:36px;font-size:12px;font-weight:800;text-decoration:none;color:#565a6d;display:inline-flex;align-items:center;gap:9px}
+        .back-home:hover{color:var(--orange)}
+        .login-wrap{width:100%;max-width:450px;margin:auto}
+        .form-kicker{font-size:11px;letter-spacing:.16em;font-weight:800;color:var(--orange);text-transform:uppercase}
+        .login-wrap h2{font-family:'Manrope',sans-serif;letter-spacing:-.05em;line-height:1.18;font-size:clamp(33px,3vw,45px);font-weight:800;margin:13px 0 13px}
+        .form-intro{color:#6b7180;font-size:14px;line-height:1.75;margin:0 0 33px}
+        .alert{padding:13px 16px;border-radius:6px;font-size:13px;line-height:1.6;margin-bottom:22px}
+        .alert-success{color:#16633d;background:#effaf3;border:1px solid #ccebd6}
+        .alert-error{color:#982b2b;background:#fff2f2;border:1px solid #f4d3d3}
+        .field{margin-bottom:23px}
+        .field-label{display:block;font-size:12px;font-weight:800;color:#292b49;margin-bottom:10px}
+        .field-input{display:block;width:100%;height:54px;border:1px solid #dedfe4;border-radius:6px;background:#fff;color:#16163f;outline:none;padding:0 16px;font-size:14px;transition:border-color .2s,box-shadow .2s}
+        .field-input::placeholder{color:#a0a5ae}
+        .field-input:focus{border-color:var(--orange);box-shadow:0 0 0 3px rgba(244,98,38,.09)}
+        .field-input[aria-invalid="true"]{border-color:#d95252}
+        .input-with-action{position:relative}
+        .input-with-action .field-input{padding-right:78px}
+        .password-toggle{position:absolute;right:12px;top:50%;transform:translateY(-50%);border:0;background:transparent;color:#656d78;font-size:12px;font-weight:800;padding:9px;cursor:pointer}
+        .password-toggle:hover{color:var(--orange)}
+        .field-error{color:#bd3333;font-size:12px;line-height:1.5;margin:8px 0 0}
+        .form-options{display:flex;align-items:center;justify-content:space-between;gap:14px;margin:2px 0 29px}
+        .remember-label{display:flex;align-items:center;gap:9px;font-size:12px;color:#555e6c;cursor:pointer}
+        .remember-label input{width:16px;height:16px;margin:0;accent-color:var(--orange)}
+        .forgot-link{font-size:12px;color:var(--orange);font-weight:800;text-decoration:none;white-space:nowrap}
+        .forgot-link:hover{text-decoration:underline}
+        .submit-btn{display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-height:53px;background:var(--orange);color:#fff;border:0;border-radius:6px;font-size:13px;font-weight:800;letter-spacing:.02em;cursor:pointer;transition:background .2s}
+        .submit-btn:hover{background:#dc4d1b}
+        .submit-btn:disabled{opacity:.72;cursor:wait}
+        .submit-icon{font-size:20px;line-height:1}
+        .login-foot{margin:27px 0 0;border-top:1px solid #ede9e5;padding-top:21px;color:#747985;font-size:12px;line-height:1.8;text-align:center}
+        .login-foot strong{color:#30354c}
+        .mobile-brand{display:none}
+        @media(max-width:1050px){.auth-layout{grid-template-columns: minmax(0,.85fr) minmax(0,1.15fr)}.brand-bottom h1{font-size:38px}}
+        @media(max-width:780px){.auth-layout{display:block}.auth-brand{display:none}.auth-main{min-height:100vh;padding:130px 22px 50px;align-items:flex-start}.mobile-brand{display:block;position:absolute;top:35px;left:22px}.mobile-brand a{font-family:'Manrope',sans-serif;text-decoration:none;font-size:19px;letter-spacing:-.05em;font-weight:800}.mobile-brand span{color:var(--orange)}.back-home{right:22px;top:42px}.login-wrap{max-width:440px}.login-wrap h2{font-size:36px}}
+        @media(max-width:430px){.auth-main{padding-top:126px}.login-wrap h2{font-size:32px}.form-options{align-items:flex-start;gap:8px}.forgot-link{font-size:11px}}
+        @media(prefers-reduced-motion:reduce){*,*::before,*::after{transition:none!important}}
     </style>
 </head>
-
-<body class="h-full bg-gradient-to-br from-slate-200 to-slate-200  dark:to-slate-200">
-    <div class="absolute inset-0 -z-10 overflow-hidden pointer-events-none">
-        <div class="absolute -top-20 -left-20 h-72 w-72 rounded-full blur-3xl bg-blue-300/30 dark:bg-blue-500/20"></div>
-        <div
-            class="absolute -bottom-20 -right-20 h-72 w-72 rounded-full blur-3xl bg-purple-300/30 dark:bg-purple-500/20">
+<body>
+<div class="auth-layout">
+    <aside class="auth-brand" aria-label="Pyare Foundation">
+        <div class="brand-top">
+            <a class="brand-name" href="{{ route('home') }}"><span class="brand-mark" aria-hidden="true">✦</span>PYARE FOUNDATION</a>
         </div>
-    </div>
+        <div class="brand-bottom">
+            <span class="brand-kicker">OUR MISSION, OUR COMMITMENT</span>
+            <h1>Working together for <span>meaningful change.</span></h1>
+            <p>Supporting communities through health, education and empowerment. Welcome to the secure staff access area of Pyare Foundation.</p>
+            <div class="brand-rule"></div>
+            <div class="brand-credit">PYARE FOUNDATION &nbsp;·&nbsp; STAFF PORTAL</div>
+        </div>
+    </aside>
 
-    <header class="flex items-center justify-between max-w-5xl  px-6 py-6">
-        <a href="#">
-            <img src={{ asset('uploads/images/logo/logo.webp') }} alt="Logo" class="w-60 h-auto" />
-        </a>
+    <main class="auth-main">
+        <div class="mobile-brand"><a href="{{ route('home') }}">PYARE <span>FOUNDATION</span></a></div>
+        <a class="back-home" href="{{ route('home') }}"><span aria-hidden="true">←</span> BACK TO WEBSITE</a>
+        <div class="login-wrap">
+            <span class="form-kicker">STAFF ACCESS</span>
+            <h2>Welcome back.</h2>
+            <p class="form-intro">Sign in with your authorised staff credentials to access your dashboard.</p>
 
-        <button id="themeToggle"
-            class="rounded-full hidden border border-slate-300/60 dark:border-slate-700 px-3 py-1.5 text-sm text-slate-700 dark:text-slate-200 hover:bg-white/70 dark:hover:bg-white/5 transition">
-            Toggle Theme
-        </button>
-    </header>
+            @if (session('status'))
+                <div class="alert alert-success" role="status">{{ session('status') }}</div>
+            @endif
 
-    <main class="min-h-[calc(100vh-100px)] flex items-center justify-center px-4">
-        <div class="w-full max-w-md">
-            <!-- Card -->
-            <div
-                class="bg-white/80 backdrop-blur rounded-2xl shadow-xl ring-1 ring-slate-900/5 p-6 sm:p-8 dark:bg-slate-900/70">
-                <div class="mb-6 text-center">
-                    <h1 class="text-2xl font-semibold text-slate-700 dark:text-white">Welcome back</h1>
-                    <p class="text-sm text-slate-500 dark:text-slate-400 mt-1">Staff Sign in to continue</p>
+            @if ($errors->any())
+                <div class="alert alert-error" role="alert">We couldn't sign you in. Please check the details below and try again.</div>
+            @endif
+
+            <form id="staff-login-form" method="POST" action="{{ route('login') }}">
+                @csrf
+                <div class="field">
+                    <label class="field-label" for="email">EMAIL ADDRESS</label>
+                    <input class="field-input" id="email" name="email" type="email" autocomplete="username" placeholder="Enter your email address" value="{{ old('email') }}" @error('email') aria-invalid="true" aria-describedby="email-error" @enderror required autofocus>
+                    @error('email')<p class="field-error" id="email-error">{{ $message }}</p>@enderror
                 </div>
-
-                <!-- Flash / Toaster placeholder (Laravel-friendly) -->
-                @if (session('status'))
-                    <div class="mb-4 rounded-lg bg-green-50 text-green-700 border border-green-200 px-4 py-2 text-sm">
-                        {{ session('status') }}</div>
-                @endif
-
-                <form id="loginForm" method="POST" action="{{ route('login') }}" class="space-y-4">
-                    @csrf
-
-                    <div>
-                        <label for="email"
-                            class="block text-sm font-medium text-slate-700 dark:text-slate-300">Email</label>
-                        <div class="mt-1 relative">
-                            <input id="email" name="email" type="email" autocomplete="email" value="{{ old('email') }}" required
-                                class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 px-3 py-2 shadow-inner"
-                                placeholder="you@example.com" />
-                            <svg class="absolute right-3 top-2.5 h-5 w-5 text-slate-400" viewBox="0 0 24 24"
-                                fill="currentColor">
-                                <path
-                                    d="M2 6a2 2 0 012-2h16a2 2 0 012 2v1l-10 6L2 7V6zm0 4l10 6 10-6v8a2 2 0 01-2 2H4a2 2 0 01-2-2v-8z" />
-                            </svg>
-                        </div>
-                        @error('email')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
+                <div class="field">
+                    <label class="field-label" for="password">PASSWORD</label>
+                    <div class="input-with-action">
+                        <input class="field-input" id="password" name="password" type="password" autocomplete="current-password" placeholder="Enter your password" @error('password') aria-invalid="true" aria-describedby="password-error" @enderror required>
+                        <button class="password-toggle" type="button" id="toggle-password" aria-label="Show password" aria-pressed="false">SHOW</button>
                     </div>
-
-                    <div>
-                        <label for="password"
-                            class="block text-sm font-medium text-slate-700 dark:text-slate-300">Password</label>
-                        <div class="mt-1 relative">
-                            <input id="password" name="password" type="password" value="{{ old('password') }}" autocomplete="current-password"
-                                required
-                                class="w-full rounded-lg border-slate-300 dark:border-slate-700 bg-white dark:bg-slate-800 text-slate-900 dark:text-slate-100 placeholder-slate-400 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 px-3 py-2 shadow-inner pr-10"
-                                placeholder="••••••••" />
-                            <button type="button" id="togglePassword" aria-label="Show password"
-                                class="absolute inset-y-0 right-0 px-3 grid place-content-center text-slate-500 hover:text-slate-700 dark:hover:text-slate-300">
-                                <svg id="eyeOpen" class="h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M12 5c-7 0-10 7-10 7s3 7 10 7 10-7 10-7-3-7-10-7zm0 12a5 5 0 110-10 5 5 0 010 10z" />
-                                </svg>
-                                <svg id="eyeClosed" class="hidden h-5 w-5" viewBox="0 0 24 24" fill="currentColor">
-                                    <path
-                                        d="M3.98 8.223A10.477 10.477 0 002 12s3 7 10 7a10.48 10.48 0 006.338-2.115l1.53 1.53 1.414-1.414-18-18-1.414 1.414 2.512 2.512zM12 7a5 5 0 014.9 4.02l-2.058-2.058A3 3 0 0012 9a3 3 0 00-3 3c0 .37.067.72.19 1.046l-2.03-2.03A4.985 4.985 0 0112 7z" />
-                                </svg>
-                            </button>
-                        </div>
-                        @error('password')
-                            <p class="mt-1 text-sm text-red-600">{{ $message }}</p>
-                        @enderror
-                    </div>
-
-                    <div class="flex items-center justify-between">
-                        <label class="inline-flex items-center gap-2 text-slate-600 dark:text-slate-300">
-                            <input id="remember" name="remember" type="checkbox"
-                                class="rounded border-slate-300 dark:border-slate-700 text-blue-600 focus:ring-blue-500" />
-                            <span class="text-sm">Remember me</span>
-                        </label>
-                        <a href="{{ route('password.request') }}"
-                            class="text-sm font-medium text-blue-600 hover:text-blue-700">Forgot
-                            password?</a>
-                    </div>
-
-                    <button id="submitBtn" type="submit"
-                        class="w-full inline-flex items-center justify-center gap-2 rounded-lg bg-blue-600 hover:bg-blue-700 text-white font-medium px-4 py-2.5 transition disabled:opacity-60 disabled:pointer-events-none">
-                        <svg id="spinner" class="hidden animate-spin h-5 w-5" viewBox="0 0 24 24">
-                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor"
-                                stroke-width="4" fill="none"></circle>
-                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v4a4 4 0 00-4 4H4z"></path>
-                        </svg>
-                        <span id="btnText">Sign in</span>
-                    </button>
-                </form>
-
-                {{-- <div class="mt-6">
-                    <div class="relative">
-                        <div class="absolute inset-0 flex items-center" aria-hidden="true">
-                            <div class="w-full border-t border-slate-200 dark:border-slate-700"></div>
-                        </div>
-                        <div class="relative flex justify-center">
-                            <span
-                                class="bg-white dark:bg-slate-900 px-3 text-xs uppercase tracking-wider text-slate-400">Or
-                                continue with</span>
-                        </div>
-                    </div>
-
-                    <div class="mt-4 grid grid-cols-3 gap-3">
-                        <button
-                            class="rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800">Google</button>
-                        <button
-                            class="rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800">GitHub</button>
-                        <button
-                            class="rounded-lg border border-slate-200 dark:border-slate-700 px-3 py-2 text-sm hover:bg-slate-50 dark:hover:bg-slate-800">Twitter</button>
-                    </div>
-                </div> --}}
-            </div>
-
-            <p class="text-center text-sm text-slate-600 dark:text-slate-400 mt-4">Don't have an account? <a
-                    href="#" class="text-blue-600 hover:text-blue-700 font-medium">Sign up</a></p>
+                    @error('password')<p class="field-error" id="password-error">{{ $message }}</p>@enderror
+                </div>
+                <div class="form-options">
+                    <label class="remember-label"><input id="remember" type="checkbox" name="remember" value="1" {{ old('remember') ? 'checked' : '' }}><span>Remember me</span></label>
+                    @if (Route::has('password.request'))
+                        <a class="forgot-link" href="{{ route('password.request') }}">Forgot password?</a>
+                    @endif
+                </div>
+                <button class="submit-btn" id="staff-submit" type="submit"><span id="submit-text">SIGN IN TO DASHBOARD</span><span class="submit-icon" aria-hidden="true">↗</span></button>
+            </form>
+            <p class="login-foot">This area is reserved for <strong>authorised Pyare Foundation staff.</strong> If you need access, contact your administrator.</p>
         </div>
     </main>
-
-    <!-- Tiny toast (JS only, optional) -->
-    <div id="toast"
-        class="hidden fixed bottom-6 left-1/2 -translate-x-1/2 z-50 bg-slate-900 text-white text-sm px-4 py-2 rounded-full shadow-lg">
-        Signed in!</div>
-
-    <script>
-        // Theme toggle (persists per session in memory)
-        const html = document.documentElement;
-        const themeBtn = document.getElementById('themeToggle');
-        themeBtn.addEventListener('click', () => {
-            html.classList.toggle('dark');
+</div>
+<script>
+(function () {
+    var password = document.getElementById('password');
+    var toggle = document.getElementById('toggle-password');
+    if (password && toggle) {
+        toggle.addEventListener('click', function () {
+            var isVisible = password.type === 'text';
+            password.type = isVisible ? 'password' : 'text';
+            toggle.textContent = isVisible ? 'SHOW' : 'HIDE';
+            toggle.setAttribute('aria-pressed', isVisible ? 'false' : 'true');
+            toggle.setAttribute('aria-label', isVisible ? 'Show password' : 'Hide password');
         });
-
-        // Show / hide password
-        const pw = document.getElementById('password');
-        const toggle = document.getElementById('togglePassword');
-        const eyeOpen = document.getElementById('eyeOpen');
-        const eyeClosed = document.getElementById('eyeClosed');
-        toggle.addEventListener('click', () => {
-            const isHidden = pw.type === 'password';
-            pw.type = isHidden ? 'text' : 'password';
-            eyeOpen.classList.toggle('hidden', !isHidden);
-            eyeClosed.classList.toggle('hidden', isHidden);
+    }
+    var form = document.getElementById('staff-login-form');
+    var submit = document.getElementById('staff-submit');
+    if (form && submit) {
+        form.addEventListener('submit', function () {
+            if (!form.checkValidity()) return;
+            submit.disabled = true;
+            document.getElementById('submit-text').textContent = 'SIGNING IN...';
         });
-
-        // Submit button UX (spinner)
-        const form = document.getElementById('loginForm');
-        const btn = document.getElementById('submitBtn');
-        const spinner = document.getElementById('spinner');
-        const btnText = document.getElementById('btnText');
-        const toast = document.getElementById('toast');
-
-        form.addEventListener('submit', (e) => {
-            // If you're using Laravel, REMOVE the next two lines to let it submit normally
-            // e.preventDefault();
-            // fakeSuccess();
-
-            // UX while submitting
-            btn.disabled = true;
-            spinner.classList.remove('hidden');
-            btnText.textContent = 'Signing in...';
-        });
-
-        function fakeSuccess() {
-            setTimeout(() => {
-                btn.disabled = false;
-                spinner.classList.add('hidden');
-                btnText.textContent = 'Sign in';
-                toast.classList.remove('hidden');
-                setTimeout(() => toast.classList.add('hidden'), 2000);
-            }, 1200);
-        }
-    </script>
+    }
+})();
+</script>
 </body>
-
 </html>
