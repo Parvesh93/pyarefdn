@@ -2,7 +2,11 @@
     <div class="pf-header-inner mx-auto px-4 md:px-14 py-3 flex justify-between items-center">
         <!-- Logo -->
         <a class="pf-header-brand" href="{{ route('home') }}">
-            <img src="{{ asset('uploads/settings/' . $setting->logo_path) }}" alt="Logo" class="w-60 h-auto" />
+            @if(!empty($setting?->logo_path))
+                <img src="{{ asset('uploads/settings/' . $setting->logo_path) }}" alt="Pyare Foundation" class="w-60 h-auto" />
+            @else
+                <span style="display:inline-block;color:#16163f;font-size:21px;font-weight:800;letter-spacing:-.04em;">PYARE <span style="color:#f46226;">FOUNDATION</span></span>
+            @endif
         </a>
 
         <!-- Hamburger -->
