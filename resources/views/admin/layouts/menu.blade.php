@@ -1,15 +1,17 @@
-<header class="flex items-center justify-between px-6 py-4 bg-white shadow sticky top-0 z-30">
+<header class="pf-admin-topbar flex items-center justify-between px-6 py-4 bg-white shadow sticky top-0 z-30">
     <div class="flex items-center gap-3 w-full max-w-xl">
         <button id="menu-item" class="md:hidden">
             <svg class="w-6 h-6 text-gray-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
             </svg>
         </button>
-        <div class="relative w-full">
-            <input type="text" placeholder="Search or type"
-                class="w-full bg-gray-100 px-4 py-2 pl-10 rounded text-sm" />
+        <div class="pf-admin-topbar-title">
+            <span class="pf-admin-topbar-overline">PYARE FOUNDATION WORKSPACE</span>
+            <strong>@yield('title', 'Admin Workspace')</strong>
         </div>
     </div>
+
+    <a class="pf-admin-site-link" href="{{ route('home') }}" target="_blank" rel="noopener noreferrer"><i class="fa-solid fa-arrow-up-right-from-square" aria-hidden="true"></i><span>View website</span></a>
 
     <!-- Right Side -->
     <div class="flex items-center gap-5 relative ">
@@ -19,7 +21,7 @@
        @endphp
 
         <!-- Bell Icon -->
-        <button id="notifyBtn" class="relative">
+        <button id="notifyBtn" type="button" class="relative pf-admin-notification-btn" aria-label="Notifications">
             <svg class="w-6 h-6 text-gray-700" fill="none" stroke="currentColor" viewBox="0 0 24 24" stroke-width="2">
                 <path stroke-linecap="round" stroke-linejoin="round"
                     d="M14.857 17.082a23.848 23.848 0 005.454-1.31A8.967 8.967 0 0118 9.75v-.7V9A6 6 0 006 9v.75a8.967 8.967 0 01-2.312 6.022c1.733.64 3.56 1.085 5.455 1.31m5.714 0a24.255 24.255 0 01-5.714 0m5.714 0a3 3 0 11-5.714 0M3.124 7.5A8.969 8.969 0 015.292 3m13.416 0a8.969 8.969 0 012.168 4.5" />
@@ -31,7 +33,7 @@
         </button>
 
         <!-- Notification Dropdown -->
-        <div id="notifyBox" class="hidden absolute right-0 top-12 w-[450px] bg-white rounded-xl shadow-lg p-4 z-50">
+        <div id="notifyBox" class="hidden absolute right-0 top-12 w-[450px] bg-white rounded-xl shadow-lg p-4 z-50 pf-admin-notifications">
             <!-- Header -->
             <div class="flex justify-between items-center border-b pb-2">
                 <h2 class="text-lg font-semibold">Notifications</h2>
