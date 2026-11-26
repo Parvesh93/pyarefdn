@@ -29,8 +29,8 @@
 .pf-president .pfp-story{padding:92px 0 98px;background:#fff}
 .pf-president .pfp-story-grid{display:grid;grid-template-columns:minmax(0,.82fr) minmax(0,1.18fr);align-items:start;gap:clamp(36px,5vw,85px)}
 .pf-president .pfp-photo-area{min-width:0}
-.pf-president .pfp-photo{position:relative;margin:0;background:#f5ece5;border-radius:10px;overflow:hidden;display:flex;align-items:center;justify-content:center}
-.pf-president .pfp-photo img{display:block;width:100%;height:auto;max-height:640px;object-fit:contain}
+.pf-president .pfp-photo{position:relative;margin:0;background:transparent;border:0;border-radius:0;overflow:visible;display:block}
+.pf-president .pfp-photo img{display:block;width:auto;max-width:100%;height:auto;max-height:none;object-fit:contain;object-position:left top;border:0;border-radius:0;box-shadow:none;margin:0}
 .pf-president .pfp-photo-caption{display:flex;align-items:center;gap:12px;padding:19px 3px;font-size:11px;font-weight:800;letter-spacing:.11em;color:#777180}
 .pf-president .pfp-photo-caption:before{content:"";height:8px;width:8px;background:#f46226;border-radius:50%}
 .pf-president .pfp-story-content{min-width:0}
@@ -72,8 +72,8 @@
  .pf-president .pfp-hero h1{font-size:38px}
  .pf-president .pfp-story{padding:60px 0 68px}
  .pf-president .pfp-story-grid{grid-template-columns:1fr;gap:29px}
- .pf-president .pfp-photo{max-height:500px}
- .pf-president .pfp-photo img{max-height:500px}
+ .pf-president .pfp-photo{max-height:none}
+ .pf-president .pfp-photo img{max-height:none;max-width:100%}
  .pf-president .pfp-story-content h2{font-size:33px}
  .pf-president .pfp-quote{padding:22px}
  .pf-president .pfp-quote p{font-size:15px}
