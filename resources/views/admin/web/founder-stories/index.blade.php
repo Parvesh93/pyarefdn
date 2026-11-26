@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="founder-stories">
+
 <div class="grid grid-cols-1 md:grid-cols-3 gap-4 items-start">
     <div class="col-span-1 ml-3 my-3">
         <form action="{{ route($route.'.store') }}" method="POST" enctype="multipart/form-data"
@@ -105,5 +107,7 @@
             </table>
         </div>
     </div>
+</div>
+
 </div>
 @endsection
