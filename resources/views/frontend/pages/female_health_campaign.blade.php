@@ -5,34 +5,90 @@
 
 @extends('frontend.layouts.master')
 
+@section('page_css')
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.pf-fhc{--navy:#16163f;--orange:#f46226;--cream:#fffaf5;font-family:'DM Sans',Arial,sans-serif;color:#26283c}
+.pf-fhc *{box-sizing:border-box}
+.pf-fhc :is(h1,h2,h3,h4){font-family:'Manrope',sans-serif;letter-spacing:-.035em}
+.pf-fhc .fhc-shell{max-width:1440px;width:100%;margin:0 auto;padding-inline:clamp(20px,3vw,52px)}
+.pf-fhc .fhc-hero{color:#fff;background:linear-gradient(105deg,rgba(16,16,47,.96),rgba(16,16,47,.78) 54%,rgba(16,16,47,.35)),url("{{ asset('uploads/images/campaign/image_2.jpg') }}") center 42%/cover no-repeat}
+.pf-fhc .fhc-hero-inner{padding-top:55px;padding-bottom:75px;min-height:420px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.pf-fhc .fhc-breadcrumb{display:flex;flex-wrap:wrap;gap:12px;font-size:12px;color:#f5e8e8;margin-bottom:32px}
+.pf-fhc .fhc-breadcrumb a{color:#fff;text-decoration:none;font-weight:700}
+.pf-fhc .fhc-eyebrow{display:inline-flex;align-items:center;gap:9px;font-size:11px;font-weight:800;color:#ffae86;letter-spacing:.15em}
+.pf-fhc .fhc-eyebrow:before{content:"";height:8px;width:8px;background:#f46226;border-radius:50%}
+.pf-fhc .fhc-hero h1{font-size:clamp(36px,4.8vw,62px);line-height:1.15;font-weight:800;color:#fff;margin:14px 0 17px;max-width:840px}
+.pf-fhc .fhc-hero h1 span{color:#ff8f63}
+.pf-fhc .fhc-hero p{max-width:730px;font-size:14px;line-height:1.85;color:#eee9f0;margin:0 0 24px}
+.pf-fhc .fhc-hero-link{display:inline-flex;align-items:center;background:#f46226;color:#fff;border-radius:5px;padding:13px 19px;text-decoration:none;font-size:12px;font-weight:800}
+.pf-fhc .fhc-hero-link:hover{background:#de4e1b;color:#fff}
+.pf-fhc .fhc-main-section{background:#fffaf5;padding:72px 0 95px}
+.pf-fhc .fhc-layout{display:grid;grid-template-columns:minmax(0,1.76fr) minmax(310px,.82fr);gap:clamp(26px,3vw,48px);align-items:start}
+.pf-fhc .fhc-story{min-width:0;overflow:visible}
+.pf-fhc .fhc-story>div{min-width:0}
+.pf-fhc .fhc-story h2{font-size:clamp(22px,2.3vw,31px)!important;color:#16163f!important;font-weight:800!important;line-height:1.34!important;margin:34px 0 17px!important}
+.pf-fhc .fhc-story>div:first-child h2{margin-top:0!important}
+.pf-fhc .fhc-story h3{color:#16163f!important;font-weight:800}
+.pf-fhc .fhc-story p{font-size:14px!important;line-height:1.88!important;color:#606975;text-align:left!important;margin-bottom:15px}
+.pf-fhc .fhc-story p .font-bold,.pf-fhc .fhc-story p span.font-bold{font-size:16px!important;line-height:1.55!important;color:#16163f;display:inline}
+.pf-fhc .fhc-story p.italic{background:#fff1e7;border-left:3px solid #f46226;padding:15px 19px;color:#464657!important;font-weight:700;margin:20px 0!important}
+.pf-fhc .fhc-story :is(ul,ol){padding-left:23px;color:#5f6771;font-size:13px;line-height:1.8;margin:14px 0 22px}
+.pf-fhc .fhc-story :is(ul,ol) li{margin-bottom:7px}
+.pf-fhc .fhc-story .relative.w-full.py-6{padding:14px 0 20px!important;margin:11px 0 20px}
+.pf-fhc .fhc-gallery-swiper{width:100%;min-width:0;overflow:hidden;border-radius:6px}
+.pf-fhc .fhc-gallery-swiper .swiper-wrapper{align-items:stretch}
+.pf-fhc .fhc-gallery-swiper .swiper-slide{height:295px!important;overflow:hidden;border-radius:5px}
+.pf-fhc .fhc-gallery-swiper .swiper-slide a{display:block;width:100%;height:100%}
+.pf-fhc .fhc-gallery-swiper .swiper-slide img{display:block;width:100%!important;height:100%!important;object-fit:cover!important;border-radius:5px!important}
+.pf-fhc .fhc-gallery-swiper~div [class*="swiper-button"]{background:#f46226!important;width:36px!important;height:36px!important;border-radius:50%!important;display:grid;place-items:center}
+.pf-fhc .fhc-story .overflow-x-auto{width:100%;max-width:100%;border:1px solid #ebe3dd;border-radius:7px;background:#fff;margin:16px 0 26px}
+.pf-fhc .fhc-story table{width:100%;border-collapse:collapse;background:#fff;min-width:580px}
+.pf-fhc .fhc-story thead,.pf-fhc .fhc-story thead tr{background:#16163f!important;color:#fff!important}
+.pf-fhc .fhc-story th{background:#16163f!important;color:#fff!important;font-size:11px!important;line-height:1.5;font-weight:800!important;text-align:left!important;border-color:#3b3b5e!important}
+.pf-fhc .fhc-story td{font-size:12px!important;line-height:1.65;color:#596270;background:#fff;border-color:#ece7e2!important;text-align:left!important;vertical-align:top}
+.pf-fhc .fhc-story :is(th,td){padding:11px 13px!important}
+.pf-fhc .fhc-story tbody tr:nth-child(even) td{background:#fff9f5}
+.pf-fhc .fhc-sidebar{position:sticky;top:22px;align-self:start;min-width:0}
+.pf-fhc .fhc-donate-box{background:#fff;padding:25px;border:1px solid #ece2dc;box-shadow:0 9px 27px #16163f0a;border-radius:9px}
+.pf-fhc .fhc-donate-box>h3{font-size:23px!important;font-weight:800!important;color:#16163f!important;margin:0 0 20px}
+.pf-fhc .fhc-donate-box>h4{font-size:12px!important;font-weight:800!important;color:#16163f!important;margin:16px 0 12px}
+.pf-fhc .fhc-donate-box .donation-btn,.pf-fhc .fhc-donate-box .amount-btn{width:100%;min-height:42px;border:1px solid #e9dfd8;border-radius:5px!important;padding:12px!important;font-size:12px!important;color:#16163f!important;font-weight:800!important}
+.pf-fhc .fhc-donate-box .donation-btn:hover,.pf-fhc .fhc-donate-box .amount-btn:hover{border-color:#f46226}
+.pf-fhc .fhc-donate-box .bg-yellow-400,.pf-fhc .fhc-donate-box .bg-\[\#FEB201\]{background:#fff0e7!important;color:#c84b1d!important;border-color:#f46226!important}
+.pf-fhc .fhc-donate-box #payment-form{display:grid;gap:10px}
+.pf-fhc .fhc-donate-box #payment-form input:not([type=hidden]){width:100%;min-height:45px;border:1px solid #e8ded9;border-radius:5px;padding:11px 13px;font-size:12px;color:#16163f;background:#fff;outline:none;margin:0!important}
+.pf-fhc .fhc-donate-box #payment-form input:focus{border-color:#f46226}
+.pf-fhc .fhc-donate-box #pay-button{background:#f46226!important;color:white!important;font-size:12px;font-weight:800;min-height:49px;border:0;border-radius:5px}
+.pf-fhc .fhc-support-card{margin:18px 0 0!important;background:#fff9f4;border:1px solid #f0dfd3;border-radius:6px;padding:21px;min-height:0;display:flex;align-items:flex-start}
+.pf-fhc .fhc-support-card>div.absolute{display:none}
+.pf-fhc .fhc-support-card>div.relative{align-items:flex-start;text-align:left}
+.pf-fhc .fhc-support-card p{font-size:12px!important;color:#606772;line-height:1.75;text-align:left!important;margin-bottom:14px}
+.pf-fhc .fhc-support-link{display:inline-flex;padding:11px 13px;background:#16163f;color:#fff!important;border-radius:5px;text-decoration:none;font-size:11px;font-weight:800}
+@media(max-width:1050px){.pf-fhc .fhc-layout{grid-template-columns:minmax(0,1fr) minmax(285px,.78fr);gap:23px}.pf-fhc .fhc-donate-box{padding:20px}}
+@media(max-width:767px){.pf-fhc .fhc-hero-inner{min-height:365px;padding:43px 18px 53px}.pf-fhc .fhc-hero h1{font-size:35px}.pf-fhc .fhc-hero p{font-size:13px}.pf-fhc .fhc-main-section{padding:50px 0 74px}.pf-fhc .fhc-shell{padding-inline:18px}.pf-fhc .fhc-layout{grid-template-columns:1fr;gap:34px}.pf-fhc .fhc-sidebar{position:static}.pf-fhc .fhc-gallery-swiper .swiper-slide{height:230px!important}.pf-fhc .fhc-story h2{font-size:23px!important}}
+@media(prefers-reduced-motion:reduce){.pf-fhc *{transition:none!important}}
+</style>
+@endsection
+
 @section('content')
-    <!-- Title section -->
-
-
-    <section class="relative py-6  bg-cover bg-center overflow-hidden text-white">
-        <!-- Noise / Grainy Texture Overlay -->
-        <div class="absolute inset-0 mix-blend-overlay pointer-events-none bg-[#0f1240]">
-        </div>
-
-        <div class="relative max-w-screen-xl md:mx-8 px-6">
-            <h2 class="md:text-2xl text-2xl font-bold">Intensive Care For Female Health Camps</h2>
-
-            <nav class="mt-3 text-sm">
-                <i class="fa-sharp-duotone fa-solid fa-house"></i> <a href="{{ route('home') }}"
-                    class="text-[16px] text-orange-400 font-semibold hover:underline">Home</a>
-                <span class="mx-1 text-gray-200">/</span>
-                <span class="text-[16px] text-gray-300">Supported by GAIL (India Limited)</span>
-            </nav>
-        </div>
-    </section>
-
+<main class="pf-fhc">
+<section class="fhc-hero" aria-labelledby="fhc-page-title">
+ <div class="fhc-shell fhc-hero-inner">
+  <nav class="fhc-breadcrumb" aria-label="Breadcrumb"><a href="{{ route('home') }}">Home</a><span>/</span><a href="{{ route('our-project') }}">Projects</a><span>/</span><span>Female Health Camps</span></nav>
+  <span class="fhc-eyebrow">SUPPORTED BY GAIL (INDIA) LIMITED</span>
+  <h1 id="fhc-page-title">INTENSIVE CARE FOR <span>FEMALE HEALTH CAMPS</span></h1>
+  <p>Community-focused health camps addressing menstrual hygiene, overall well-being and individual health needs, conducted from December 2023 to March 2024.</p>
+  <a href="#fhc-report" class="fhc-hero-link">EXPLORE THE PROGRAMME <span aria-hidden="true">↗</span></a>
+ </div>
+</section>
 
     <!-- Main Content & Donate now Form -->
-    <section class="w-full py-10 bg-white">
-        <div class="md:mx-11 flex flex-col lg:flex-row gap-10 px-4">
+    <section class="fhc-main-section" id="fhc-report">
+        <div class="fhc-shell fhc-layout">
 
             <!-- Left Content (scrollable text, images, sliders) -->
-            <div class="w-full lg:w-2/3 overflow-y-auto">
+            <article class="fhc-story">
 
                 <!-- Paragraphs -->
                 <div class="space-y-4  leading-relaxed">
@@ -53,14 +109,14 @@
 
                 <div class="relative w-full py-6">
                     <!-- Swiper Container -->
-                    <div class="swiper shambhooSwiper">
+                    <div class="swiper fhc-gallery-swiper">
                         <div class="swiper-wrapper">
                             <!-- Slide -->
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_2.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_2.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_2.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_2.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -68,9 +124,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_3.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_3.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_3.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_3.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -78,9 +134,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_4.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_4.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_4.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_4.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -88,9 +144,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_5.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_5.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_5.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_5.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -98,9 +154,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_6.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_6.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_6.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_6.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -108,9 +164,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_7.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_7.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_7.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_7.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -118,9 +174,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_8.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_8.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_8.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_8.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -128,9 +184,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_9.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_9.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_9.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_9.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -138,9 +194,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_10.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_10.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_10.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_10.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -148,9 +204,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_11.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_11.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_11.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_11.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -158,9 +214,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_12.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_12.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_12.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_12.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -168,9 +224,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_13.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_13.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_13.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_13.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -178,9 +234,9 @@
 
                             <div class="swiper-slide">
 
-                                <a href="{{ asset('uploads/images/campaign/image_14.jpg') }}" data-fancybox="rugra-gallery"
+                                <a href="{{ asset('uploads/images/campaign/image_14.jpg') }}" data-fancybox="female-health-camps"
                                     data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_14.jpg') }} alt="Training 1"
+                                    <img src="{{ asset('uploads/images/campaign/image_14.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -189,8 +245,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_15.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_15.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_15.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -199,8 +255,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_16.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_16.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_16.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -209,8 +265,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_17.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_17.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_17.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -219,8 +275,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_18.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_18.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_18.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -229,8 +285,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_19.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_19.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_19.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -239,8 +295,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_20.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_20.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_20.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -248,8 +304,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_21.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_21.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_21.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -258,8 +314,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_22.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_22.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_22.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -268,8 +324,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_23.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_23.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_23.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -278,8 +334,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_24.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_24.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_24.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -288,8 +344,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_25.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_25.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_25.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -298,8 +354,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_26.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_26.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_26.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -308,8 +364,8 @@
                             <div class="swiper-slide">
 
                                 <a href="{{ asset('uploads/images/campaign/image_26.jpg') }}"
-                                    data-fancybox="rugra-gallery" data-caption="Health Campaigns">
-                                    <img src={{ asset('uploads/images/campaign/image_27.jpg') }} alt="Training 1"
+                                    data-fancybox="female-health-camps" data-caption="Health Campaigns">
+                                    <img src="{{ asset('uploads/images/campaign/image_27.jpg') }}" alt="Training 1"
                                         class="w-full h-[350px] md:h-[350px] rounded-md object-cover" />
                                 </a>
 
@@ -1680,17 +1736,17 @@
 
             <!-- Right Donate Form -->
 
-            <div class="w-full lg:w-1/3 h-fit sticky top-0">
-                <div class="shadow-lg rounded p-6 bg-white border border-gray-200">
+            <aside class="fhc-sidebar">
+                <div class="fhc-donate-box" id="donationForm">
                     <h3 class="text-md font-semibold text-gray-800 mb-4">DONATE NOW</h3>
 
                     <!-- Give Type -->
                     <button id="onceBtn" data-type="one-time"
-                        class="donation-btn give-type w-full bg-gray-100 text-sm font-bold py-2 px-4 rounded mb-2">
+                        type="button" class="donation-btn give-type w-full bg-gray-100 text-sm font-bold py-2 px-4 rounded mb-2">
                         GIVE ONCE
                     </button>
                     <button id="monthlyBtn" data-type="monthly"
-                        class="donation-btn give-type w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4">
+                        type="button" class="donation-btn give-type w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4">
                         GIVE MONTHLY
                     </button>
 
@@ -1699,20 +1755,20 @@
                     </h4>
 
                     <!-- Amount Buttons -->
-                    <button class="amount-btn w-full bg-yellow-400 text-sm font-bold py-2 px-4 rounded mb-2"
+                    <button type="button" class="amount-btn w-full bg-yellow-400 text-sm font-bold py-2 px-4 rounded mb-2"
                         data-value="500">
                         ₹500
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="1000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="1000">
                         ₹1000
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="2000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="2000">
                         ₹2000
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4" data-value="3000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4" data-value="3000">
                         ₹3000
                     </button>
-                    <button id="customBtn" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-6"
+                    <button id="customBtn" type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-6"
                         data-value="">
                         ₹ CUSTOM AMOUNT
                     </button>
@@ -1757,7 +1813,7 @@
 
                     <!-- Volunteer Box -->
                     <div
-                        class="relative overflow-hidden rounded-xl bg-[#fee09c] px-6 py-6 min-h-[200px] flex flex-col justify-center items-center text-center mt-6 mb-6">
+                        class="fhc-support-card">
                         <div class="absolute -top-12 -left-10 w-40 h-40 bg-orange-400 rounded-full opacity-30 z-0">
                         </div>
                         <div class="absolute top-8 left-8 w-64 h-64 bg-orange-300 rounded-full opacity-20 z-0"></div>
@@ -1766,16 +1822,13 @@
                                 Volunteers are the heart of our foundation. Sign up today and
                                 be a part of something bigger.
                             </p>
-                            <button class="bg-[#11144a] text-white text-sm font-semibold py-2 px-6 rounded"><a
-                                    href="{{ route('volunteer-member') }}">BECOME VOLUNTEER</a>
-
-                            </button>
+                            <a class="fhc-support-link" href="{{ route('volunteer-member') }}">BECOME VOLUNTEER <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
 
                     <!-- Annual Member Box -->
                     <div
-                        class="relative overflow-hidden rounded-xl bg-[#fee09c] px-6 py-6 min-h-[220px] flex flex-col justify-center items-center text-center">
+                        class="fhc-support-card">
                         <div class="absolute -top-12 -left-10 w-40 h-40 bg-orange-400 rounded-full opacity-30 z-0">
                         </div>
                         <div class="absolute top-8 left-8 w-64 h-64 bg-orange-300 rounded-full opacity-20 z-0"></div>
@@ -1785,58 +1838,32 @@
                                 membership fuels year-round impact — supporting education,
                                 environment, and empowerment.
                             </p>
-                            <button class="bg-[#11144a] text-white text-sm font-semibold py-2 px-6 rounded"><a
-                                    href="{{ route('annual-member') }}">BECOME ANNUAL MEMBER</a>
-                            </button>
+                            <a class="fhc-support-link" href="{{ route('annual-member') }}">BECOME ANNUAL MEMBER <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </aside>
 
         </div>
     </section>
-
-
-
-    <!-- JS Logic -->
-    <script>
-        // Handle amount button selection
-        const amountButtons = document.querySelectorAll(".amount-btn");
-        const amountInput = document.getElementById("customAmount1");
-
-        amountButtons.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                // Reset all
-                amountButtons.forEach((b) => {
-                    b.classList.remove("bg-yellow-400", "text-black", "font-bold");
-                    b.classList.add("bg-gray-100");
-                });
-
-                // Highlight current
-                btn.classList.add("bg-yellow-400", "text-black", "font-bold");
-                btn.classList.remove("bg-gray-100");
-
-                // // Fill input if not custom
-                // const value = btn.dataset.amount;
-                // // var right=value?100:200
-                // if (value !== "custom") {
-                //     amountInput.value = value;
-
-                // } else {
-                //     amountInput.value = "100";
-                //     amountInput.focus();
-                // }
-            });
-        });
-
-        // If user types manually, unselect all buttons
-        amountInput.addEventListener("input", () => {
-            if (amountInput.value.trim() !== "") {
-                amountButtons.forEach((b) => {
-                    b.classList.remove("bg-yellow-400", "text-black", "font-bold");
-                    b.classList.add("bg-gray-100");
-                });
-            }
-        });
-    </script>
+</main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  var gallery = document.querySelector('.fhc-gallery-swiper');
+  if (typeof Swiper === 'undefined' || !gallery || gallery.swiper) return;
+  var parent = gallery.closest('.relative.w-full.py-6') || gallery.parentElement;
+  new Swiper(gallery, {
+    slidesPerView: 1.14, spaceBetween: 13, grabCursor: true, speed: 500,
+    watchOverflow: true,
+    breakpoints: {
+      640: { slidesPerView: 2, spaceBetween: 15 },
+      1024: { slidesPerView: 2.2, spaceBetween: 17 }
+    },
+    navigation: {
+      prevEl: parent.querySelector('.swiper-button-prev-custom'),
+      nextEl: parent.querySelector('.swiper-button-next-custom')
+    }
+  });
+});
+</script>
 @endsection
