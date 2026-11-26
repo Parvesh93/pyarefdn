@@ -1,5 +1,7 @@
 @extends('frontend.layouts.master')
-@section('title')Wellness Centres for Females@endsection
+@section('title')
+    Wellness Centres for Females
+@endsection
 @section('page_css')
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
 <style>
