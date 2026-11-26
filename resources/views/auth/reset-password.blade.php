@@ -126,14 +126,14 @@
             @endif
 
             <!-- Form -->
-            <form method="POST" action="{{ route('password.update') }}" class="space-y-5">
+            <form method="POST" action="{{ route('password.store') }}" class="space-y-5">
                 @csrf
                 <!-- Token (hidden) -->
                 <input type="hidden" name="token" value="{{ $request->route('token') }}">
 
                 <!-- Email -->
                 <div>
-                    <input type="email" name="email" value="{{ old('email') }}" placeholder="Email"
+                    <input type="email" name="email" value="{{ old('email', $request->email) }}" placeholder="Email"
                         class="w-full px-3 py-3 bg-blue-50 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-blue-400 @error('email') border-red-500 @enderror"
                         required autofocus>
                     @error('email')
@@ -143,7 +143,7 @@
 
                 <!-- Password -->
                 <div>
-                    <input type="password" id="password" name="password" placeholder="New Password"
+                    <input type="password" id="password" name="password" autocomplete="new-password" placeholder="New Password"
                         class="w-full px-3 py-3 bg-blue-50 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-blue-400 @error('password') border-red-500 @enderror"
                         required>
                     @error('password')
@@ -153,9 +153,12 @@
 
                 <!-- Confirm Password -->
                 <div>
-                    <input type="password" id="password_confirmation" name="password_confirmation" placeholder="Confirm Password"
+                    <input type="password" id="password_confirmation" name="password_confirmation" autocomplete="new-password" placeholder="Confirm Password"
                         class="w-full px-3 py-3 bg-blue-50 border-0 border-b-2 focus:outline-none focus:ring-0 focus:border-blue-400"
                         required>
+                    @error('password_confirmation')
+                        <p class="mt-2 text-sm text-red-600">{{ $message }}</p>
+                    @enderror
                 </div>
 
                 <!-- Submit -->
