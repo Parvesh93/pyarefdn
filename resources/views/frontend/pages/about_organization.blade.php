@@ -7,7 +7,7 @@
 <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 /* Organisation page design system — scoped to this page. */
-.pf-about-org{--ao-navy:#16163f;--ao-orange:#f46226;--ao-cream:#fff9f4;--ao-text:#252638;--ao-muted:#656a72;overflow:hidden;font-family:'DM Sans',Arial,sans-serif;color:var(--ao-text)}
+.pf-about-org{--ao-navy:#16163f;--ao-orange:#f46226;--ao-cream:#fff9f4;--ao-text:#252638;--ao-muted:#656a72;overflow:clip;font-family:'DM Sans',Arial,sans-serif;color:var(--ao-text)}
 .pf-about-org *{box-sizing:border-box}
 .pf-about-org h1,.pf-about-org h2,.pf-about-org h3,.pf-about-org h4{font-family:'Manrope',sans-serif;letter-spacing:-.04em}
 .pf-about-org .ao-container{width:100%;max-width:1440px;margin:0 auto;padding:0 clamp(20px,3vw,52px)}
@@ -68,6 +68,15 @@
 .pf-about-org #ao-recognition>section{background:#fff!important;padding:88px 0 95px!important}
 .pf-about-org #ao-recognition>section>div{max-width:1440px;margin:auto;padding:0 clamp(20px,3vw,52px)!important}
 .pf-about-org #ao-recognition>section>div>h2,.pf-about-org #ao-team>section>div:first-child h2{font-size:clamp(29px,3.3vw,45px)!important;text-align:center;font-weight:800;color:#16163f;margin:0 0 38px!important}
+.pf-about-org #ao-recognition{overflow:visible!important}
+.pf-about-org #ao-recognition>section,
+.pf-about-org #ao-recognition>section>div,
+.pf-about-org #ao-recognition>section>div>.grid{overflow:visible!important}
+@media(min-width:768px){
+ .pf-about-org #ao-recognition aside{position:sticky!important;top:24px!important;align-self:start!important;height:max-content;z-index:10}
+ .pf-about-org #ao-recognition aside>div{max-height:calc(100vh - 48px);overflow-y:auto;overscroll-behavior:contain}
+}
+.pf-about-org #ao-recognition section[id^="y"]{scroll-margin-top:105px}
 .pf-about-org #ao-recognition aside>div{border:1px solid #efe5df!important;border-radius:8px!important;background:#fff9f4!important;box-shadow:none!important}
 .pf-about-org #ao-recognition aside nav a{font-size:12px;font-weight:700;border-radius:4px}
 .pf-about-org #ao-recognition aside nav a:hover{color:#f46226;background:#fff!important}
