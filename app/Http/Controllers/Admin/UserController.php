@@ -6,13 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use App\Traits\FileUploader;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Crypt;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Password;
 use Illuminate\Validation\Rule;
 use Spatie\Permission\Models\Role;
 use Illuminate\Support\Str;
-use App\Mail\SendPassword;
 
 class UserController extends Controller
 {
@@ -90,6 +88,9 @@ class UserController extends Controller
         ]);
 
         $role = Role::findOrFail($validated['roles'][0]);
+        if (!$request->user()->can('role-create') && $role->permissions()->whereIn('name', ['role-create', 'role-edit', 'user-delete'])->exists()) {
+            return back()->withInput()->withErrors(['roles' => 'You are not allowed to assign a privileged administrator role.']);
+        }
         $user = new User();
         $user->first_name = trim($validated['first_name']);
         $user->last_name = trim($validated['last_name'] ?? '');
@@ -158,8 +159,12 @@ class UserController extends Controller
             'roles' => ['required', 'array', 'size:1'],
             'roles.0' => ['required', 'integer', Rule::exists('roles', 'id')],
             'attach' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
+            'status' => ['nullable', Rule::in(['active','inactive'])],
         ]);
         $role = Role::findOrFail($validated['roles'][0]);
+        if (!$request->user()->can('role-create') && $role->permissions()->whereIn('name', ['role-create', 'role-edit', 'user-delete'])->exists() && !$user->hasRole($role->name)) {
+            return back()->withInput()->withErrors(['roles' => 'You are not allowed to assign a privileged administrator role.']);
+        }
         // Prevent an administrator from accidentally stripping their own access.
         if ($user->id === auth()->id() && !$user->hasRole($role->name)) {
             return back()->withInput()->withErrors(['roles' => 'You cannot change your own role. Ask another administrator.']);
@@ -169,6 +174,11 @@ class UserController extends Controller
         $user->name = trim($user->first_name . ' ' . $user->last_name);
         $user->email = strtolower(trim($validated['email']));
         $user->role_id = $role->id;
+        if ($user->id === auth()->id() && $request->input('status', $user->status) === 'inactive') {
+            return back()->withInput()->withErrors(['status' => 'You cannot deactivate your own account.']);
+        }
+        $user->status = $request->input('status', $user->status);
+        $user->password_text = '';
         if (empty($user->staff_id)) {
             $user->staff_id = 'PF-' . str_pad((string) $user->id, 5, '0', STR_PAD_LEFT);
         }
