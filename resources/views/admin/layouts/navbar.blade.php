@@ -180,8 +180,12 @@
 
 
          <li>
-    <a href="{{ route('admin.founder-stories.index') }}">Founder Stories</a>
-</li>
+             <a href="{{ route('admin.founder-stories.index') }}"
+                class="flex items-center gap-2 px-3 py-2 rounded hover:bg-[#004f4f] {{ Request::is('admin/founder-stories*') ? 'bg-[#004f4f] text-white' : '' }}">
+                 <i class="fa-solid fa-book-open w-5 h-5 text-center" aria-hidden="true"></i>
+                 <span>Founder Stories</span>
+             </a>
+         </li>
 
 
          <!-- Blog -->
