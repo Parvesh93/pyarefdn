@@ -129,6 +129,7 @@
             'our-project.journal',
             'our-project.lok-nyay-seva-kendra',
             'our-project.wellness-centres-for-females',
+            'our-project.pathology-lab',
             'our-project.project-bhairavi',
         ])
             ? 'text-orange-600'
@@ -158,7 +159,13 @@
                         </a>
 
                         
-                         <a href="{{ route('our-project.project-bhairavi') }}"
+                         <a href="{{ route('our-project.pathology-lab') }}"
+                            class="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-yellow-500
+                {{ request()->routeIs('our-project.pathology-lab') ? 'bg-gray-200 text-yellow-500 font-semibold' : '' }}">
+                            Pathology Lab
+                        </a>
+
+                        <a href="{{ route('our-project.project-bhairavi') }}"
                             class="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-yellow-500 
                 {{ request()->routeIs('our-project.project-bhairavi') ? 'bg-gray-200 text-yellow-500 font-semibold' : '' }}">
                             Project Bhairavi
