@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page" data-admin-module="project">
+
 
     <div class="max-w-7xl mx-4 my-4  p-6 bg-white shadow-lg ">
         <!-- Heading -->
@@ -125,4 +127,6 @@
             }
         }
     </script>
+
+</div>
 @endsection
