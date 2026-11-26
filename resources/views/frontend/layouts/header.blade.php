@@ -151,7 +151,7 @@
                     x-transition:enter-end="opacity-100 scale-100" x-transition:leave="transition ease-in duration-150"
                     x-transition:leave-start="opacity-100 scale-100" x-transition:leave-end="opacity-0 scale-95">
                     <div class="py-2">
-                        <a href="{{ route('our-project.wellness-centres-for-females') }}"
+                        <a data-project-featured="wellness" href="{{ route('our-project.wellness-centres-for-females') }}"
                             class="block px-4 py-2 text-sm hover:bg-gray-100 hover:text-yellow-500
                 {{ request()->routeIs('our-project.wellness-centres-for-females') ? 'bg-gray-200 text-yellow-500 font-semibold' : '' }}">
                             Wellness Centres for Females
@@ -348,6 +348,22 @@
  .pf-site-header .pf-header-nav a.pf-header-donate{margin:18px 0 0!important;width:100%;min-height:46px}
 }
 @media(prefers-reduced-motion:reduce){.pf-site-header *{transition:none!important}}
+
+/* Keep the newest project link visible even in the long scrollable menu. */
+.pf-site-header .pf-header-nav a[data-project-featured="wellness"]{
+ position:sticky!important;top:0;z-index:3;background:#fff8f1!important;
+ color:#d9501b!important;font-weight:800!important;
+ border-bottom:1px solid #f0dfd2;
+}
+.pf-site-header .pf-header-nav a[data-project-featured="wellness"]:hover{
+ background:#ffeddf!important;color:#b53d13!important
+}
+.pf-site-header .pf-header-nav>div[x-data]>div[x-show]{scroll-behavior:auto;overscroll-behavior:contain}
+@media(max-width:767px){
+ .pf-site-header .pf-header-nav a[data-project-featured="wellness"]{
+   position:sticky!important;top:0!important;padding-block:13px!important
+ }
+}
 
 /* Desktop: remove Tailwind space-x margins that compounded with flex gap. */
 @media(min-width:768px){
