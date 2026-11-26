@@ -2,7 +2,6 @@
 
 @section('title')
     Pyare Foundation Pathology Lab
-</main>
 @endsection
 
 @section('content')
@@ -360,4 +359,5 @@ document.addEventListener('DOMContentLoaded', function () {
 });
 </script>
 
+</main>
 @endsection
