@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="mail-settings">
+
 
 <!-- Start Content-->
 
@@ -109,4 +111,6 @@
 
 <!-- End Content-->
 
+
+</div>
 @endsection
