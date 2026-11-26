@@ -6,7 +6,7 @@
             </svg>
         </button>
         <div class="pf-admin-topbar-title">
-            <span class="pf-admin-topbar-overline">PYARE FOUNDATION WORKSPACE</span>
+            <span class="pf-admin-topbar-overline">{{ auth()->check() && auth()->user()->hasRole('Super Admin', 'web') ? 'SUPER ADMIN WORKSPACE' : 'PYARE FOUNDATION WORKSPACE' }}</span>
             <strong>@yield('title', 'Admin Workspace')</strong>
         </div>
     </div>
