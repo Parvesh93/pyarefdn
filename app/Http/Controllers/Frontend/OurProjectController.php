@@ -93,6 +93,11 @@ class OurProjectController extends Controller
         return view('frontend.pages.cancellations-refunds');
     }
     
+    public function wellnessCentresForFemales()
+    {
+        return view('frontend.pages.wellness_centres_for_females');
+    }
+
     public function lokNyaySevaKendra()
     {
         return view('frontend.pages.lok_nyay_seva_kendra');
