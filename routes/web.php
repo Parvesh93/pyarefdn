@@ -108,6 +108,7 @@ Route::get('/cancellations-and-refunds', [OurProjectController::class, 'cancella
 
 //Our Projects Routes
 Route::get('/projects', [OurProjectController::class, 'ourProject'])->name('our-project');
+Route::get('/project/pathology-lab', [OurProjectController::class, 'pathologyLab'])->name('our-project.pathology-lab');
 Route::get('/project/wellness-centres-for-females', [OurProjectController::class, 'wellnessCentresForFemales'])->name('our-project.wellness-centres-for-females');
 Route::get('/project-description', [OurProjectController::class, 'ourProjectDescription'])->name('our-project-description');
 Route::get('/project/skill-development', [OurProjectController::class, 'skillDevelopment'])->name('our-project.skill-development');
