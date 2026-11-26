@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Annual;
+use App\Models\Campaign;
 use App\Models\Donation;
 use App\Models\Donor;
 use App\Models\User;
@@ -159,6 +160,7 @@ class DashboardController extends Controller
         $data['currentYearVolunteers'] = $currentYearVolunteers;
         $data['volunteerPercentageChange'] = round($volunteerPercentageChange, 1);
         $data['total_annual_reports'] = Annual::orderBy('id', 'desc')->get();
+        $data['campaignCount'] = Campaign::count();
 
 
         // Current month donations per day
