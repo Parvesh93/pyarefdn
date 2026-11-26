@@ -31,6 +31,7 @@
 <!-- Option B: Teko (headings) + Mukta (body) -->
 <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&family=Mukta:wght@400;600&display=swap" rel="stylesheet">
 
+    @yield('page_css')
 </head>
 
 <body class="font-sans">
