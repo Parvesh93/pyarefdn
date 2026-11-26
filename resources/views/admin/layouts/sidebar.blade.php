@@ -2,7 +2,7 @@
     <div class="pf-admin-brand">
         <a href="{{ route('admin.dashboard.index') }}" class="pf-admin-brand-link">
             <span class="pf-admin-brand-emblem"><i class="fa-solid fa-hand-holding-heart" aria-hidden="true"></i></span>
-            <span class="pf-admin-brand-copy"><strong>PYARE</strong><small>FOUNDATION · ADMIN</small></span>
+            <span class="pf-admin-brand-copy"><strong>PYARE</strong><small>FOUNDATION · {{ auth()->check() && auth()->user()->hasRole('Super Admin') ? 'SUPER ADMIN' : 'ADMIN' }}</small></span>
         </a>
     </div>
     <div class="pf-admin-sidebar-scroll flex-1 overflow-y-auto">
@@ -13,7 +13,7 @@
         @auth
             <div class="pf-admin-sidebar-user">
                 <span class="pf-admin-sidebar-avatar">{{ strtoupper(substr(auth()->user()->name ?? 'A', 0, 1)) }}</span>
-                <span class="pf-admin-sidebar-user-copy"><strong>{{ auth()->user()->name ?? 'Staff Member' }}</strong><small>Staff account</small></span>
+                <span class="pf-admin-sidebar-user-copy"><strong>{{ auth()->user()->name ?? 'Staff Member' }}</strong><small>{{ auth()->user()->getRoleNames()->first() ?: 'Staff account' }}</small></span>
             </div>
         @endauth
         <form method="POST" action="{{ route('logout') }}">@csrf
