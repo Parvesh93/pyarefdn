@@ -25,7 +25,12 @@ class HomeController extends Controller
         $data['news'] = News::where('status', '1')->orderBy('id', 'desc')->get();
         $data['testimonials'] = Testimonial::where('status', '1')->orderBy('id', 'desc')->get();
         $imageSectionCondition = ImageCondition::first();
-        $data['projectGovindImages']=Gallery::where('image_section',$imageSectionCondition->govind_leela)->where('status', '1')->orderBy('id', 'desc')->get();
+        // A freshly initialised demo database may not contain image-section
+        // settings. Render the homepage with an empty gallery instead of 500.
+        $data['projectGovindImages'] = $imageSectionCondition && $imageSectionCondition->govind_leela
+            ? Gallery::where('image_section', $imageSectionCondition->govind_leela)
+                ->where('status', '1')->orderBy('id', 'desc')->get()
+            : collect();
 
         return view('frontend.home.home', $data);
     }
