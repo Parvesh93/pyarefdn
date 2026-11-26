@@ -73,6 +73,47 @@ body.pf-admin-body{font-family:'DM Sans',Arial,sans-serif;background:#f7f8fb;col
 .pf-admin-body .dataTables_wrapper .dataTables_filter input,.pf-admin-body input[type=text]:not(.hidden),.pf-admin-body select,.pf-admin-body textarea{border-radius:7px}
 @media(min-width:768px){.pf-admin-body .pf-admin-content{margin-left:264px!important}}
 @media(max-width:767px){.pf-admin-body #sidebar{width:min(82vw,290px)}.pf-admin-body .pf-admin-topbar{padding:12px 16px!important;height:69px}.pf-admin-body .pf-admin-site-link span{display:none}.pf-admin-body .pf-admin-topbar-title strong{font-size:12px}.pf-admin-body .pf-admin-topbar>div:last-child{gap:11px}}
+
+/* Cohesive management screens: record lists, editors, filters and settings. */
+.pf-admin-body .pf-admin-page{min-width:0;width:100%;max-width:1580px;margin:0 auto;padding:26px clamp(16px,2.6vw,42px) 55px;font-family:'DM Sans',Arial,sans-serif}
+.pf-admin-body .pf-admin-page>div,.pf-admin-body .pf-admin-page>main{max-width:100%;min-width:0}
+.pf-admin-body .pf-admin-page>div.max-w-7xl,.pf-admin-body .pf-admin-page>div.max-w-5xl,.pf-admin-body .pf-admin-page>div.mx-10,.pf-admin-body .pf-admin-page>div.mx-4,.pf-admin-body .pf-admin-page>div.grid{margin-left:0!important;margin-right:0!important;width:100%;max-width:none!important}
+.pf-admin-body .pf-admin-page>div.bg-white,.pf-admin-body .pf-admin-page>div.shadow-lg,.pf-admin-body .pf-admin-page>div.max-w-7xl,.pf-admin-body .pf-admin-page>div.max-w-5xl,.pf-admin-body .pf-admin-page>div.mx-10,.pf-admin-body .pf-admin-page>div.mx-4{border:1px solid #e9eaf0;border-radius:13px!important;box-shadow:0 5px 23px #20234008!important;background:#fff;margin-top:0!important;margin-bottom:17px!important;padding:24px!important}
+.pf-admin-body .pf-admin-page main{background:transparent!important;padding:0!important;overflow:visible}
+.pf-admin-body .pf-admin-page main>section,.pf-admin-body .pf-admin-page main>div.bg-white,.pf-admin-body .pf-admin-page main .shadow-md{border-color:#e9eaf0;box-shadow:0 5px 23px #20234008!important}
+.pf-admin-body .pf-admin-page h1,.pf-admin-body .pf-admin-page h2,.pf-admin-body .pf-admin-page h3{font-family:'Manrope',Arial,sans-serif;letter-spacing:-.03em;color:#1d2040}
+.pf-admin-body .pf-admin-page h1.text-2xl,.pf-admin-body .pf-admin-page h2.text-2xl{font-size:24px!important;font-weight:800!important;line-height:1.3}
+.pf-admin-body .pf-admin-page h2.border-b,.pf-admin-body .pf-admin-page h1.border-b{border-color:#eef0f3;padding-bottom:17px;margin-bottom:20px}
+.pf-admin-body .pf-admin-page :is(label){font-weight:700;color:#596176;font-size:12px}
+.pf-admin-body .pf-admin-page input:not([type=checkbox]):not([type=radio]):not([type=hidden]),.pf-admin-body .pf-admin-page select,.pf-admin-body .pf-admin-page textarea{background:#fff!important;border:1px solid #e2e5ed!important;border-radius:8px!important;box-shadow:none!important;color:#232743;min-height:42px;padding:10px 12px}
+.pf-admin-body .pf-admin-page input:focus,.pf-admin-body .pf-admin-page textarea:focus,.pf-admin-body .pf-admin-page select:focus{border-color:#f46226!important;outline:none!important;box-shadow:0 0 0 3px #f4622618!important}
+.pf-admin-body .pf-admin-page input[type=checkbox],.pf-admin-body .pf-admin-page input[type=radio]{accent-color:#f46226}
+.pf-admin-body .pf-admin-page .border-l-4{border-left-color:#f46226!important}
+.pf-admin-body .pf-admin-page .bg-blue-500,.pf-admin-body .pf-admin-page .bg-blue-600,.pf-admin-body .pf-admin-page .bg-blue-400,.pf-admin-body .pf-admin-page .bg-cyan-500,.pf-admin-body .pf-admin-page .bg-teal-500,.pf-admin-body .pf-admin-page .bg-green-600{background:#f46226!important;color:white!important}
+.pf-admin-body .pf-admin-page .hover\\:bg-blue-700:hover,.pf-admin-body .pf-admin-page .hover\\:bg-blue-600:hover,.pf-admin-body .pf-admin-page .hover\\:bg-cyan-600:hover{background:#d94e1a!important}
+.pf-admin-body .pf-admin-page button,.pf-admin-body .pf-admin-page a.bg-blue-500,.pf-admin-body .pf-admin-page a.bg-blue-600{border-radius:7px;transition:background .2s,color .2s}
+.pf-admin-body .pf-admin-page button:focus-visible,.pf-admin-body .pf-admin-page a:focus-visible{outline:2px solid #f46226;outline-offset:2px}
+.pf-admin-body .pf-admin-page :is(table){width:100%;border-collapse:collapse;background:#fff}
+.pf-admin-body .pf-admin-page :is(table) :is(thead,thead tr){background:#f7f8fb!important;color:#596174!important}
+.pf-admin-body .pf-admin-page table th{font-family:'DM Sans',sans-serif;font-size:11px!important;font-weight:800!important;letter-spacing:.04em;color:#657085!important;padding:14px 16px!important;border-bottom:1px solid #e9eaf0!important;white-space:nowrap}
+.pf-admin-body .pf-admin-page table td{padding:13px 16px!important;color:#4d5568;font-size:12px;line-height:1.6;border-bottom:1px solid #f0f1f5!important;vertical-align:middle}
+.pf-admin-body .pf-admin-page table tbody tr:hover{background:#fffaf7}
+.pf-admin-body .pf-admin-page table tbody tr:last-child td{border-bottom:0!important}
+.pf-admin-body .pf-admin-page :is(.overflow-x-auto){max-width:100%;scrollbar-width:thin}
+.pf-admin-body .pf-admin-page .dataTables_wrapper .dataTables_filter,.pf-admin-body .pf-admin-page .dataTables_wrapper .dataTables_length{margin-bottom:15px;color:#727989;font-size:12px}
+.pf-admin-body .pf-admin-page .dataTables_wrapper .dataTables_info,.pf-admin-body .pf-admin-page .dataTables_wrapper .dataTables_paginate{padding-top:15px;font-size:12px;color:#737d8e}
+.pf-admin-body .pf-admin-page .dataTables_wrapper .dataTables_paginate .paginate_button.current{background:#f46226!important;border-color:#f46226!important;color:#fff!important}
+.pf-admin-body .pf-admin-page .dataTables_wrapper .dataTables_paginate .paginate_button:hover{background:#fff1e9!important;border-color:#f46226!important;color:#db501c!important}
+.pf-admin-body .pf-admin-page .shadow-lg{box-shadow:0 5px 23px #20234009}
+.pf-admin-body .pf-admin-page .rounded-xl{border-radius:10px}
+.pf-admin-body .pf-admin-page .bg-\\[\\#003f3f\\]{background:#16163f!important}
+.pf-admin-body .pf-admin-page .bg-\\[\\#f6f7fb\\]{background:transparent!important}
+.pf-admin-body .pf-admin-page .pf-admin-section-heading{display:flex;align-items:center;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:21px}
+.pf-admin-body .pf-admin-page .pf-admin-section-heading strong{font-size:11px;letter-spacing:.12em;font-weight:800;color:#f46226}
+.pf-admin-body .pf-admin-page .pf-admin-section-heading h1{font-size:27px;font-weight:800;margin:8px 0 5px;color:#191c3b}
+.pf-admin-body .pf-admin-page .pf-admin-section-heading p{font-size:12px;color:#7f8795;line-height:1.65;margin:0}
+.pf-admin-body .pf-admin-page .pf-admin-section-heading a{color:#f46226;text-decoration:none;font-size:12px;font-weight:800}
+@media(max-width:767px){.pf-admin-body .pf-admin-page{padding:20px 14px 38px}.pf-admin-body .pf-admin-page>div.max-w-7xl,.pf-admin-body .pf-admin-page>div.max-w-5xl,.pf-admin-body .pf-admin-page>div.mx-10,.pf-admin-body .pf-admin-page>div.mx-4{padding:16px!important}.pf-admin-body .pf-admin-page table th,.pf-admin-body .pf-admin-page table td{padding:11px 12px!important}}
 @media(prefers-reduced-motion:reduce){.pf-admin-body *{transition:none!important}}
 </style>
   
