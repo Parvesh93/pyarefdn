@@ -195,10 +195,10 @@
  <p style="font-size:13px;line-height:1.8;color:#68707b;margin-top:30px">Health camps like these reflect the spirit of humanity, service, and social welfare, encouraging students and communities to become more aware of their health.</p>
 </div></section>
 <section class="pw-section alt"><div class="pw-container">
- <div class="pw-section-heading"><span class="pw-tag">PROJECT HIGHLIGHTS</span><h2>GLIMPSES OF <span>COMMUNITY HEALTH WORK</span></h2><p>Photographs from Pyare Foundation’s existing women’s health image archive.</p></div>
+ <div class="pw-section-heading"><span class="pw-tag">PROJECT HIGHLIGHTS</span><h2>GLIMPSES OF <span>COMMUNITY HEALTH WORK</span></h2><p>Photographs from the Wellness Centres for Females programme.</p></div>
  <div class="pw-gallery">
- @foreach(['image_2.jpg','image_3.jpg','image_4.jpg','image_5.jpg','image_6.jpg','image_7.jpg','image_8.jpg','image_9.jpg'] as $photo)
- <a href="{{ asset('uploads/female-health/'.$photo) }}" data-fancybox="wellness-gallery" aria-label="View women’s health programme photograph"><img src="{{ asset('uploads/female-health/'.$photo) }}" alt="Pyare Foundation women's health activity" loading="lazy" decoding="async"></a>
+ @foreach(array_merge(array_map(fn($n) => 'image_'.$n.'.jpeg', range(1,17)), ['image_18.jpg','image_19.jpeg','image_20.jpeg']) as $photo)
+ <a href="{{ asset('uploads/images/wellness-centres-2026/'.$photo) }}" data-fancybox="wellness-gallery" aria-label="View women’s health programme photograph"><img src="{{ asset('uploads/images/wellness-centres-2026/'.$photo) }}" alt="Pyare Foundation women's health activity" loading="lazy" decoding="async"></a>
  @endforeach
  </div>
 </div></section>
