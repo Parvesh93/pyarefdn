@@ -80,8 +80,8 @@
 .pf-wellness .pw-photo-track{display:flex;gap:18px;align-items:stretch;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scroll-behavior:smooth;scrollbar-width:none;-ms-overflow-style:none;overscroll-behavior-x:contain;height:340px!important;min-height:340px!important;max-height:340px!important}
 .pf-wellness .pw-photo-track::-webkit-scrollbar{display:none}
 .pf-wellness .pw-photo-slide{flex:0 0 calc((100% - 36px)/3);width:calc((100% - 36px)/3);height:340px!important;min-height:340px!important;max-height:340px!important;scroll-snap-align:start;overflow:hidden}
-.pf-wellness .pw-photo-slide a{display:flex;width:100%;height:100%;align-items:center;justify-content:center;overflow:hidden;border-radius:5px;background:#f6f5f3}
-.pf-wellness .pw-photo-slide img{display:block;width:100%!important;height:100%!important;object-fit:contain!important;object-position:center!important;border:0;border-radius:0;box-shadow:none}
+.pf-wellness .pw-photo-slide a{display:block;width:100%;height:100%;overflow:hidden;border-radius:5px;background:transparent}
+.pf-wellness .pw-photo-slide img{display:block;width:100%!important;height:100%!important;object-fit:cover!important;object-position:center!important;border:0;border-radius:5px;box-shadow:none}
 .pf-wellness .pw-carousel-buttons{display:flex;align-items:center;justify-content:center;gap:13px;margin:21px 0 0;height:44px}
 .pf-wellness .pw-carousel-button{width:42px;height:42px;flex:none;display:grid;place-items:center;border-radius:50%;border:1px solid #ebdcd4;background:#fff;color:#16163f;font-size:23px;line-height:1;cursor:pointer}
 .pf-wellness .pw-carousel-button:hover{background:#f46226;color:#fff;border-color:#f46226}
