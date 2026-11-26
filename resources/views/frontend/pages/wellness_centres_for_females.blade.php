@@ -9,7 +9,7 @@
 .pf-wellness .pw-container{max-width:1440px;margin:auto;padding:0 clamp(20px,3vw,52px)}
 .pf-wellness .pw-tag{display:inline-flex;align-items:center;gap:9px;color:var(--orange);font-size:11px;letter-spacing:.15em;font-weight:800;text-transform:uppercase}
 .pf-wellness .pw-tag:before{content:"";width:8px;height:8px;border-radius:50%;background:var(--orange)}
-.pf-wellness .pw-hero{background:linear-gradient(90deg,rgba(14,17,49,.97),rgba(16,17,51,.83) 54%,rgba(16,17,51,.42)),url("{{ asset('uploads/female-health/image_2.jpg') }}") center/cover no-repeat;color:#fff}
+.pf-wellness .pw-hero{background:linear-gradient(90deg,rgba(14,17,49,.97),rgba(16,17,51,.83) 54%,rgba(16,17,51,.42)),url("{{ asset('uploads/images/wellness-centres-2026/image_1.jpeg') }}") center/cover no-repeat;color:#fff}
 .pf-wellness .pw-hero-inner{padding-top:52px;padding-bottom:76px;min-height:455px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
 .pf-wellness .pw-breadcrumb{display:flex;gap:10px;flex-wrap:wrap;font-size:12px;margin-bottom:35px;color:#eedfdc}
 .pf-wellness .pw-breadcrumb a{color:#fff;text-decoration:none}
@@ -102,7 +102,7 @@
  @endforeach
 </div></section>
 <section class="pw-section"><div class="pw-container pw-about">
- <div class="pw-about-media"><img src="{{ asset('uploads/female-health/image_3.jpg') }}" alt="Pyare Foundation women's health programme" loading="lazy"><img src="{{ asset('uploads/female-health/image_4.jpg') }}" alt="Community healthcare activity" loading="lazy"></div>
+ <div class="pw-about-media"><img src="{{ asset('uploads/images/wellness-centres-2026/image_2.jpeg') }}" alt="Pyare Foundation women's health programme" loading="lazy"><img src="{{ asset('uploads/images/wellness-centres-2026/image_3.jpeg') }}" alt="Community healthcare activity" loading="lazy"></div>
  <div class="pw-about-text"><span class="pw-tag">ABOUT THE INITIATIVE</span><h2>PREVENTIVE HEALTHCARE FOR WOMEN &amp; ADOLESCENT GIRLS</h2>
  <p>The Wellness Centres for Females project was designed to improve access to quality healthcare for women and adolescent girls living in rural communities and educational institutions. Through an integrated approach combining medical consultation, diagnostic testing, nutrition education, counselling, menstrual hygiene awareness, and preventive healthcare, the initiative empowered beneficiaries with knowledge and resources for healthier lives.</p>
  </div>
