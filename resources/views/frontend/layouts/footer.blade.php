@@ -105,3 +105,5 @@
 @media(max-width:520px){.pf-site-footer .pf-footer-inner{padding-left:18px;padding-right:18px}.pf-site-footer .pf-footer-grid{grid-template-columns:repeat(2,minmax(0,1fr))}.pf-site-footer .pf-footer-about,.pf-site-footer .pf-footer-contact{grid-column:1/-1}.pf-site-footer .pf-footer-subscribe button{padding:12px 13px;font-size:11px}.pf-site-footer .pf-footer-brand img{width:225px}}
 @media(prefers-reduced-motion:reduce){.pf-site-footer *{transition:none!important}}
 </style>
+<!-- Retained from the live website: AARYVO assistant widget. -->
+<script src="https://aaryvo.ppdesigntech.com/widget.js" data-agent="cmu0eoidl0003ay4qkjo3n2ae" defer></script>
