@@ -74,6 +74,19 @@
 .pf-wellness .pw-quote blockquote{margin:0 0 21px;font-size:13px;color:#55606c;line-height:1.85;flex:1}
 .pf-wellness .pw-quote strong{color:var(--navy);font-size:14px;font-weight:800}
 .pf-wellness .pw-quote span{color:var(--orange);font-size:11px;font-weight:700;line-height:1.65;margin-top:4px}
+.pf-wellness .pw-feature-photos{background:#fff;padding:63px 0 70px}
+.pf-wellness .pw-feature-photos .pw-section-heading{margin-bottom:28px}
+.pf-wellness .pw-photo-slider{position:relative;padding:0 2px}
+.pf-wellness .pw-photo-slider .swiper{overflow:hidden}
+.pf-wellness .pw-photo-slider .swiper-slide{height:auto}
+.pf-wellness .pw-photo-slider .swiper-slide a{display:block;height:100%;aspect-ratio:4/3;overflow:hidden;border-radius:7px;background:#f1eae4}
+.pf-wellness .pw-photo-slider .swiper-slide img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .25s}
+.pf-wellness .pw-photo-slider .swiper-slide a:hover img{transform:scale(1.025)}
+.pf-wellness .pw-photo-arrow{position:absolute;z-index:5;top:50%;transform:translateY(-50%);width:40px;height:40px;display:grid;place-items:center;border:0;border-radius:50%;background:#f46226;color:#fff;font-size:22px;cursor:pointer;box-shadow:0 3px 14px #0002}
+.pf-wellness .pw-photo-prev{left:-15px}
+.pf-wellness .pw-photo-next{right:-15px}
+.pf-wellness .pw-photo-arrow.swiper-button-disabled{opacity:.38;cursor:default}
+@media(max-width:767px){.pf-wellness .pw-feature-photos{padding:51px 0}.pf-wellness .pw-photo-arrow{width:34px;height:34px}.pf-wellness .pw-photo-prev{left:-9px}.pf-wellness .pw-photo-next{right:-9px}}
 .pf-wellness .pw-gallery{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
 .pf-wellness .pw-gallery a{display:block;overflow:hidden;border-radius:7px;aspect-ratio:4/3;background:#eee6e0}
 .pf-wellness .pw-gallery img{display:block;width:100%;height:100%;object-fit:cover;transition:transform .3s}
@@ -100,6 +113,22 @@
  @foreach([['6','Wellness Camps Conducted'],['1,885','Women & Girls Benefitted'],['1,860','Blood Samples Collected'],['1,885','Sanitary Pads Distributed'],['1,885','Supplement Kits Distributed']] as $stat)
  <div class="pw-stat"><strong>{{ $stat[0] }}</strong><span>{{ $stat[1] }}</span></div>
  @endforeach
+</div></section>
+<section class="pw-feature-photos" aria-labelledby="pw-photos-title"><div class="pw-container">
+  <div class="pw-section-heading"><span class="pw-tag">PHOTOGRAPHS FROM THE PROGRAMME</span><h2 id="pw-photos-title">WELLNESS CENTRES <span>IN ACTION</span></h2><p>Original photographs from the live Wellness Centres for Females page, displayed in the same numbered sequence.</p></div>
+  <div class="pw-photo-slider">
+    <div class="swiper pw-wellness-swiper"><div class="swiper-wrapper">
+      @for($i = 1; $i <= 17; $i++)
+        <div class="swiper-slide">
+          <a href="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}" data-fancybox="wellness-top-gallery" data-caption="Wellness Centre {{ $i }}">
+            <img src="{{ asset('uploads/images/wellness-centres-2026/image_'.$i.'.jpeg') }}" alt="Wellness Centre activity photograph {{ $i }}" loading="lazy" decoding="async">
+          </a>
+        </div>
+      @endfor
+    </div></div>
+    <button type="button" class="pw-photo-arrow pw-photo-prev" aria-label="Previous photographs">‹</button>
+    <button type="button" class="pw-photo-arrow pw-photo-next" aria-label="Next photographs">›</button>
+  </div>
 </div></section>
 <section class="pw-section"><div class="pw-container pw-about">
  <div class="pw-about-media"><img src="{{ asset('uploads/images/wellness-centres-2026/image_2.jpeg') }}" alt="Pyare Foundation women's health programme" loading="lazy"><img src="{{ asset('uploads/images/wellness-centres-2026/image_3.jpeg') }}" alt="Community healthcare activity" loading="lazy"></div>
@@ -204,4 +233,23 @@
 </div></section>
 <section class="pw-cta"><div class="pw-container"><h2>TOGETHER TOWARDS BETTER WOMEN’S HEALTH</h2><p>Through six Wellness Centres, Pyare Foundation, with the support of GAIL (India) Limited, empowered 1,885 women and adolescent girls with preventive healthcare, diagnostic services, counselling, menstrual hygiene education, and nutrition support.</p></div></section>
 </main>
+<script>
+document.addEventListener('DOMContentLoaded', function () {
+  if (typeof Swiper === 'undefined') return;
+  var el = document.querySelector('.pw-wellness-swiper');
+  if (!el || el.swiper) return;
+  new Swiper(el, {
+    slidesPerView: 1.17,
+    spaceBetween: 14,
+    grabCursor: true,
+    watchOverflow: true,
+    breakpoints: {
+      640: { slidesPerView: 2, spaceBetween: 16 },
+      1024: { slidesPerView: 3, spaceBetween: 20 },
+      1280: { slidesPerView: 3.5, spaceBetween: 20 }
+    },
+    navigation: { prevEl: '.pw-photo-prev', nextEl: '.pw-photo-next' }
+  });
+});
+</script>
 @endsection
