@@ -5,41 +5,109 @@
 
 @extends('frontend.layouts.master')
 
+@section('page_css')
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.pf-bhairavi-page{--pfb-navy:#16163f;--pfb-orange:#f46226;--pfb-cream:#fffaf5;font-family:'DM Sans',Arial,sans-serif;color:#22243d}
+.pf-bhairavi-page *{box-sizing:border-box}
+.pf-bhairavi-page :is(h1,h2,h3,h4){font-family:'Manrope',sans-serif;letter-spacing:-.035em}
+.pf-bhairavi-page .pfb-shell{width:100%;max-width:1440px;margin:0 auto;padding-left:clamp(20px,3vw,52px);padding-right:clamp(20px,3vw,52px)}
+.pf-bhairavi-page .pfb-hero{position:relative;overflow:hidden;color:white;background:linear-gradient(105deg,rgba(14,15,42,.93) 0%,rgba(18,17,48,.75) 52%,rgba(21,18,46,.38) 100%),url("{{ asset('uploads/images/bhairavi/phage1/phage1.jpg') }}") center 43%/cover no-repeat}
+.pf-bhairavi-page .pfb-hero .pfb-shell{position:relative;min-height:420px;padding-top:55px;padding-bottom:70px;display:flex;flex-direction:column;justify-content:center;align-items:flex-start}
+.pf-bhairavi-page .pfb-breadcrumb{display:flex;align-items:center;flex-wrap:wrap;gap:11px;font-size:12px;color:#f1e7e5;margin:0 0 34px}
+.pf-bhairavi-page .pfb-breadcrumb a{color:#fff;text-decoration:none;font-weight:700}
+.pf-bhairavi-page .pfb-breadcrumb a:hover{color:#ffb58f}
+.pf-bhairavi-page .pfb-breadcrumb span:last-child{color:#ffb58f}
+.pf-bhairavi-page .pfb-eyebrow{font-size:11px;font-weight:800;letter-spacing:.15em;color:#ffb186;display:inline-flex;align-items:center;gap:9px}
+.pf-bhairavi-page .pfb-eyebrow:before{content:"";display:block;width:8px;height:8px;background:#f46226;border-radius:50%}
+.pf-bhairavi-page .pfb-hero h1{font-size:clamp(39px,5vw,66px)!important;color:#fff!important;font-weight:800;line-height:1.15!important;margin:13px 0 15px}
+.pf-bhairavi-page .pfb-hero h1 span{color:#ff8756}
+.pf-bhairavi-page .pfb-hero-lead{font-size:15px;line-height:1.75;color:#f6f0ef;max-width:630px;margin:0 0 23px}
+.pf-bhairavi-page .pfb-hero-cta{display:inline-flex;gap:17px;align-items:center;background:#f46226;color:#fff;text-decoration:none;border-radius:5px;padding:14px 22px;font-size:12px;font-weight:800}
+.pf-bhairavi-page .pfb-hero-cta:hover{background:#dd4e18;color:#fff}
+.pf-bhairavi-page .pfb-main-section{background:#fffaf5;padding:75px 0 95px}
+.pf-bhairavi-page .pfb-layout{display:grid;grid-template-columns:minmax(0,1.72fr) minmax(325px,.83fr);gap:clamp(25px,3vw,48px);align-items:start}
+.pf-bhairavi-page .pfb-content{min-width:0;overflow:visible}
+.pf-bhairavi-page .pfb-summary-wrap{margin-bottom:46px}
+.pf-bhairavi-page .pfb-summary-card{background:#fff;border:1px solid #ebe3df;border-radius:10px;overflow:hidden;box-shadow:0 8px 25px rgba(22,22,63,.055)}
+.pf-bhairavi-page .pfb-summary-top{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:22px;padding:26px}
+.pf-bhairavi-page .pfb-summary-top>div:first-child{display:flex;align-items:center;gap:23px;min-width:0}
+.pf-bhairavi-page .pfb-summary-top .relative.w-28{flex:none;width:95px;height:95px}
+.pf-bhairavi-page .pfb-summary-top .text-xl.font-semibold{font-size:12px!important;text-transform:uppercase;letter-spacing:.11em;color:#626777;font-weight:800}
+.pf-bhairavi-page .pfb-summary-top .text-orange-600{font-size:22px!important;color:#f46226!important;line-height:1.35}
+.pf-bhairavi-page .pfb-summary-top .text-orange-600 span{font-size:13px!important;display:block;font-weight:500}
+.pf-bhairavi-page .pfb-summary-top .bg-yellow-400{background:#fff2e9!important;color:#c74c1f!important;font-size:11px!important;border-radius:4px;margin-top:12px;padding:7px 11px}
+.pf-bhairavi-page .pfb-summary-top>div:last-child p{font-size:12px!important;color:#626777;text-align:right}
+.pf-bhairavi-page .pfb-summary-bottom{display:flex;justify-content:space-between;align-items:center;gap:20px;background:#16163f;color:#fff;padding:21px 26px}
+.pf-bhairavi-page .pfb-summary-bottom p{font-size:13px!important;font-weight:700;line-height:1.6;max-width:500px;margin:0;text-align:left}
+.pf-bhairavi-page .pfb-summary-donate{white-space:nowrap;display:inline-flex;align-items:center;gap:15px;border-radius:5px;background:#f46226;color:#fff;font-weight:800;font-size:11px;padding:13px 17px;text-decoration:none}
+.pf-bhairavi-page .pfb-summary-donate:hover{background:#d84c16;color:#fff}
+.pf-bhairavi-page .pfb-timeline{min-width:0}
+.pf-bhairavi-page .pfb-timeline>p:first-child{font-family:'Manrope',sans-serif;font-style:normal!important;font-size:clamp(25px,2.3vw,35px)!important;line-height:1.3;font-weight:800;color:#16163f;margin:0 0 21px}
+.pf-bhairavi-page .pfb-timeline>p:not(:first-child){font-size:14px;line-height:1.85;color:#606775;margin:0 0 15px;text-align:left}
+.pf-bhairavi-page .pfb-timeline>p.font-bold{font-size:17px!important;font-family:'Manrope',sans-serif;font-weight:800;color:#16163f;border-left:3px solid #f46226;padding:7px 0 7px 15px;margin:36px 0 13px!important;line-height:1.5}
+.pf-bhairavi-page .pfb-timeline>ul{font-size:13px;color:#5c6370;line-height:1.85;padding-left:19px;margin:0 0 22px}
+.pf-bhairavi-page .pfb-timeline>ul li{padding:3px 0}
+.pf-bhairavi-page .pfb-timeline>div.relative.w-full.py-6{padding:10px 0 20px!important;overflow:hidden}
+.pf-bhairavi-page .pfb-timeline .swiper{overflow:hidden;border-radius:8px}
+.pf-bhairavi-page .pfb-timeline .swiper-slide{height:auto;min-width:0}
+.pf-bhairavi-page .pfb-timeline .swiper-slide a{display:block}
+.pf-bhairavi-page .pfb-timeline .swiper-slide img{width:100%;height:270px!important;object-fit:cover;border-radius:6px!important;display:block}
+.pf-bhairavi-page .pfb-timeline [class*="swiper-button-prev-custom"],.pf-bhairavi-page .pfb-timeline [class*="swiper-button-next-custom"]{width:36px!important;height:36px!important;background:#f46226!important;border-radius:50%!important;display:flex;justify-content:center;align-items:center}
+.pf-bhairavi-page .pfb-sidebar{min-width:0;position:sticky;top:22px;align-self:start}
+.pf-bhairavi-page .pfb-donate-box{background:#fff;border:1px solid #eee4df;box-shadow:0 8px 27px rgba(22,22,63,.06);border-radius:10px;padding:25px;scroll-margin-top:26px}
+.pf-bhairavi-page .pfb-donate-box>h3{color:#16163f!important;font-size:22px!important;font-weight:800!important;line-height:1.25;margin-bottom:18px!important}
+.pf-bhairavi-page .pfb-donate-box>h4{font-size:12px!important;font-weight:800!important;color:#16163f;margin:18px 0 12px!important}
+.pf-bhairavi-page .pfb-donate-box button.donation-btn,.pf-bhairavi-page .pfb-donate-box button.amount-btn{border-radius:5px!important;min-height:43px;border:1px solid #eee2dc;color:#16163f!important;font-size:12px!important;font-weight:800;padding:11px 13px!important;margin-bottom:9px!important;transition:background .2s,border-color .2s}
+.pf-bhairavi-page .pfb-donate-box button.donation-btn:hover,.pf-bhairavi-page .pfb-donate-box button.amount-btn:hover{border-color:#f46226}
+.pf-bhairavi-page .pfb-donate-box button.bg-\[\#FEB201\],.pf-bhairavi-page .pfb-donate-box button.bg-yellow-400{background:#fff0e7!important;border-color:#f46226!important;color:#d94f1a!important}
+.pf-bhairavi-page .pfb-donate-box #payment-form{display:flex;flex-direction:column;gap:10px}
+.pf-bhairavi-page .pfb-donate-box #payment-form input:not([type="hidden"]){height:45px;width:100%;border:1px solid #e5dedb;border-radius:5px;padding:11px 14px;font-size:12px;outline:none;color:#16163f;background:#fff;margin:0!important}
+.pf-bhairavi-page .pfb-donate-box #payment-form input:focus{border-color:#f46226}
+.pf-bhairavi-page .pfb-donate-box #pay-button{background:#f46226!important;border:0;border-radius:5px;color:#fff;font-weight:800;min-height:49px;margin-top:6px}
+.pf-bhairavi-page .pfb-donate-box #pay-button:hover{background:#dc4c18!important}
+.pf-bhairavi-page .pfb-join-card{background:#fff9f4;border:1px solid #f2dfd3;border-radius:8px;padding:21px 19px;margin:20px 0 0!important;min-height:0;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.pf-bhairavi-page .pfb-join-card .absolute{display:none!important}
+.pf-bhairavi-page .pfb-join-card>div.relative{align-items:flex-start;text-align:left}
+.pf-bhairavi-page .pfb-join-card p{font-size:12px!important;line-height:1.75;color:#646573;text-align:left!important;margin-bottom:14px!important}
+.pf-bhairavi-page .pfb-join-link{display:inline-flex;align-items:center;gap:9px;background:#16163f;color:#fff!important;border-radius:5px;padding:11px 13px;font-size:11px;font-weight:800;text-decoration:none}
+.pf-bhairavi-page .pfb-join-link:hover{background:#292958}
+@media(max-width:1000px){.pf-bhairavi-page .pfb-layout{grid-template-columns:minmax(0,1fr) minmax(300px,.8fr);gap:24px}.pf-bhairavi-page .pfb-donate-box{padding:21px}.pf-bhairavi-page .pfb-summary-top{padding:20px}}
+@media(max-width:767px){.pf-bhairavi-page .pfb-hero .pfb-shell{min-height:370px;padding:43px 18px 56px}.pf-bhairavi-page .pfb-breadcrumb{margin-bottom:24px}.pf-bhairavi-page .pfb-hero h1{font-size:39px!important}.pf-bhairavi-page .pfb-hero-lead{font-size:13px}.pf-bhairavi-page .pfb-main-section{padding:48px 0 70px}.pf-bhairavi-page .pfb-shell{padding-left:18px;padding-right:18px}.pf-bhairavi-page .pfb-layout{grid-template-columns:1fr;gap:35px}.pf-bhairavi-page .pfb-sidebar{position:static}.pf-bhairavi-page .pfb-summary-top>div:first-child{flex-wrap:wrap}.pf-bhairavi-page .pfb-summary-bottom{flex-direction:column;align-items:flex-start;padding:19px}.pf-bhairavi-page .pfb-timeline>p:first-child{font-size:25px!important}.pf-bhairavi-page .pfb-timeline .swiper-slide img{height:245px!important}}
+@media(prefers-reduced-motion:reduce){.pf-bhairavi-page *{transition:none!important}}
+</style>
+@endsection
+
 @section('content')
-    <!-- Title section -->
-
-    <section class="relative py-6 bg-cover bg-center overflow-hidden text-white">
-        <!-- Noise / Grainy Texture Overlay -->
-        <div class="absolute inset-0 mix-blend-overlay pointer-events-none bg-[#0f1240]">
-        </div>
-
-        <div class="relative max-w-screen-xl md:mx-8 px-6">
-            <h2 class="md:text-2xl text-2xl font-bold">Project Bhairavi </h2>
-
-            <nav class="mt-3 text-sm">
-                <i class="fa-sharp-duotone fa-solid fa-house"></i> <a href="{{ route('home') }}"
-                    class="text-[16px] text-orange-400 font-semibold hover:underline">Home</a>
-                <span class="mx-1 text-gray-200">/</span>
-                <span class="text-[16px] text-gray-300">Project Bhairavi</span>
-            </nav>
-        </div>
+    <main class="pf-bhairavi-page">
+    <section class="pfb-hero" aria-labelledby="pfb-title">
+      <div class="pfb-shell">
+        <nav class="pfb-breadcrumb" aria-label="Breadcrumb">
+          <a href="{{ route('home') }}">Home</a><span aria-hidden="true">/</span>
+          <a href="{{ route('our-project') }}">Projects</a><span aria-hidden="true">/</span>
+          <span>Project Bhairavi</span>
+        </nav>
+        <span class="pfb-eyebrow">COMMUNITY HEALTH &amp; WOMEN'S WELLBEING</span>
+        <h1 id="pfb-title">PROJECT <span>BHAIRAVI</span></h1>
+        <p class="pfb-hero-lead">Support Project Bhairavi to Empower Women With Menstrual Health &amp; Dignity</p>
+        <a class="pfb-hero-cta" href="#donationForm">SUPPORT THIS PROJECT <span aria-hidden="true">↗</span></a>
+      </div>
     </section>
 
-
     <!-- Main Content & Donate now Form -->
-    <section class="w-full py-10 bg-white">
-        <div class="md:mx-11 flex flex-col lg:flex-row gap-10 px-4">
+    <section class="pfb-main-section">
+        <div class="pfb-shell pfb-layout">
 
             <!-- Left Content (scrollable text, images, sliders) -->
-            <div class="w-full lg:w-2/3 overflow-y-auto">
+            <div class="pfb-content">
 
 
-                <div class="flex justify-center items-center mb-6">
+                <div class="pfb-summary-wrap">
 
-                    <div class="bg-white rounded-2xl shadow-lg border border-orange-200 overflow-hidden  w-full">
+                    <div class="pfb-summary-card">
 
                         <!--Top Section -->
-                        <div class="p-6 flex flex-col md:flex-row md:items-center justify-between gap-6">
+                        <div class="pfb-summary-top">
 
                             <!--Circular Progress -->
                             <div class="flex items-center gap-4">
@@ -47,8 +115,8 @@
                                     <svg class="w-full h-full transform -rotate-90" viewBox="0 0 100 100">
                                         <circle cx="50" cy="50" r="45" stroke="#ddd" stroke-width="10"
                                             fill="none" />
-                                        <circle cx="50" cy="50" r="45" stroke="#22c55e" stroke-width="10"
-                                            fill="none" stroke-dasharray="282.6" stroke-dashoffset="98.9"
+                                        <circle cx="50" cy="50" r="45" stroke="#f46226" stroke-width="10"
+                                            fill="none" stroke-dasharray="282.6" stroke-dashoffset="{{ 282.6 * (1 - min(100, max(0, $percentage)) / 100) }}"
                                             stroke-linecap="round" />
                                     </svg>
                                     <span
@@ -75,7 +143,7 @@
 
                             <!--End Date + Share Button -->
                             <div class="flex flex-col items-end ">
-                                <button class="text-orange-500 hover:text-orange-600">
+                                <button type="button" class="text-orange-500 hover:text-orange-600" aria-label="Share Project Bhairavi">
 
                                     <i
                                         class="fa-regular fa-share-from-square hidden md:inline-block text-2xl hover:text-orange-500 cursor-pointer"></i>
@@ -94,11 +162,7 @@
                             <p class="text-lg font-semibold text-center md:text-left">
                                 Support Project Bhairavi to Empower Women With Menstrual Health & Dignity
                             </p>
-                            <a href="#donationForm" class="mx-auto md:mx-0">
-                                <button
-                                    class="bg-yellow-400 text-black font-bold px-6 py-3 rounded-lg hover:bg-yellow-300">DONATE
-                                    NOW</button>
-                            </a>
+                            <a href="#donationForm" class="pfb-summary-donate">DONATE NOW <span aria-hidden="true">↗</span></a>
                         </div>
 
                     </div>
@@ -107,7 +171,7 @@
 
 
 
-                <div class="space-y-4 mt-6">
+                <div class="pfb-timeline">
 
                     <p class="md:text-2xl font-bold text-2xl italic">
                         Official Progress Summary (2025–2026)
@@ -1732,17 +1796,17 @@
 
             <!-- Right Donate Form -->
 
-            <div class="w-full lg:w-1/3 h-fit sticky top-0">
-                <div id="donationForm" class="shadow-lg rounded p-6 bg-white border border-gray-200">
+            <aside class="pfb-sidebar">
+                <div id="donationForm" class="pfb-donate-box">
                     <h3 class="text-md font-semibold text-gray-800 mb-4">DONATE NOW</h3>
 
                     <!-- Give Type -->
                     <button id="onceBtn" data-type="one-time"
-                        class="donation-btn give-type w-full bg-gray-100 text-sm font-bold py-2 px-4 rounded mb-2">
+                        type="button" class="donation-btn give-type w-full bg-gray-100 text-sm font-bold py-2 px-4 rounded mb-2">
                         GIVE ONCE
                     </button>
                     <button id="monthlyBtn" data-type="monthly"
-                        class="donation-btn give-type w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4">
+                        type="button" class="donation-btn give-type w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4">
                         GIVE MONTHLY
                     </button>
 
@@ -1751,20 +1815,20 @@
                     </h4>
 
                     <!-- Amount Buttons -->
-                    <button class="amount-btn w-full bg-yellow-400 text-sm font-bold py-2 px-4 rounded mb-2"
+                    <button type="button" class="amount-btn w-full bg-yellow-400 text-sm font-bold py-2 px-4 rounded mb-2"
                         data-value="500">
                         ₹500
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="1000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="1000">
                         ₹1000
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="2000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="2000">
                         ₹2000
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4" data-value="3000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4" data-value="3000">
                         ₹3000
                     </button>
-                    <button id="customBtn" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-6"
+                    <button id="customBtn" type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-6"
                         data-value="">
                         ₹ CUSTOM AMOUNT
                     </button>
@@ -1809,7 +1873,7 @@
 
                     <!-- Volunteer Box -->
                     <div
-                        class="relative overflow-hidden rounded-xl bg-[#fee09c] px-6 py-6 min-h-[200px] flex flex-col justify-center items-center text-center mt-6 mb-6">
+                        class="pfb-join-card">
                         <div class="absolute -top-12 -left-10 w-40 h-40 bg-orange-400 rounded-full opacity-30 z-0">
                         </div>
                         <div class="absolute top-8 left-8 w-64 h-64 bg-orange-300 rounded-full opacity-20 z-0"></div>
@@ -1818,16 +1882,13 @@
                                 Volunteers are the heart of our foundation. Sign up today and
                                 be a part of something bigger.
                             </p>
-                            <button class="bg-[#11144a] text-white text-sm font-semibold py-2 px-6 rounded"><a
-                                    href="{{ route('volunteer-member') }}">BECOME VOLUNTEER</a>
-
-                            </button>
+                            <a class="pfb-join-link" href="{{ route('volunteer-member') }}">BECOME VOLUNTEER <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
 
                     <!-- Annual Member Box -->
                     <div
-                        class="relative overflow-hidden rounded-xl bg-[#fee09c] px-6 py-6 min-h-[220px] flex flex-col justify-center items-center text-center">
+                        class="pfb-join-card">
                         <div class="absolute -top-12 -left-10 w-40 h-40 bg-orange-400 rounded-full opacity-30 z-0">
                         </div>
                         <div class="absolute top-8 left-8 w-64 h-64 bg-orange-300 rounded-full opacity-20 z-0"></div>
@@ -1837,58 +1898,14 @@
                                 membership fuels year-round impact — supporting education,
                                 environment, and empowerment.
                             </p>
-                            <button class="bg-[#11144a] text-white text-sm font-semibold py-2 px-6 rounded"><a
-                                    href="{{ route('annual-member') }}">BECOME ANNUAL MEMBER</a>
-                            </button>
+                            <a class="pfb-join-link" href="{{ route('annual-member') }}">BECOME ANNUAL MEMBER <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </aside>
 
         </div>
     </section>
+    </main>
 
-
-
-    <!-- JS Logic -->
-    <script>
-        // Handle amount button selection
-        const amountButtons = document.querySelectorAll(".amount-btn");
-        const amountInput = document.getElementById("customAmount1");
-
-        amountButtons.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                // Reset all
-                amountButtons.forEach((b) => {
-                    b.classList.remove("bg-yellow-400", "text-black", "font-bold");
-                    b.classList.add("bg-gray-100");
-                });
-
-                // Highlight current
-                btn.classList.add("bg-yellow-400", "text-black", "font-bold");
-                btn.classList.remove("bg-gray-100");
-
-                // // Fill input if not custom
-                // const value = btn.dataset.amount;
-                // // var right=value?100:200
-                // if (value !== "custom") {
-                //     amountInput.value = value;
-
-                // } else {
-                //     amountInput.value = "100";
-                //     amountInput.focus();
-                // }
-            });
-        });
-
-        // If user types manually, unselect all buttons
-        amountInput.addEventListener("input", () => {
-            if (amountInput.value.trim() !== "") {
-                amountButtons.forEach((b) => {
-                    b.classList.remove("bg-yellow-400", "text-black", "font-bold");
-                    b.classList.add("bg-gray-100");
-                });
-            }
-        });
-    </script>
 @endsection
