@@ -4,6 +4,8 @@
 
 @extends('admin.layouts.master')
 @section('adminContent')
+<div class="pf-admin-page" data-admin-module="volunteer">
+
     <div class="max-w-7xl mx-4 my-4  p-6 bg-white shadow-lg ">
         <!-- Heading -->
         <h2 class="text-2xl font-bold text-gray-800 mb-6 border-b pb-3">{{ $title }} List</h2>
@@ -188,4 +190,6 @@
 
 
 
+
+</div>
 @endsection
