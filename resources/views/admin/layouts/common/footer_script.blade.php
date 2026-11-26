@@ -93,7 +93,7 @@
     <script src="https://checkout.razorpay.com/v1/checkout.js"></script>
 
     <script>
-        document.getElementById('pay-button').onclick = function(e) {
+        if (document.getElementById('pay-button')) document.getElementById('pay-button').onclick = function(e) {
             e.preventDefault();
 
             var amount = document.getElementById('customAmount').value; // Get Amount from Form
@@ -491,7 +491,9 @@
     </script> --}}
 
     <script>
-        const pieCtx = document.getElementById("pieChart").getContext("2d");
+        const pieCanvas = document.getElementById("pieChart");
+        if (pieCanvas && typeof Chart !== "undefined") {
+        const pieCtx = pieCanvas.getContext("2d");
         new Chart(pieCtx, {
             type: "doughnut",
             data: {
@@ -516,6 +518,7 @@
                 },
             },
         });
+        }
     </script>
 
 
