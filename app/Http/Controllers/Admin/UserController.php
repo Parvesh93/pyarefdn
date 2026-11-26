@@ -68,7 +68,7 @@ class UserController extends Controller
         $data['access']    = $this->access;
         $data['view'] = $this->view;
 
-        $data['roles'] = Role::orderBy('name', 'asc')->get();
+        $data['roles'] = Role::where('guard_name', 'web')->orderBy('name', 'asc')->get();
 
         return view($this->view . '.create', $data);
     }
@@ -83,12 +83,12 @@ class UserController extends Controller
             'last_name' => ['nullable', 'string', 'max:100'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')],
             'roles' => ['required', 'array', 'size:1'],
-            'roles.0' => ['required', 'integer', Rule::exists('roles', 'id')],
+            'roles.0' => ['required', 'integer', Rule::exists('roles', 'id')->where('guard_name', 'web')],
             'attach' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
         ]);
 
         $role = Role::findOrFail($validated['roles'][0]);
-        if (!$request->user()->can('role-create') && $role->permissions()->whereIn('name', ['role-create', 'role-edit', 'user-delete'])->exists()) {
+        if (!$request->user()->can('role-create') && (preg_match('/admin|super/i', $role->name) || $role->permissions()->whereIn('name', ['role-create', 'role-edit', 'user-delete'])->exists())) {
             return back()->withInput()->withErrors(['roles' => 'You are not allowed to assign a privileged administrator role.']);
         }
         $user = new User();
@@ -141,7 +141,7 @@ class UserController extends Controller
         $data['access'] = $this->access;
         $data['view'] = $this->view;
         $data['user'] = User::with('roles')->findOrFail($id);
-        $data['roles'] = Role::orderBy('name', 'asc')->get();
+        $data['roles'] = Role::where('guard_name', 'web')->orderBy('name', 'asc')->get();
         $data['userRoles'] = $data['user']->roles->pluck('id')->toArray();
         return view($this->view . '.edit', $data);
     }
@@ -157,12 +157,12 @@ class UserController extends Controller
             'last_name' => ['nullable', 'string', 'max:100'],
             'email' => ['required', 'email', 'max:255', Rule::unique('users', 'email')->ignore($user->id)],
             'roles' => ['required', 'array', 'size:1'],
-            'roles.0' => ['required', 'integer', Rule::exists('roles', 'id')],
+            'roles.0' => ['required', 'integer', Rule::exists('roles', 'id')->where('guard_name', 'web')],
             'attach' => ['nullable', 'image', 'mimes:jpg,jpeg,png,webp', 'max:2048'],
             'status' => ['nullable', Rule::in(['active','inactive'])],
         ]);
         $role = Role::findOrFail($validated['roles'][0]);
-        if (!$request->user()->can('role-create') && $role->permissions()->whereIn('name', ['role-create', 'role-edit', 'user-delete'])->exists() && !$user->hasRole($role->name)) {
+        if (!$request->user()->can('role-create') && !$user->hasRole($role->name) && (preg_match('/admin|super/i', $role->name) || $role->permissions()->whereIn('name', ['role-create', 'role-edit', 'user-delete'])->exists())) {
             return back()->withInput()->withErrors(['roles' => 'You are not allowed to assign a privileged administrator role.']);
         }
         // Prevent an administrator from accidentally stripping their own access.
