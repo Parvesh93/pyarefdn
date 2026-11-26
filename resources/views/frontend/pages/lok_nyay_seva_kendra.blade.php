@@ -5,37 +5,99 @@
 
 @extends('frontend.layouts.master')
 
+@section('page_css')
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700;800&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+.pf-lok-page{--pfl-navy:#16163f;--pfl-orange:#f46226;--pfl-cream:#fffaf5;font-family:'DM Sans',Arial,sans-serif;color:#24263b}
+.pf-lok-page *{box-sizing:border-box}
+.pf-lok-page :is(h1,h2,h3,h4){font-family:'Manrope',sans-serif;letter-spacing:-.035em}
+.pf-lok-page .pfl-container{max-width:1440px;margin:0 auto;width:100%;padding-left:clamp(20px,3vw,52px);padding-right:clamp(20px,3vw,52px)}
+.pf-lok-page .pfl-hero{position:relative;overflow:hidden;color:#fff;background:linear-gradient(100deg,rgba(16,16,47,.94),rgba(16,16,47,.78) 54%,rgba(16,16,47,.3)),url("{{ asset('uploads/images/lok_nyay/prize/prize1.jpeg') }}") center 40%/cover no-repeat}
+.pf-lok-page .pfl-hero-inner{min-height:430px;padding-top:55px;padding-bottom:70px;display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
+.pf-lok-page .pfl-breadcrumb{display:flex;flex-wrap:wrap;gap:10px;align-items:center;font-size:12px;color:#e8e3ec;margin-bottom:36px}
+.pf-lok-page .pfl-breadcrumb a{color:#fff;text-decoration:none;font-weight:700}
+.pf-lok-page .pfl-breadcrumb a:hover{color:#ffc29f}
+.pf-lok-page .pfl-breadcrumb span:last-child{color:#ffb186}
+.pf-lok-page .pfl-eyebrow{display:inline-flex;align-items:center;gap:9px;color:#f46226;font-size:11px;letter-spacing:.14em;font-weight:800}
+.pf-lok-page .pfl-hero .pfl-eyebrow{color:#ffb389}
+.pf-lok-page .pfl-eyebrow::before{content:"";height:8px;width:8px;border-radius:50%;background:#f46226;flex:none}
+.pf-lok-page .pfl-hero h1{font-size:clamp(37px,4.5vw,62px)!important;line-height:1.15!important;font-weight:800;color:#fff!important;max-width:820px;margin:14px 0 12px}
+.pf-lok-page .pfl-hero h1 span{color:#ff8b5b}
+.pf-lok-page .pfl-hero-sub{font-size:16px!important;color:#f1e9ed;line-height:1.75;margin:0 0 25px;max-width:590px}
+.pf-lok-page .pfl-hero-link{display:inline-flex;align-items:center;gap:18px;border-radius:5px;background:#f46226;color:#fff;text-decoration:none;padding:14px 20px;font-size:12px;font-weight:800;transition:background .2s}
+.pf-lok-page .pfl-hero-link:hover{background:#dc4b18;color:#fff}
+.pf-lok-page .pfl-main{background:#fffaf5;padding:80px 0 100px}
+.pf-lok-page .pfl-layout{display:grid;grid-template-columns:minmax(0,1.75fr) minmax(315px,.84fr);gap:clamp(26px,3vw,48px);align-items:start}
+.pf-lok-page .pfl-story{min-width:0;scroll-margin-top:20px}
+.pf-lok-page .pfl-story-intro{margin-bottom:28px}
+.pf-lok-page .pfl-story-intro h2{font-size:clamp(28px,2.8vw,40px);line-height:1.24;color:#16163f;font-weight:800;margin:13px 0}
+.pf-lok-page .pfl-story-intro h2 span{color:#f46226}
+.pf-lok-page .pfl-story-intro p{font-size:16px;line-height:1.7;color:#626a74;font-weight:600;margin:0}
+.pf-lok-page .pfl-story>div.space-y-4,.pf-lok-page .pfl-story>div.space-y-3,.pf-lok-page .pfl-story>div:not(.relative):not(.pfl-story-intro){margin-bottom:32px}
+.pf-lok-page .pfl-story h2:not(.pfl-story-intro h2){font-size:clamp(22px,2.2vw,28px)!important;line-height:1.35!important;font-weight:800!important;color:#16163f!important;margin:28px 0 15px!important}
+.pf-lok-page .pfl-story p{font-size:14px;line-height:1.9;color:#5f6670;text-align:left!important}
+.pf-lok-page .pfl-story p.font-bold,.pf-lok-page .pfl-story p>span.font-bold{font-size:18px!important;line-height:1.45;font-weight:800;color:#16163f}
+.pf-lok-page .pfl-story :is(ul,ol){color:#5f6670;font-size:13px;line-height:1.85;padding-left:24px;margin:13px 0 22px;list-style-position:outside}
+.pf-lok-page .pfl-story :is(ul,ol) li{margin-bottom:7px}
+.pf-lok-page .pfl-story .swiper{overflow:hidden;border-radius:8px}
+.pf-lok-page .pfl-story .swiper-slide{min-width:0}
+.pf-lok-page .pfl-story .swiper-slide a{display:block}
+.pf-lok-page .pfl-story .swiper-slide img{width:100%;height:270px!important;object-fit:cover;border-radius:6px!important;display:block}
+.pf-lok-page .pfl-story [class*="swiper-button-prev-custom"],.pf-lok-page .pfl-story [class*="swiper-button-next-custom"]{width:36px!important;height:36px!important;background:#f46226!important;border-radius:50%!important;display:grid;place-items:center;cursor:pointer}
+.pf-lok-page .pfl-story>div.relative.w-full.py-6{padding:10px 0 23px!important;margin-bottom:17px}
+.pf-lok-page .pfl-story table{width:100%;border-collapse:separate;border-spacing:0;border:1px solid #ece2dd!important;border-radius:8px;overflow:hidden;background:#fff}
+.pf-lok-page .pfl-story thead{background:#16163f!important;color:#fff!important}
+.pf-lok-page .pfl-story th{background:#16163f;color:#fff;font-weight:800!important;font-size:11px;letter-spacing:.035em}
+.pf-lok-page .pfl-story :is(td,th){padding:12px 14px!important;border:0!important;border-bottom:1px solid #eee6e2!important;text-align:left;line-height:1.5}
+.pf-lok-page .pfl-story td{color:#565d6b;font-size:12px;vertical-align:top}
+.pf-lok-page .pfl-story tbody tr:last-child td{border-bottom:0!important}
+.pf-lok-page .pfl-story tbody tr:nth-child(even){background:#fff9f4}
+.pf-lok-page .pfl-story .overflow-x-auto{border-radius:8px;margin-top:15px}
+.pf-lok-page .pfl-sidebar{position:sticky;top:22px;align-self:start;min-width:0}
+.pf-lok-page .pfl-donate{background:#fff;border:1px solid #eee4e0;box-shadow:0 8px 26px rgba(22,22,63,.055);border-radius:10px;padding:25px;scroll-margin-top:18px}
+.pf-lok-page .pfl-donate>h3{color:#16163f!important;font-size:22px!important;line-height:1.3;font-weight:800!important;margin-bottom:19px!important}
+.pf-lok-page .pfl-donate>h4{color:#16163f!important;font-size:12px!important;font-weight:800!important;margin:18px 0 12px!important}
+.pf-lok-page .pfl-donate button.donation-btn,.pf-lok-page .pfl-donate button.amount-btn{min-height:43px;border:1px solid #eaded8;border-radius:5px!important;font-size:12px!important;font-weight:800;color:#16163f!important;padding:11px 13px!important;margin-bottom:9px!important}
+.pf-lok-page .pfl-donate button.donation-btn:hover,.pf-lok-page .pfl-donate button.amount-btn:hover{border-color:#f46226}
+.pf-lok-page .pfl-donate button.bg-yellow-400,.pf-lok-page .pfl-donate button.bg-\[\#FEB201\]{background:#fff0e8!important;border-color:#f46226!important;color:#ce4c1e!important}
+.pf-lok-page .pfl-donate #payment-form{display:flex;flex-direction:column;gap:10px}
+.pf-lok-page .pfl-donate #payment-form input:not([type="hidden"]){width:100%;height:45px;background:#fff;border:1px solid #e5dddb;border-radius:5px;padding:11px 14px;font-size:12px;color:#16163f;margin:0!important;outline:none}
+.pf-lok-page .pfl-donate #payment-form input:focus{border-color:#f46226}
+.pf-lok-page .pfl-donate #pay-button{background:#f46226!important;color:#fff;border:0;border-radius:5px;font-weight:800;min-height:48px;margin-top:7px}
+.pf-lok-page .pfl-donate #pay-button:hover{background:#da4b19!important}
+.pf-lok-page .pfl-join-card{background:#fff9f4;border:1px solid #f1ddcf;border-radius:8px;padding:20px;margin:20px 0 0!important;min-height:0;display:flex;justify-content:center;align-items:flex-start}
+.pf-lok-page .pfl-join-card .absolute{display:none!important}
+.pf-lok-page .pfl-join-card>div.relative{align-items:flex-start;text-align:left}
+.pf-lok-page .pfl-join-card p{font-size:12px!important;line-height:1.7;color:#616878;text-align:left!important;margin-bottom:15px!important}
+.pf-lok-page .pfl-join-link{display:inline-flex;align-items:center;gap:11px;border-radius:5px;background:#16163f;color:#fff!important;padding:11px 14px;font-size:11px;font-weight:800;text-decoration:none}
+.pf-lok-page .pfl-join-link:hover{background:#2b2b5b}
+@media(max-width:1030px){.pf-lok-page .pfl-layout{grid-template-columns:minmax(0,1fr) minmax(290px,.78fr);gap:25px}.pf-lok-page .pfl-donate{padding:20px}}
+@media(max-width:767px){.pf-lok-page .pfl-hero-inner{min-height:350px;padding:43px 18px 56px}.pf-lok-page .pfl-breadcrumb{margin-bottom:25px}.pf-lok-page .pfl-hero h1{font-size:36px!important}.pf-lok-page .pfl-hero-sub{font-size:13px!important}.pf-lok-page .pfl-main{padding:52px 0 75px}.pf-lok-page .pfl-container{padding-left:18px;padding-right:18px}.pf-lok-page .pfl-layout{grid-template-columns:1fr;gap:35px}.pf-lok-page .pfl-sidebar{position:static}.pf-lok-page .pfl-story .swiper-slide img{height:240px!important}.pf-lok-page .pfl-story-intro h2{font-size:28px}.pf-lok-page .pfl-story :is(td,th){padding:10px 12px!important}}
+@media(prefers-reduced-motion:reduce){.pf-lok-page *{transition:none!important}}
+</style>
+@endsection
+
 @section('content')
-    <!-- Title section -->
-
-
-    <section class="relative py-6  bg-cover bg-center overflow-hidden text-white">
-        <!-- Noise / Grainy Texture Overlay -->
-        <div class="absolute inset-0 mix-blend-overlay pointer-events-none bg-[#0f1240]">
+    <main class="pf-lok-page">
+      <section class="pfl-hero" aria-labelledby="pfl-title">
+        <div class="pfl-container pfl-hero-inner">
+          <nav class="pfl-breadcrumb" aria-label="Breadcrumb">
+            <a href="{{ route('home') }}">Home</a><span aria-hidden="true">/</span>
+            <a href="{{ route('our-project') }}">Projects</a><span aria-hidden="true">/</span><span>Lok Nyay Seva Kendra</span>
+          </nav>
+          <span class="pfl-eyebrow">LEGAL AWARENESS &amp; COMMUNITY EMPOWERMENT</span>
+          <h1 id="pfl-title">LOK NYAY <span>SEVA KENDRA</span></h1>
+          <p class="pfl-hero-sub">“Nyay Aapke Dwaar; Adhikaar Aapke Saath”</p>
+          <a href="#pfl-story" class="pfl-hero-link">DISCOVER THE INITIATIVE <span aria-hidden="true">↗</span></a>
         </div>
-
-        <div class="relative max-w-screen-xl md:mx-8 px-6">
-            <h2 class="md:text-2xl text-2xl font-bold">Lok Nyay Seva Kendra</h2>
-
-            <nav class="mt-3 text-sm">
-                <i class="fa-sharp-duotone fa-solid fa-house"></i> <a href="{{ route('home') }}"
-                    class="text-[16px] text-orange-400 font-semibold hover:underline">Home</a>
-                <span class="mx-1 text-gray-200">/</span>
-                <span class="text-[16px] text-gray-300">Lok Nyay Seva Kendra </span>
-            </nav>
-        </div>
-    </section>
-
-
+      </section>
     <!-- Main Content & Donate now Form -->
-    <section class="w-full py-10 bg-white">
-        <div class="md:mx-11 flex flex-col lg:flex-row gap-10 px-4">
+    <section class="pfl-main">
+        <div class="pfl-container pfl-layout">
 
             <!-- Left Content (scrollable text, images, sliders) -->
-            <div class="w-full lg:w-2/3 overflow-y-auto">
-                <h2 class="md:text-3xl font-bold text-2xl mb-4">
-                    “Nyay Aapke Dwaar; Adhikaar Aapke Saath”
-                </h2>
+            <div class="pfl-story" id="pfl-story">
+                <div class="pfl-story-intro"><span class="pfl-eyebrow">ABOUT OUR INITIATIVE</span><h2>JUSTICE, ACCESS &amp; <span>EMPOWERMENT</span></h2><p>“Nyay Aapke Dwaar; Adhikaar Aapke Saath”</p></div>
                 <!-- Paragraphs -->
                 <div class="space-y-4  leading-relaxed">
                     <h2 class="md:text-2xl font-bold text-2xl">
@@ -781,17 +843,17 @@
 
             <!-- Right Donate Form -->
 
-            <div class="w-full lg:w-1/3 h-fit sticky top-0">
-                <div class="shadow-lg rounded p-6 bg-white border border-gray-200">
+            <aside class="pfl-sidebar">
+                <div class="pfl-donate" id="donationForm">
                     <h3 class="text-md font-semibold text-gray-800 mb-4">DONATE NOW</h3>
 
                     <!-- Give Type -->
                     <button id="onceBtn" data-type="one-time"
-                        class="donation-btn give-type w-full bg-gray-100 text-sm font-bold py-2 px-4 rounded mb-2">
+                        type="button" class="donation-btn give-type w-full bg-gray-100 text-sm font-bold py-2 px-4 rounded mb-2">
                         GIVE ONCE
                     </button>
                     <button id="monthlyBtn" data-type="monthly"
-                        class="donation-btn give-type w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4">
+                        type="button" class="donation-btn give-type w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4">
                         GIVE MONTHLY
                     </button>
 
@@ -800,20 +862,20 @@
                     </h4>
 
                     <!-- Amount Buttons -->
-                    <button class="amount-btn w-full bg-yellow-400 text-sm font-bold py-2 px-4 rounded mb-2"
+                    <button type="button" class="amount-btn w-full bg-yellow-400 text-sm font-bold py-2 px-4 rounded mb-2"
                         data-value="500">
                         ₹500
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="1000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="1000">
                         ₹1000
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="2000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-2" data-value="2000">
                         ₹2000
                     </button>
-                    <button class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4" data-value="3000">
+                    <button type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-4" data-value="3000">
                         ₹3000
                     </button>
-                    <button id="customBtn" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-6"
+                    <button id="customBtn" type="button" class="amount-btn w-full bg-gray-100 text-sm py-2 px-4 rounded mb-6"
                         data-value="">
                         ₹ CUSTOM AMOUNT
                     </button>
@@ -858,7 +920,7 @@
 
                     <!-- Volunteer Box -->
                     <div
-                        class="relative overflow-hidden rounded-xl bg-[#fee09c] px-6 py-6 min-h-[200px] flex flex-col justify-center items-center text-center mt-6 mb-6">
+                        class="pfl-join-card">
                         <div class="absolute -top-12 -left-10 w-40 h-40 bg-orange-400 rounded-full opacity-30 z-0">
                         </div>
                         <div class="absolute top-8 left-8 w-64 h-64 bg-orange-300 rounded-full opacity-20 z-0"></div>
@@ -867,16 +929,13 @@
                                 Volunteers are the heart of our foundation. Sign up today and
                                 be a part of something bigger.
                             </p>
-                            <button class="bg-[#11144a] text-white text-sm font-semibold py-2 px-6 rounded"><a
-                                    href="{{ route('volunteer-member') }}">BECOME VOLUNTEER</a>
-
-                            </button>
+                            <a class="pfl-join-link" href="{{ route('volunteer-member') }}">BECOME VOLUNTEER <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
 
                     <!-- Annual Member Box -->
                     <div
-                        class="relative overflow-hidden rounded-xl bg-[#fee09c] px-6 py-6 min-h-[220px] flex flex-col justify-center items-center text-center">
+                        class="pfl-join-card">
                         <div class="absolute -top-12 -left-10 w-40 h-40 bg-orange-400 rounded-full opacity-30 z-0">
                         </div>
                         <div class="absolute top-8 left-8 w-64 h-64 bg-orange-300 rounded-full opacity-20 z-0"></div>
@@ -886,58 +945,14 @@
                                 membership fuels year-round impact — supporting education,
                                 environment, and empowerment.
                             </p>
-                            <button class="bg-[#11144a] text-white text-sm font-semibold py-2 px-6 rounded"><a
-                                    href="{{ route('annual-member') }}">BECOME ANNUAL MEMBER</a>
-                            </button>
+                            <a class="pfl-join-link" href="{{ route('annual-member') }}">BECOME ANNUAL MEMBER <span aria-hidden="true">↗</span></a>
                         </div>
                     </div>
                 </div>
-            </div>
+            </aside>
 
         </div>
     </section>
+    </main>
 
-
-
-    <!-- JS Logic -->
-    <script>
-        // Handle amount button selection
-        const amountButtons = document.querySelectorAll(".amount-btn");
-        const amountInput = document.getElementById("customAmount1");
-
-        amountButtons.forEach((btn) => {
-            btn.addEventListener("click", () => {
-                // Reset all
-                amountButtons.forEach((b) => {
-                    b.classList.remove("bg-yellow-400", "text-black", "font-bold");
-                    b.classList.add("bg-gray-100");
-                });
-
-                // Highlight current
-                btn.classList.add("bg-yellow-400", "text-black", "font-bold");
-                btn.classList.remove("bg-gray-100");
-
-                // // Fill input if not custom
-                // const value = btn.dataset.amount;
-                // // var right=value?100:200
-                // if (value !== "custom") {
-                //     amountInput.value = value;
-
-                // } else {
-                //     amountInput.value = "100";
-                //     amountInput.focus();
-                // }
-            });
-        });
-
-        // If user types manually, unselect all buttons
-        amountInput.addEventListener("input", () => {
-            if (amountInput.value.trim() !== "") {
-                amountButtons.forEach((b) => {
-                    b.classList.remove("bg-yellow-400", "text-black", "font-bold");
-                    b.classList.add("bg-gray-100");
-                });
-            }
-        });
-    </script>
 @endsection
