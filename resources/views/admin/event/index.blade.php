@@ -4,6 +4,8 @@
 
 @extends('admin.layouts.master')
 @section('adminContent')
+<div class="pf-admin-page pf-admin-content-page" data-admin-module="event">
+
     <!-- Start Content-->
 
     <main class="p-6 bg-[#f6f7fb] overflow-y-auto flex-1">
@@ -193,4 +195,6 @@
             calendar.render();
         });
     </script>
+
+</div>
 @endsection
