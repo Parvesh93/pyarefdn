@@ -93,6 +93,11 @@ class OurProjectController extends Controller
         return view('frontend.pages.cancellations-refunds');
     }
     
+    public function pathologyLab()
+    {
+        return view('frontend.pages.pathology-lab');
+    }
+
     public function wellnessCentresForFemales()
     {
         return view('frontend.pages.wellness_centres_for_females');
