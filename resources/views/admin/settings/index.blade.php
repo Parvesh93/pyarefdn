@@ -5,6 +5,8 @@
 @extends('admin.layouts.master')
 
 @section('adminContent')
+<div class="pf-admin-page" data-admin-module="settings">
+
     <div class="max-w-5xl px-4 py-6">
         <form action="{{ route($route . '.siteinfo') }}" method="POST" enctype="multipart/form-data"
             class="bg-white shadow-lg rounded p-6 space-y-6">
@@ -1119,4 +1121,6 @@
                 </div>
         </form>
     </div>
+
+</div>
 @endsection
